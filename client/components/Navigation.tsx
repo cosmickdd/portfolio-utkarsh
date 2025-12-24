@@ -17,19 +17,29 @@ export default function Navigation() {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white py-6 px-4 md:px-8 lg:px-16">
-      <div className="max-w-[1900px] mx-auto flex items-center justify-center">
+    <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md">
+      <div className="max-w-[1900px] mx-auto px-4 md:px-8 lg:px-16 py-6 flex justify-center">
+        
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center justify-center gap-0 bg-[#4A4A4A] rounded-full px-6 py-3">
+        <div className="hidden md:flex items-center gap-6 h-12 px-6 rounded-2xl bg-[#3f3f3f]/90 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 font-catamaran font-medium text-sm lg:text-base transition-all ${
-                isActive(link.href)
-                  ? "text-white"
-                  : "text-gray-300 hover:text-white"
-              }`}
+              className={`
+                relative font-catamaran font-medium text-sm
+                transition-all duration-200 ease-out
+                ${
+                  isActive(link.href)
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"
+                }
+                after:absolute after:left-1/2 after:-bottom-1
+                after:h-[2px] after:w-0 after:bg-white
+                after:transition-all after:duration-200
+                hover:after:w-6 hover:after:left-[calc(50%-12px)]
+                ${isActive(link.href) ? "after:w-6 after:left-[calc(50%-12px)]" : ""}
+              `}
             >
               {link.label}
             </a>
@@ -37,30 +47,30 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden w-full">
+        <div className="md:hidden w-full flex justify-end relative">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 text-gray-700 hover:text-black"
+            className="p-2 text-gray-700 hover:text-black transition"
           >
-            {isMobileMenuOpen ? (
-              <X size={24} />
-            ) : (
-              <Menu size={24} />
-            )}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
           {isMobileMenuOpen && (
-            <div className="absolute top-16 left-0 right-0 bg-[#4A4A4A] rounded-lg mx-4 shadow-lg">
+            <div className="absolute top-14 right-0 left-0 mx-4 rounded-xl bg-[#3f3f3f]/95 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.2)] overflow-hidden">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`block px-6 py-3 font-catamaran font-medium text-sm transition-all ${
-                    isActive(link.href)
-                      ? "text-white bg-gray-600"
-                      : "text-gray-300 hover:text-white"
-                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
+                  className={`
+                    block px-6 py-4 font-catamaran font-medium text-sm
+                    transition-all
+                    ${
+                      isActive(link.href)
+                        ? "text-white bg-white/10"
+                        : "text-white/70 hover:text-white hover:bg-white/5"
+                    }
+                  `}
                 >
                   {link.label}
                 </a>

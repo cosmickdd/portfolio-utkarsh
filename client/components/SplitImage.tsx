@@ -5,14 +5,15 @@ import { useRef } from "react";
 interface SplitImageProps {
   sliderPos: number;
   setSliderPos: (value: number) => void;
+  className?: string;
 }
 
 export default function SplitImage({
   sliderPos,
   setSliderPos,
+  className = "",
 }: SplitImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
 
   const updateSlider = (clientX: number) => {
     if (!containerRef.current) return;
@@ -23,21 +24,16 @@ export default function SplitImage({
   };
 
   return (
-    <div className="flex justify-center items-center flex-shrink-0">
+    <div className={`flex justify-center items-center flex-shrink-0 ${className}`}>
       <div
         ref={containerRef}
-        className="relative
+        className="
+          relative
           w-[300px] sm:w-[340px] md:w-[380px]
           lg:w-[440px] xl:w-[480px]
-          cursor-col-resize
-          transition-all duration-300
-          hover:scale-[1.015]"
-        onMouseDown={() => (isDragging.current = true)}
-        onMouseUp={() => (isDragging.current = false)}
-        onMouseLeave={() => (isDragging.current = false)}
-        onMouseMove={(e) =>
-          isDragging.current && updateSlider(e.clientX)
-        }
+          cursor-ew-resize
+        "
+        onMouseMove={(e) => updateSlider(e.clientX)}
       >
         {/* BASE IMAGE — DESIGNER */}
         <img
@@ -50,7 +46,7 @@ export default function SplitImage({
 
         {/* OVERLAY IMAGE — DEVELOPER */}
         <div
-          className="absolute inset-0 overflow-hidden"
+          className="absolute inset-0 overflow-hidden pointer-events-none"
           style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
         >
           <img
@@ -63,7 +59,7 @@ export default function SplitImage({
           />
         </div>
 
-        {/* DIVIDER LINE */}
+        {/* DIVIDER */}
         <div
           className="absolute top-0 bottom-0 pointer-events-none"
           style={{ left: `${sliderPos}%` }}

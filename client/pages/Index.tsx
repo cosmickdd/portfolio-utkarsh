@@ -14,12 +14,19 @@ export default function Index() {
     <Layout>
       <main className="flex-1">
         <section className="w-full px-6 md:px-10 lg:px-16 pt-24 pb-28 min-h-[85vh] flex items-center">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-14 lg:gap-20">
-
+          <div
+            className="
+              max-w-7xl mx-auto
+              grid grid-cols-1
+              lg:grid-cols-3
+              items-center
+              gap-14 lg:gap-20
+            "
+          >
             {/* LEFT — DESIGNER */}
             <div
               className={`flex flex-col items-center lg:items-start text-center lg:text-left
-              lg:pl-4 transition-all duration-300
+              transition-all duration-300
               ${
                 showDesigner
                   ? "opacity-100 translate-y-0"
@@ -36,13 +43,17 @@ export default function Index() {
               </p>
             </div>
 
-            {/* CENTER — IMAGE */}
-            <SplitImage sliderPos={sliderPos} setSliderPos={setSliderPos} />
+            {/* CENTER — IMAGE (TRUE CENTER COLUMN) */}
+            <SplitImage
+              sliderPos={sliderPos}
+              setSliderPos={setSliderPos}
+              className="justify-self-center"
+            />
 
             {/* RIGHT — DEVELOPER */}
             <div
               className={`flex flex-col items-center lg:items-end text-center lg:text-right
-              lg:pr-4 transition-all duration-300
+              transition-all duration-300
               ${
                 showDeveloper
                   ? "opacity-100 translate-y-0"
@@ -58,7 +69,6 @@ export default function Index() {
                 Front-end developer and ML enthusiast who loves building things
               </p>
             </div>
-
           </div>
         </section>
       </main>

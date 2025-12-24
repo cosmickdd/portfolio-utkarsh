@@ -1,113 +1,61 @@
-import { Twitter, Linkedin, Facebook, Instagram } from "lucide-react";
-
 export default function Header() {
   return (
     <header className="w-full bg-black py-6 px-8 md:px-16 shadow-lg">
       <div className="max-w-[1900px] mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 md:w-10 md:h-10 relative">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <circle
-                cx="50"
-                cy="50"
-                r="45"
-                fill="none"
-                stroke="white"
-                strokeWidth="3"
-              />
-              <circle
-                cx="50"
-                cy="50"
-                r="30"
-                fill="none"
-                stroke="white"
-                strokeWidth="3"
-              />
-              <circle
-                cx="50"
-                cy="50"
-                r="15"
-                fill="none"
-                stroke="white"
-                strokeWidth="3"
-              />
-              <line
-                x1="50"
-                y1="5"
-                x2="50"
-                y2="25"
-                stroke="white"
-                strokeWidth="3"
-              />
-              <line
-                x1="50"
-                y1="75"
-                x2="50"
-                y2="95"
-                stroke="white"
-                strokeWidth="3"
-              />
-              <line
-                x1="5"
-                y1="50"
-                x2="25"
-                y2="50"
-                stroke="white"
-                strokeWidth="3"
-              />
-              <line
-                x1="75"
-                y1="50"
-                x2="95"
-                y2="50"
-                stroke="white"
-                strokeWidth="3"
-              />
-            </svg>
-          </div>
-          <h1 className="text-white font-inter text-xl md:text-2xl font-semibold tracking-wider">
-            COSMICKDD
-          </h1>
-        </div>
+        <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="/logo.svg" alt="COSMICKDD" className="h-8 md:h-10 w-auto" />
+        </a>
 
         {/* Social Icons */}
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-6 md:gap-8">
           <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-300 transition-colors"
+            className="w-5 h-5 md:w-6 md:h-6 hover:opacity-70 transition-opacity"
             aria-label="Twitter"
           >
-            <Twitter className="w-5 h-5 md:w-6 md:h-6" />
+            <svg viewBox="0 0 52 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <path d="M31.5537 0.751665C27.9129 2.3698 25.2834 6.49606 25.2834 10.5414V12.8068L23.0989 12.4832C16.5455 11.5932 9.87065 8.15465 5.50167 3.42159C4.57124 2.41026 3.72172 1.60119 3.64081 1.6821C3.60036 1.763 3.23628 2.69343 2.8722 3.74522C1.61814 7.42649 2.2654 11.1482 4.6926 14.1822C6.06802 15.9217 5.90621 16.0835 3.68127 15.1531L2.22494 14.5463V16.0431C2.2654 19.158 4.6926 22.7988 7.84798 24.4574L9.70884 25.4283L7.76707 25.4687C5.94666 25.4687 5.8253 25.5092 6.06802 26.3587C6.83664 28.8264 10.5179 32.1031 12.9856 32.5886C13.7542 32.7099 14.4419 32.9931 14.5633 33.1549C14.806 33.5594 10.5179 35.7844 8.29296 36.3912C7.28163 36.6744 5.01623 36.998 3.23628 37.1598L0 37.4025L1.86086 38.4948C5.66349 40.7197 9.66838 41.7715 15.251 41.9738C23.6653 42.2569 30.0569 40.2747 35.8418 35.4608C42.2334 30.1613 46.7238 21.0189 46.7238 13.2922C46.7238 10.7032 46.8047 10.501 47.9374 9.69188C49.3128 8.721 52.185 5.32291 51.9018 5.03973C51.7805 4.91837 50.9309 5.12064 49.9601 5.44427C47.4924 6.33425 47.371 6.21289 48.706 4.51384C49.3532 3.70477 50.1219 2.49116 50.3646 1.84391C50.85 0.508944 51.0523 0.508944 46.7238 2.12708L44.1347 3.13842L42.8807 2.16754C42.193 1.64164 40.9389 0.953933 40.1299 0.589851C38.0667 -0.259672 33.5764 -0.178765 31.5537 0.751665Z" fill="#ECECEC"/>
+            </svg>
           </a>
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-300 transition-colors"
+            className="w-5 h-5 md:w-6 md:h-6 hover:opacity-70 transition-opacity"
             aria-label="LinkedIn"
           >
-            <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
+            <svg viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <path d="M3.62703 0.0912804C2.24765 0.375269 0.381439 2.44433 0.0974504 3.98599C-0.754516 8.61095 4.15444 12.0188 8.00857 9.42235C11.9438 6.78531 10.5645 0.659258 5.93951 0.0912804C5.16868 -0.0304292 4.11387 -0.0304292 3.62703 0.0912804Z" fill="#ECECEC"/>
+              <path d="M27.1577 14.0068C26.184 14.4125 24.9669 15.2239 24.3989 15.7919L23.3847 16.8061V15.2239V13.6011H19.1248H14.865V27.8006V42H19.3277H23.7904V33.6832C23.7904 27.0703 23.9121 25.0418 24.4395 23.7841C25.616 20.8225 29.389 20.0517 31.5392 22.3642C32.5129 23.3784 32.5129 23.5001 32.6346 32.7095L32.7563 42H37.4624H42.1279L41.9656 31.533C41.8034 22.0396 41.6817 20.9037 40.9108 18.8346C39.856 16.157 38.3955 14.6559 36.0019 13.804C33.5271 12.952 29.2673 13.0331 27.1577 14.0068Z" fill="#ECECEC"/>
+              <path d="M0.665649 27.8006V42H5.12833H9.59102V27.8006V13.6011H5.12833H0.665649V27.8006Z" fill="#ECECEC"/>
+            </svg>
           </a>
           <a
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-300 transition-colors"
+            className="w-5 h-5 md:w-6 md:h-6 hover:opacity-70 transition-opacity"
             aria-label="Facebook"
           >
-            <Facebook className="w-5 h-5 md:w-6 md:h-6" />
+            <svg viewBox="0 0 23 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <path d="M14.1494 0.360409C8.93432 1.2498 6.54914 4.48394 6.1853 11.1544L5.98316 14.8736L3.11286 14.9949L0.242561 15.1162L0.12128 19.4419L0 23.8079H3.07244H6.10445V32.4189C6.10445 38.5637 6.22573 41.151 6.58957 41.5149C7.2364 42.1617 14.2707 42.1617 14.9175 41.5149C15.2813 41.151 15.4026 38.5637 15.4026 32.4189V23.8079H18.7985C22.7199 23.8079 22.6794 23.8888 22.6794 19.2397C22.6794 15.1162 22.4773 14.9141 18.6367 14.9141H15.4026V12.1246C15.4026 10.3054 15.5643 9.17345 15.9282 8.97131C16.1707 8.80961 17.7878 8.56705 19.4453 8.44577L22.4773 8.24363L22.5986 4.44352C22.6794 1.65407 22.5581 0.522117 22.1943 0.279556C21.5475 -0.124712 16.6963 -0.0842859 14.1494 0.360409Z" fill="#ECECEC"/>
+            </svg>
           </a>
           <a
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-300 transition-colors"
+            className="w-5 h-5 md:w-6 md:h-6 hover:opacity-70 transition-opacity"
             aria-label="Instagram"
           >
-            <Instagram className="w-5 h-5 md:w-6 md:h-6" />
+            <svg viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <path d="M7.02211 0.337855C3.85288 1.52632 1.17884 4.3324 0.320511 7.33657C0.0233961 8.26093 -0.0426294 12.4205 0.0233961 21.6971L0.122435 34.7372L0.947754 36.3548C2.00416 38.4016 3.72083 40.1183 5.76762 41.1747L7.38525 42H21.0856H34.7859L36.4035 41.1747C38.4503 40.1183 40.167 38.4016 41.2234 36.3548L42.0487 34.7372V21.0369V7.33657L41.2234 5.71894C40.167 3.67215 38.4503 1.95548 36.4035 0.899073L34.7859 0.0737526L21.4157 0.00772706C11.7429 -0.0252857 7.74839 0.0407399 7.02211 0.337855ZM35.017 4.62952C36.0404 5.22375 36.8987 6.08208 37.4929 7.10548L38.4173 8.65708V21.0369V33.4167L37.4929 34.9683C36.8987 35.9917 36.0404 36.85 35.017 37.4442L33.4654 38.3686H21.0856H8.70576L7.15416 37.4442C6.13076 36.85 5.27243 35.9917 4.6782 34.9683L3.75384 33.4167V21.0369V8.65708L4.64519 7.10548C5.56955 5.58689 7.08813 4.39843 8.8048 3.87022C9.29999 3.70516 15.0442 3.60612 21.5807 3.63913L33.4654 3.70516L35.017 4.62952Z" fill="#ECECEC"/>
+              <path d="M30.7253 7.50165C29.2398 8.88819 29.6029 11.1991 31.4186 12.0574C34.1587 13.3779 36.6346 9.81255 34.4558 7.66672C33.4654 6.64332 31.7487 6.5773 30.7253 7.50165Z" fill="#ECECEC"/>
+              <path d="M17.3548 10.9679C14.4167 12.0903 11.6766 14.9955 10.8513 17.8676C10.257 20.0464 10.5542 23.8429 11.4455 25.7246C12.4359 27.7054 14.4167 29.6862 16.3974 30.6766C18.6423 31.766 23.5282 31.766 25.7731 30.6766C27.7538 29.6862 29.7346 27.7054 30.725 25.7246C31.8144 23.4798 31.8144 18.5939 30.725 16.349C29.7346 14.3682 27.7538 12.3875 25.7731 11.3971C23.8253 10.4397 19.3356 10.2086 17.3548 10.9679ZM24.5846 15.2596C28.9753 17.8346 28.9093 24.2721 24.4525 26.8801C18.5432 30.3464 11.7426 23.6118 15.242 17.6695C17.2227 14.3022 21.1843 13.2788 24.5846 15.2596Z" fill="#ECECEC"/>
+            </svg>
           </a>
         </div>
       </div>

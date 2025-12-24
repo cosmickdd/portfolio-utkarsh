@@ -1,10 +1,18 @@
 {
   "buildCommand": "npm run build:client",
   "outputDirectory": "dist/spa",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(?!api|assets|_next).*",
-      "destination": "/index.html"
+      "src": "/api/(.*)",
+      "status": 404
+    },
+    {
+      "src": "/(.*\\.[a-z]{2,}|_.*)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }

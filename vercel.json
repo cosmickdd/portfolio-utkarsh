@@ -1,13 +1,9 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build:client",
   "outputDirectory": "dist/spa",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/(?!api|assets|_next).*",
       "destination": "/index.html"
     }
   ]

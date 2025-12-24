@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        catamaran: ['Catamaran', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+        inter: ['Inter', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -8,13 +8,62 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 md:w-10 md:h-10 relative">
             <svg viewBox="0 0 100 100" className="w-full h-full">
-              <circle cx="50" cy="50" r="45" fill="none" stroke="white" strokeWidth="3" />
-              <circle cx="50" cy="50" r="30" fill="none" stroke="white" strokeWidth="3" />
-              <circle cx="50" cy="50" r="15" fill="none" stroke="white" strokeWidth="3" />
-              <line x1="50" y1="5" x2="50" y2="25" stroke="white" strokeWidth="3" />
-              <line x1="50" y1="75" x2="50" y2="95" stroke="white" strokeWidth="3" />
-              <line x1="5" y1="50" x2="25" y2="50" stroke="white" strokeWidth="3" />
-              <line x1="75" y1="50" x2="95" y2="50" stroke="white" strokeWidth="3" />
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                fill="none"
+                stroke="white"
+                strokeWidth="3"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="30"
+                fill="none"
+                stroke="white"
+                strokeWidth="3"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="15"
+                fill="none"
+                stroke="white"
+                strokeWidth="3"
+              />
+              <line
+                x1="50"
+                y1="5"
+                x2="50"
+                y2="25"
+                stroke="white"
+                strokeWidth="3"
+              />
+              <line
+                x1="50"
+                y1="75"
+                x2="50"
+                y2="95"
+                stroke="white"
+                strokeWidth="3"
+              />
+              <line
+                x1="5"
+                y1="50"
+                x2="25"
+                y2="50"
+                stroke="white"
+                strokeWidth="3"
+              />
+              <line
+                x1="75"
+                y1="50"
+                x2="95"
+                y2="50"
+                stroke="white"
+                strokeWidth="3"
+              />
             </svg>
           </div>
           <h1 className="text-white font-inter text-xl md:text-2xl font-semibold tracking-wider">

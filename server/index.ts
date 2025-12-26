@@ -23,10 +23,5 @@ export function createServer() {
   // Serve static files from public directory
   app.use(express.static(path.join(__dirname, "../public")));
 
-  // Catch-all route to serve index.html for SPA
-  app.get("*", (_req, res) => {
-    res.sendFile(path.join(__dirname, "../index.html"));
-  });
-
   return app;
 }

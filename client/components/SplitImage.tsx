@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 interface SplitImageProps {
   sliderPos: number;
@@ -14,6 +14,7 @@ export default function SplitImage({
   className = "",
 }: SplitImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   const updateFromClientX = (clientX: number) => {
     if (!containerRef.current) return;
@@ -31,14 +32,27 @@ export default function SplitImage({
         ref={containerRef}
         className="
           relative
-          w-[280px] sm:w-[320px] md:w-[360px]
-          lg:w-[420px]
+          w-[280px] sm:w-[320px] md:w-[360px] lg:w-[420px]
           select-none
         "
-        onMouseMove={(e) => updateFromClientX(e.clientX)}
+        onMouseDown={(e) => {
+          setIsDragging(true);
+          updateFromClientX(e.clientX);
+        }}
+        onMouseMove={(e) => {
+          if (!isDragging) return;
+          updateFromClientX(e.clientX);
+        }}
+        onMouseUp={() => setIsDragging(false)}
+        onMouseLeave={() => setIsDragging(false)}
+        onTouchStart={(e) => {
+          setIsDragging(true);
+          updateFromClientX(e.touches[0].clientX);
+        }}
         onTouchMove={(e) =>
           updateFromClientX(e.touches[0].clientX)
         }
+        onTouchEnd={() => setIsDragging(false)}
       >
         {/* BASE IMAGE */}
         <img
@@ -57,7 +71,7 @@ export default function SplitImage({
             className="w-full h-auto block"
             draggable={false}
             style={{
-              transform: "translateY(-4px)", // alignment fix
+              transform: "translateY(-4px)", // mobile alignment fix
             }}
           />
         </div>

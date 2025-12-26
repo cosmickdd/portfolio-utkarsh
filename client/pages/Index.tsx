@@ -7,8 +7,8 @@ import SplitImage from "@/components/SplitImage";
 export default function Index() {
   const [sliderPos, setSliderPos] = useState(50);
 
-  const showDesigner = sliderPos > 10;
-  const showDeveloper = sliderPos < 90;
+  const showDesigner = sliderPos > 12;
+  const showDeveloper = sliderPos < 88;
 
   return (
     <Layout>
@@ -16,9 +16,10 @@ export default function Index() {
         <section
           className="
             w-full
-            h-[calc(100svh-120px)]
+            min-h-[calc(100svh-96px)]
             px-4
-            flex items-center
+            flex
+            items-center
             justify-center
           "
         >
@@ -43,10 +44,10 @@ export default function Index() {
                 }
               `}
             >
-              <h2 className="font-catamaran font-bold text-3xl sm:text-5xl tracking-[0.12em]">
+              <h2 className="font-catamaran font-bold text-[clamp(1.8rem,5vw,3.5rem)] tracking-[0.12em]">
                 designer
               </h2>
-              <p className="text-sm text-[#8F8F8F] mt-2 max-w-xs mx-auto lg:mx-0">
+              <p className="mt-2 text-sm text-[#8F8F8F] max-w-xs mx-auto lg:mx-0">
                 Product designer specialising in UI design and systems
               </p>
             </div>
@@ -55,6 +56,7 @@ export default function Index() {
             <SplitImage
               sliderPos={sliderPos}
               setSliderPos={setSliderPos}
+              className="my-4"
             />
 
             {/* DEVELOPER */}
@@ -69,10 +71,10 @@ export default function Index() {
                 }
               `}
             >
-              <h2 className="font-catamaran font-bold text-3xl sm:text-5xl tracking-[0.12em]">
+              <h2 className="font-catamaran font-bold text-[clamp(1.8rem,5vw,3.5rem)] tracking-[0.12em]">
                 &lt;developer&gt;
               </h2>
-              <p className="text-sm text-[#8F8F8F] mt-2 max-w-xs mx-auto lg:mx-0">
+              <p className="mt-2 text-sm text-[#8F8F8F] max-w-xs mx-auto lg:mx-0">
                 Front-end developer & ML enthusiast
               </p>
             </div>

@@ -2,58 +2,73 @@
 
 import { useRef } from "react";
 
+interface SplitImageProps {
+  sliderPos: number;
+  setSliderPos: (value: number) => void;
+  className?: string;
+}
+
 export default function SplitImage({
   sliderPos,
   setSliderPos,
-}: {
-  sliderPos: number;
-  setSliderPos: (v: number) => void;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
+  className = "",
+}: SplitImageProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const update = (x: number) => {
-    if (!ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    const pos = ((x - r.left) / r.width) * 100;
-    setSliderPos(Math.max(0, Math.min(100, pos)));
+  const updateFromClientX = (clientX: number) => {
+    if (!containerRef.current) return;
+
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+
+    setSliderPos(percent);
   };
 
   return (
-    <div className="flex justify-center">
+    <div className={`flex justify-center ${className}`}>
       <div
-        ref={ref}
-        onMouseMove={(e) => update(e.clientX)}
+        ref={containerRef}
         className="
           relative
-          w-[230px]
-          sm:w-[280px]
-          md:w-[340px]
+          w-[280px] sm:w-[320px] md:w-[360px]
           lg:w-[420px]
-          max-h-[55svh]
+          select-none
         "
+        onMouseMove={(e) => updateFromClientX(e.clientX)}
+        onTouchMove={(e) =>
+          updateFromClientX(e.touches[0].clientX)
+        }
       >
+        {/* BASE IMAGE */}
         <img
           src="/mvp/mobilescreen1.png"
           className="w-full h-auto block"
           draggable={false}
         />
 
+        {/* OVERLAY IMAGE */}
         <div
-          className="absolute inset-0 overflow-hidden"
+          className="absolute inset-0 overflow-hidden pointer-events-none"
           style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
         >
           <img
             src="/mvp/mobilescreen2.png"
             className="w-full h-auto block"
-            style={{ transform: "translateY(-4px)" }}
             draggable={false}
+            style={{
+              transform: "translateY(-4px)", // alignment fix
+            }}
           />
         </div>
 
+        {/* DIVIDER */}
         <div
-          className="absolute top-0 bottom-0 w-px bg-neutral-300"
+          className="absolute top-0 bottom-0 pointer-events-none"
           style={{ left: `${sliderPos}%` }}
-        />
+        >
+          <div className="w-[2px] h-full bg-neutral-300" />
+        </div>
       </div>
     </div>
   );

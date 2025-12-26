@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 interface SplitImageProps {
   sliderPos: number;
@@ -14,14 +14,13 @@ export default function SplitImage({
   className = "",
 }: SplitImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
 
-  const updateFromClientX = (clientX: number) => {
+  const updatePosition = (clientX: number) => {
     if (!containerRef.current) return;
 
     const rect = containerRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
-    const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    const percent = Math.min(100, Math.max(0, (x / rect.width) * 100));
 
     setSliderPos(percent);
   };
@@ -32,31 +31,19 @@ export default function SplitImage({
         ref={containerRef}
         className="
           relative
-          w-[280px] sm:w-[320px] md:w-[360px] lg:w-[420px]
+          w-[260px]
+          sm:w-[300px]
+          md:w-[360px]
+          lg:w-[420px]
           select-none
+          touch-none
         "
-        onMouseDown={(e) => {
-          setIsDragging(true);
-          updateFromClientX(e.clientX);
-        }}
-        onMouseMove={(e) => {
-          if (!isDragging) return;
-          updateFromClientX(e.clientX);
-        }}
-        onMouseUp={() => setIsDragging(false)}
-        onMouseLeave={() => setIsDragging(false)}
-        onTouchStart={(e) => {
-          setIsDragging(true);
-          updateFromClientX(e.touches[0].clientX);
-        }}
-        onTouchMove={(e) =>
-          updateFromClientX(e.touches[0].clientX)
-        }
-        onTouchEnd={() => setIsDragging(false)}
+        onPointerMove={(e) => updatePosition(e.clientX)}
       >
         {/* BASE IMAGE */}
         <img
           src="/mvp/mobilescreen1.png"
+          alt="Designer"
           className="w-full h-auto block"
           draggable={false}
         />
@@ -68,10 +55,11 @@ export default function SplitImage({
         >
           <img
             src="/mvp/mobilescreen2.png"
+            alt="Developer"
             className="w-full h-auto block"
             draggable={false}
             style={{
-              transform: "translateY(-4px)", // mobile alignment fix
+              transform: "translateY(-4px)", // alignment fix
             }}
           />
         </div>

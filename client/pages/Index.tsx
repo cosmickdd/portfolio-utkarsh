@@ -7,8 +7,8 @@ import SplitImage from "@/components/SplitImage";
 export default function Index() {
   const [sliderPos, setSliderPos] = useState(50);
 
-  const showDesigner = sliderPos > 12;
-  const showDeveloper = sliderPos < 88;
+  const showDesigner = sliderPos > 10;
+  const showDeveloper = sliderPos < 90;
 
   return (
     <Layout>
@@ -16,11 +16,10 @@ export default function Index() {
         <section
           className="
             w-full
-            min-h-[calc(100svh-96px)]
-            px-4
-            flex
-            items-center
+            min-h-[calc(100svh-110px)]
+            flex items-center
             justify-center
+            px-4
           "
         >
           <div
@@ -34,19 +33,23 @@ export default function Index() {
           >
             {/* DESIGNER */}
             <div
-              className={`
-                text-center lg:text-left
-                transition-all duration-300
-                ${
-                  showDesigner
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3 pointer-events-none"
-                }
-              `}
+              className={`text-center lg:text-left transition-all duration-300 ${
+                showDesigner
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-3 pointer-events-none"
+              }`}
             >
-              <h2 className="font-catamaran font-bold text-[clamp(1.8rem,5vw,3.5rem)] tracking-[0.12em]">
+              <h2
+                className="
+                  font-catamaran font-bold
+                  text-[2.2rem] sm:text-[2.8rem] md:text-[3.4rem]
+                  tracking-[0.08em]
+                  whitespace-nowrap
+                "
+              >
                 designer
               </h2>
+
               <p className="mt-2 text-sm text-[#8F8F8F] max-w-xs mx-auto lg:mx-0">
                 Product designer specialising in UI design and systems
               </p>
@@ -56,24 +59,27 @@ export default function Index() {
             <SplitImage
               sliderPos={sliderPos}
               setSliderPos={setSliderPos}
-              className="my-4"
             />
 
             {/* DEVELOPER */}
             <div
-              className={`
-                text-center lg:text-right
-                transition-all duration-300
-                ${
-                  showDeveloper
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3 pointer-events-none"
-                }
-              `}
+              className={`text-center lg:text-right transition-all duration-300 ${
+                showDeveloper
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-3 pointer-events-none"
+              }`}
             >
-              <h2 className="font-catamaran font-bold text-[clamp(1.8rem,5vw,3.5rem)] tracking-[0.12em]">
+              <h2
+                className="
+                  font-catamaran font-bold
+                  text-[2.2rem] sm:text-[2.8rem] md:text-[3.4rem]
+                  tracking-[0.08em]
+                  whitespace-nowrap
+                "
+              >
                 &lt;developer&gt;
               </h2>
+
               <p className="mt-2 text-sm text-[#8F8F8F] max-w-xs mx-auto lg:mx-0">
                 Front-end developer & ML enthusiast
               </p>

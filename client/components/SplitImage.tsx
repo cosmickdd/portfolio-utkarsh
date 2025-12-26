@@ -45,7 +45,7 @@ export default function SplitImage({
           <img
             src="/mvp/mobilescreen2.png"
             className="w-full h-auto block"
-            style={{ transform: "translateY(-6px)" }}
+            style={{ transform: "translateY(-4px)" }}
             draggable={false}
           />
         </div>

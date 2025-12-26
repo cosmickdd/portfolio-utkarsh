@@ -7,6 +7,9 @@ import SplitImage from "@/components/SplitImage";
 export default function Index() {
   const [sliderPos, setSliderPos] = useState(50);
 
+  const showDesigner = sliderPos > 10;
+  const showDeveloper = sliderPos < 90;
+
   return (
     <Layout>
       <main className="flex-1">
@@ -29,7 +32,17 @@ export default function Index() {
             "
           >
             {/* DESIGNER */}
-            <div className="text-center lg:text-left">
+            <div
+              className={`
+                text-center lg:text-left
+                transition-all duration-300
+                ${
+                  showDesigner
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3 pointer-events-none"
+                }
+              `}
+            >
               <h2 className="font-catamaran font-bold text-3xl sm:text-5xl tracking-[0.12em]">
                 designer
               </h2>
@@ -45,7 +58,17 @@ export default function Index() {
             />
 
             {/* DEVELOPER */}
-            <div className="text-center lg:text-right">
+            <div
+              className={`
+                text-center lg:text-right
+                transition-all duration-300
+                ${
+                  showDeveloper
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3 pointer-events-none"
+                }
+              `}
+            >
               <h2 className="font-catamaran font-bold text-3xl sm:text-5xl tracking-[0.12em]">
                 &lt;developer&gt;
               </h2>

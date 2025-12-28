@@ -1,43 +1,55 @@
-import * as React from "react";
-import * as TogglePrimitive from "@radix-ui/react-toggle";
-import { cva, type VariantProps } from "class-variance-authority";
+"use client";
 
+import * as React from "react";
+import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { cn } from "@/lib/utils";
 
-const toggleVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground",
-  {
-    variants: {
-      variant: {
-        default: "bg-transparent",
-        outline:
-          "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground",
-      },
-      size: {
-        default: "h-10 px-3",
-        sm: "h-9 px-2.5",
-        lg: "h-11 px-5",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  },
-);
+interface SegmentedToggleProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: string[];
+}
 
-const Toggle = React.forwardRef<
-  React.ElementRef<typeof TogglePrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> &
-    VariantProps<typeof toggleVariants>
->(({ className, variant, size, ...props }, ref) => (
-  <TogglePrimitive.Root
-    ref={ref}
-    className={cn(toggleVariants({ variant, size, className }))}
-    {...props}
-  />
-));
+export function SegmentedToggle({
+  value,
+  onChange,
+  options,
+}: SegmentedToggleProps) {
+  return (
+    <ToggleGroup.Root
+      type="single"
+      value={value}
+      onValueChange={(v) => v && onChange(v)}
+      className="
+        relative flex items-center
+        bg-gray-100
+        rounded-full
+        p-1
+        shadow-sm
+      "
+    >
+      {/* Sliding Indicator */}
+      <div
+        className={cn(
+          "absolute top-1 bottom-1 w-1/2 rounded-full bg-white shadow transition-all duration-300",
+          value === options[0] ? "left-1" : "left-1/2"
+        )}
+      />
 
-Toggle.displayName = TogglePrimitive.Root.displayName;
-
-export { Toggle, toggleVariants };
+      {options.map((option) => (
+        <ToggleGroup.Item
+          key={option}
+          value={option}
+          className={cn(
+            "relative z-10 px-6 py-2 text-sm font-medium rounded-full transition-colors",
+            value === option
+              ? "text-black"
+              : "text-gray-500 hover:text-black"
+          )}
+        >
+          {option}
+        </ToggleGroup.Item>
+      ))}
+    </ToggleGroup.Root>
+  );
+}

@@ -3,6 +3,9 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export function createServer() {
   const app = express();

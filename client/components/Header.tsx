@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 /* ICONS */
 const TwitterIcon = () => (
@@ -39,7 +40,17 @@ const InstagramIcon = () => (
 );
 
 export default function Header() {
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const navLinks = [
+    { label: "Portfolio", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Resources", href: "/resources" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  const isActive = (href: string) => location.pathname === href;
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -62,6 +73,37 @@ export default function Header() {
         <a href="/" className="flex items-center gap-2 sm:gap-3">
           <img src="/logo.svg" alt="COSMICKDD" className="h-5 sm:h-6 md:h-7 lg:h-9 w-auto" />
         </a>
+
+        {/* Desktop Navigation - Integrated into header */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`
+                relative text-sm font-medium transition
+                ${
+                  isActive(link.href)
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"
+                }
+              `}
+            >
+              {link.label}
+
+              {isActive(link.href) && (
+                <span
+                  className="
+                    absolute left-1/2 -bottom-1
+                    w-4 h-[2px]
+                    bg-white
+                    -translate-x-1/2
+                  "
+                />
+              )}
+            </a>
+          ))}
+        </nav>
 
         {/* Social Icons */}
         <div className="flex items-center gap-2.5 sm:gap-3.5 md:gap-5 lg:gap-6">

@@ -14,58 +14,8 @@ export default function Navigation() {
 
   return (
     <>
-      {/* ================= DESKTOP NAV ================= */}
-      <nav
-        className="
-          hidden md:flex
-          sticky top-[88px]
-          z-40
-          justify-center
-          pointer-events-none
-        "
-      >
-        <div
-          className="
-            pointer-events-auto
-            bg-[#3f3f3f]/90
-            px-6 py-3
-            rounded-2xl
-            shadow-lg
-            flex gap-6
-            backdrop-blur-md
-          "
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`
-                relative text-sm font-medium transition
-                ${
-                  isActive(link.href)
-                    ? "text-white"
-                    : "text-white/70 hover:text-white"
-                }
-              `}
-            >
-              {link.label}
-
-              {isActive(link.href) && (
-                <span
-                  className="
-                    absolute left-1/2 -bottom-1
-                    w-4 h-[2px]
-                    bg-white
-                    -translate-x-1/2
-                  "
-                />
-              )}
-            </a>
-          ))}
-        </div>
-      </nav>
-
-      {/* ================= MOBILE NAV ================= */}
+      {/* ================= MOBILE NAV ONLY ================= */}
+      {/* Desktop nav is now integrated in Header component */}
       <nav
         className="
           md:hidden

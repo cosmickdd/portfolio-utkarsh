@@ -24,10 +24,12 @@ export default function ProjectCard({
   return (
     <a
       href={project.link}
+      aria-label={`View ${project.title} case study`}
       className={`
         group relative flex flex-col bg-white rounded-2xl overflow-hidden
         border border-gray-100 hover:border-gray-300
         transition-all duration-500 cursor-pointer
+        focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2
         ${
           isVisible
             ? "opacity-100 translate-y-0"
@@ -35,6 +37,7 @@ export default function ProjectCard({
         }
         sm:hover:-translate-y-2
         sm:hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]
+        active:opacity-95 active:scale-98
       `}
       style={{
         transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
@@ -44,8 +47,8 @@ export default function ProjectCard({
       <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50 flex-shrink-0">
         <img
           src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 sm:group-hover:scale-110"
+          alt={`${project.title} project thumbnail`}
+          className="w-full h-full object-cover transition-transform duration-700 sm:group-hover:scale-105"
         />
 
         {/* Overlay gradient - always visible on mobile, appears on hover on desktop */}

@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleContact } from "./routes/contact";
+import { handleInstagramPosts } from "./routes/instagram";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -26,6 +27,9 @@ export function createServer() {
   
   // Contact form route
   app.post("/api/contact", handleContact);
+
+  // Instagram posts route
+  app.get("/api/instagram-posts", handleInstagramPosts);
 
   // Serve static files from public directory
   app.use(express.static(path.join(__dirname, "../public")));

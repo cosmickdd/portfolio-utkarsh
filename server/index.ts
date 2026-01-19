@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { handleContact } from "./routes/contact";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -22,6 +23,9 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+  
+  // Contact form route
+  app.post("/api/contact", handleContact);
 
   // Serve static files from public directory
   app.use(express.static(path.join(__dirname, "../public")));

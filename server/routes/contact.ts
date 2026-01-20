@@ -1,28 +1,30 @@
 import nodemailer from "nodemailer";
 
 export async function handleContact(req: any, res: any) {
-  // Express already routes POST to this handler, no need to check method
-  const { name, email, projectType, message } = req.body;
-
-  // Validation
-  if (!name || !email || !projectType || !message) {
-    console.log("❌ Validation failed:", { name, email, projectType, message });
-    return res.status(400).json({ error: "Missing required fields" });
-  }
-
-  if (message.length < 10) {
-    console.log("❌ Message too short:", message.length);
-    return res.status(400).json({ error: "Message must be at least 10 characters" });
-  }
-
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    console.log("❌ Invalid email:", email);
-    return res.status(400).json({ error: "Invalid email address" });
-  }
-
   try {
+    // Extract form data
+    const { name, email, projectType, message } = req.body;
+
+    console.log("📝 Form data received:", { name, email, projectType, messageLength: message?.length });
+
+    // Validation
+    if (!name || !email || !projectType || !message) {
+      console.log("❌ Validation failed:", { name, email, projectType, message });
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    if (message.length < 10) {
+      console.log("❌ Message too short:", message.length);
+      return res.status(400).json({ error: "Message must be at least 10 characters" });
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      console.log("❌ Invalid email:", email);
+      return res.status(400).json({ error: "Invalid email address" });
+    }
+
     // Debug: Check if env vars are loaded
     const emailUser = process.env.EMAIL_USER;
     const emailPassword = process.env.EMAIL_PASSWORD;
@@ -113,7 +115,7 @@ export async function handleContact(req: any, res: any) {
     console.error("❌ EMAIL SENDING FAILED");
     console.error("Error message:", error.message);
     console.error("Error code:", error.code);
-    console.error("Error details:", error);
+    console.error("Error stack:", error.stack);
     
     // Provide more helpful error messages
     let userMessage = "Failed to send email. Please try again later.";

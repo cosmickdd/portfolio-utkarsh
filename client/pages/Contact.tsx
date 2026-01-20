@@ -83,7 +83,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <h1 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:text-7xl tracking-tight mb-4 sm:mb-6 text-black">
+            <h1 className="font-catamaran font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl tracking-tight mb-4 sm:mb-6 text-black leading-tight">
               Let's Start a Conversation
             </h1>
 

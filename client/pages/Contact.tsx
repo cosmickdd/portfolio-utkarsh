@@ -26,7 +26,10 @@ export default function Contact() {
     setIsSubmitting(true);
     setError("");
 
+    console.log("📤 Submitting contact form:", formData);
+
     try {
+      console.log("🔗 Calling /api/contact...");
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -35,19 +38,34 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
+      console.log("📋 Response status:", response.status);
+      
       const data = await response.json();
+      console.log("📦 Response data:", data);
 
       if (!response.ok) {
-        setError(data.error || "Failed to send message. Please try again.");
+        const errorMsg = data.error || data.details || "Failed to send message. Please try again.";
+        console.error("❌ API Error:", errorMsg);
+        setError(errorMsg);
         setIsSubmitting(false);
         return;
       }
 
+      if (!data.success) {
+        console.error("❌ Success flag is false:", data);
+        setError(data.message || "Message failed to send. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      console.log("✅ Message sent successfully!");
       setSubmitted(true);
       setFormData({ name: "", email: "", projectType: "", message: "" });
       setIsSubmitting(false);
-    } catch (err) {
-      setError("Network error. Please check your connection and try again.");
+    } catch (err: any) {
+      const errorMsg = err?.message || "Network error. Please check your connection and try again.";
+      console.error("❌ Catch error:", errorMsg, err);
+      setError(errorMsg);
       setIsSubmitting(false);
     }
   };
@@ -195,9 +213,15 @@ export default function Contact() {
                 <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
                   Message received! 🎉
                 </h3>
-                <p className="text-gray-600 text-base sm:text-lg max-w-md mx-auto leading-relaxed">
+                <p className="text-gray-600 text-base sm:text-lg max-w-md mx-auto leading-relaxed mb-8">
                   Thanks for reaching out. I'll review your message and get back to you within 24 hours.
                 </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="text-gray-600 hover:text-gray-900 underline text-sm transition-colors"
+                >
+                  Send another message
+                </button>
               </div>
             )}
 

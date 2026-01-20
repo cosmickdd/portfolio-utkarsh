@@ -40,18 +40,33 @@ export default function Contact() {
 
       console.log("📋 Response status:", response.status);
       
-      const data = await response.json();
+      // Safely parse JSON - check if response has content
+      let data: any = {};
+      const contentType = response.headers.get("content-type");
+      if (contentType?.includes("application/json")) {
+        try {
+          data = await response.json();
+        } catch (parseErr) {
+          console.warn("⚠️ Failed to parse JSON response", parseErr);
+          data = { error: "Invalid server response" };
+        }
+      } else {
+        const text = await response.text();
+        console.warn("⚠️ Non-JSON response:", { status: response.status, text });
+        data = { error: text || `Server error: ${response.status}` };
+      }
+      
       console.log("📦 Response data:", data);
 
       if (!response.ok) {
-        const errorMsg = data.error || data.details || "Failed to send message. Please try again.";
+        const errorMsg = data.error || data.details || `Failed to send message (${response.status}). Please try again.`;
         console.error("❌ API Error:", errorMsg);
         setError(errorMsg);
         setIsSubmitting(false);
         return;
       }
 
-      if (!data.success) {
+      if (data.success === false) {
         console.error("❌ Success flag is false:", data);
         setError(data.message || "Message failed to send. Please try again.");
         setIsSubmitting(false);

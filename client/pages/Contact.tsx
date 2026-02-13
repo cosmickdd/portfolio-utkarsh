@@ -87,22 +87,22 @@ export default function Contact() {
 
   return (
     <Layout>
-      <main className="bg-white overflow-hidden">
+      <main className="bg-white dark:bg-gray-950 overflow-hidden">
 
         {/* HERO */}
         <section className="px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 lg:pb-32">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block px-3 py-1 rounded-full bg-gray-100 mb-6 sm:mb-8 border border-gray-200">
-              <p className="text-xs uppercase tracking-widest text-gray-700 font-semibold">
+            <div className="inline-block px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 mb-6 sm:mb-8 border border-gray-200 dark:border-gray-700">
+              <p className="text-xs uppercase tracking-widest text-gray-700 dark:text-gray-300 font-semibold">
                 Contact
               </p>
             </div>
 
-            <h1 className="font-catamaran font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl tracking-tight mb-4 sm:mb-6 text-black leading-tight">
+            <h1 className="font-catamaran font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl tracking-tight mb-4 sm:mb-6 text-black dark:text-white leading-tight">
               Let's Start a Conversation
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl leading-relaxed mb-12 sm:mb-16">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed mb-12 sm:mb-16">
               Whether you're building a product from scratch or improving an existing one, I'd love to hear about it.
             </p>
 
@@ -113,9 +113,9 @@ export default function Contact() {
                 { icon: MapPin, text: "Remote - Global" },
                 { icon: Mail, text: "Open to collaborations" },
               ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900 flex-shrink-0" />
-                  <p className="text-sm sm:text-base text-gray-700">{text}</p>
+                <div key={text} className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900 dark:text-gray-100 flex-shrink-0" />
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">{text}</p>
                 </div>
               ))}
             </div>
@@ -123,21 +123,21 @@ export default function Contact() {
         </section>
 
         {/* FORM */}
-        <section className="px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28 lg:pb-36 bg-gradient-to-b from-white to-gray-50">
+        <section className="px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28 lg:pb-36 bg-gradient-to-b from-white dark:from-gray-950 to-gray-50 dark:to-gray-900">
           <div className="max-w-2xl mx-auto">
 
             {!submitted ? (
               <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
 
                 {error && (
-                  <div className="p-4 sm:p-5 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                  <div className="p-4 sm:p-5 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-400 text-sm">
                     <p className="font-semibold">Error</p>
                     <p>{error}</p>
                   </div>
                 )}
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2.5">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2.5">
                     Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -145,13 +145,13 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-black focus:ring-1 focus:ring-black/5 transition-all bg-white hover:border-gray-300"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/5 dark:focus:ring-white/5 transition-all bg-white dark:bg-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-600"
                     placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2.5">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2.5">
                     Email <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -160,13 +160,13 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-black focus:ring-1 focus:ring-black/5 transition-all bg-white hover:border-gray-300"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/5 dark:focus:ring-white/5 transition-all bg-white dark:bg-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-600"
                     placeholder="you@example.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2.5">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2.5">
                     Project Type <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -174,7 +174,7 @@ export default function Contact() {
                     required
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-black focus:ring-1 focus:ring-black/5 transition-all hover:border-gray-300 text-gray-900"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-900 dark:text-white focus:outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/5 dark:focus:ring-white/5 transition-all hover:border-gray-300 dark:hover:border-gray-600 text-gray-900"
                   >
                     <option value="">Select a project type</option>
                     <option value="product">Product Design & Engineering</option>
@@ -186,7 +186,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2.5">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2.5">
                     Message <span className="text-red-500">*</span>
                   </label>
                   <textarea
@@ -195,20 +195,20 @@ export default function Contact() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl resize-none focus:outline-none focus:border-black focus:ring-1 focus:ring-black/5 transition-all bg-white hover:border-gray-300 text-gray-900"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 dark:border-gray-700 rounded-xl resize-none focus:outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/5 dark:focus:ring-white/5 transition-all bg-white dark:bg-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-600 text-gray-900"
                     placeholder="Tell me about your idea, goals, or challenges. More details help me understand your needs better."
                   />
-                  <p className="text-xs text-gray-500 mt-2">Minimum 20 characters recommended</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">Minimum 20 characters recommended</p>
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all disabled:opacity-60 disabled:cursor-not-allowed active:scale-95"
+                  className="w-full cursor-target sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:bg-gray-900 dark:hover:bg-gray-100 transition-all disabled:opacity-60 disabled:cursor-not-allowed active:scale-95"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-4 h-4 border-2 border-white dark:border-black border-t-transparent rounded-full animate-spin"></div>
                       <span>Sending...</span>
                     </>
                   ) : (

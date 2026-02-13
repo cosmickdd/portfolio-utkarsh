@@ -21,6 +21,39 @@ interface ProjectContent {
 }
 
 const PROJECT_DATA: Record<string, ProjectContent> = {
+  "aiinterviewagents": {
+    title: "AI Interview Agents",
+    headline: "Intelligent interview preparation platform that scaled to 5,000+ signups in just 15 days through intuitive UX design and rapid iteration.",
+    roleScope: "Founding Designer · Product Design · UX Research · Growth Design",
+    tags: ["AI", "Founding Designer", "Rapid Growth"],
+    category: "designer",
+    heroImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop",
+    ],
+    metrics: [
+      { label: "Signups in 15 Days", value: "5,000+" },
+      { label: "Daily Growth Rate", value: "+333%" },
+      { label: "Conversion Rate", value: "24.3%" },
+      { label: "User Retention (Day 7)", value: "67%" },
+    ],
+    overview:
+      "AI Interview Agents is an intelligent interview preparation platform powered by conversational AI agents that simulate real interviews. As founding designer, I led the product design from conception through rapid scaling, achieving 5,000+ signups in the first 15 days—an extraordinary growth achievement driven by intuitive UX and product-market fit validation.",
+    challenge:
+      "Interview anxiety is real, but most prep platforms are outdated and static. We needed to create an experience where users felt like they were having real conversations with expert interviewers, not practicing against rigid templates. The platform had to be intuitive enough for non-technical users while leveraging cutting-edge AI. Time was critical—we had 15 days to validate product-market fit.",
+    solution:
+      "I designed a conversation-first interface that stripped away unnecessary UI chrome. Users jump directly into interviews with zero friction. Each interview agent has a distinct personality (encouraging, rigorous, technical) that users can choose. Real-time feedback appears naturally in conversation flow. Progress tracking is implicit, not forced. The design language emphasizes confidence—warm colors, encouraging copy, and celebratory micro-interactions for milestone completions. I also designed the onboarding to feel like starting a conversation with a coach, not a form-filling experience.",
+    outcome:
+      "5,000+ signups in 15 days with 24.3% conversion rate (industry average: 3-5%). Day 7 retention of 67%. User interviews revealed 91% of users described the experience as 'natural' and 'less intimidating than traditional prep.' The product achieved strong product-market fit signals, validating the AI-first interview prep category. Word-of-mouth and organic growth drove 40% of new users.",
+    keyInsights: [
+      "Conversation interfaces must feel natural, not robotic—UI disappears when interaction is genuinely dialog-like",
+      "Rapid growth is possible when product design directly addresses core user anxiety, not just features",
+      "Onboarding is not a separate flow—it's the first experience, and it should feel like the core product",
+      "Micro-interactions and tone matter 10x more in AI products—they build trust in the intelligence layer",
+      "Growth through word-of-mouth is the strongest validation that design resonates with users",
+    ],
+  },
   "prana-ai": {
     title: "Prana AI",
     headline: "AI-powered Ayurvedic health assistant for personalized wellness guidance across web and mobile.",

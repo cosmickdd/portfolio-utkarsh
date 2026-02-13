@@ -6,39 +6,21 @@ import ProjectCard, { Project } from "./ProjectCard";
 const PROJECTS: Record<"designer" | "developer", Project[]> = {
   designer: [
     {
+      id: "aiinterviewagents",
+      title: "AI Interview Agents",
+      description: "Intelligent interview preparation platform scaling to 5,000+ signups in 15 days. Achieved 333% daily growth with intuitive UX for skill assessment.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+      tags: ["AI", "Founding Designer", "Rapid Growth"],
+      link: "/projects/aiinterviewagents",
+      category: "designer",
+    },
+    {
       id: "prana-ai",
       title: "Prana AI",
       description: "AI-powered Ayurvedic health assistant for personalized wellness guidance across web and mobile.",
       image: "https://images.unsplash.com/photo-1576091160550-112173faf246?w=800&h=600&fit=crop",
       tags: ["AI", "Healthcare", "UX Systems"],
       link: "/projects/prana-ai",
-      category: "designer",
-    },
-    {
-      id: "carbonsetu",
-      title: "CarbonSetu",
-      description: "Climate-tech platform enabling MRV workflows and carbon credit management for enterprises.",
-      image: "https://images.unsplash.com/photo-1559027615-cd2628902d4a?w=800&h=600&fit=crop",
-      tags: ["Climate-Tech", "SaaS", "Data Visualization"],
-      link: "/projects/carbonsetu",
-      category: "designer",
-    },
-    {
-      id: "tvic",
-      title: "TVIC",
-      description: "AI-based semiconductor inspection system with real-time verification and defect classification dashboards.",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
-      tags: ["Enterprise", "AI", "Dashboards"],
-      link: "/projects/tvic",
-      category: "designer",
-    },
-    {
-      id: "quizaki",
-      title: "Quizaki",
-      description: "Gamified quiz platform designed for live competitive events with real-time leaderboards and event flows.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      tags: ["Gamification", "Real-time", "Engagement"],
-      link: "/projects/quizaki",
       category: "designer",
     },
   ],
@@ -59,24 +41,6 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
       tags: ["Python", "Composio", "Automation"],
       link: "/projects/aiocc",
-      category: "developer",
-    },
-    {
-      id: "ic-marking-detector",
-      title: "IC Marking Detector",
-      description: "FastAPI app for detecting and OCR-ing printed text on IC images with labeling workflow.",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
-      tags: ["FastAPI", "OpenCV", "Machine Learning"],
-      link: "/projects/ic-marking-detector",
-      category: "developer",
-    },
-    {
-      id: "hospital-landing-page",
-      title: "Hospital Landing Page",
-      description: "Modern, accessible healthcare landing page with patient portal integration and appointment scheduling.",
-      image: "https://images.unsplash.com/photo-1576091160565-2173dba999ef?w=800&h=600&fit=crop",
-      tags: ["React", "TypeScript", "Healthcare"],
-      link: "/projects/hospital-landing-page",
       category: "developer",
     },
   ],
@@ -121,7 +85,7 @@ export default function ProjectsSection() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`
-                  px-7 sm:px-8 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300
+                  cursor-target px-7 sm:px-8 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300
                   ${activeTab === tab
                     ? "bg-black text-white shadow-lg shadow-black/10 scale-105"
                     : "text-gray-500 hover:text-gray-700"}

@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import TargetCursor from "@/components/TargetCursor";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
@@ -19,6 +20,12 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <TargetCursor 
+          spinDuration={2}
+          hideDefaultCursor={true}
+          parallaxOn={true}
+          hoverDuration={0.2}
+        />
         <Toaster />
         <Sonner />
         <BrowserRouter>

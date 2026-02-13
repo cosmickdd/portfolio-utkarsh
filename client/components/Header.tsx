@@ -74,18 +74,18 @@ export default function Header() {
           <img src="/logo.svg" alt="COSMICKDD" className="h-5 sm:h-6 md:h-7 lg:h-9 w-auto" />
         </a>
 
-        {/* Desktop Navigation - Integrated into header */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={`
-                relative text-sm font-medium transition
+                cursor-target relative text-sm font-medium transition-all duration-300
                 ${
                   isActive(link.href)
                     ? "text-white"
-                    : "text-white/70 hover:text-white"
+                    : "text-white/60 hover:text-white"
                 }
               `}
             >
@@ -98,6 +98,7 @@ export default function Header() {
                     w-4 h-[2px]
                     bg-white
                     -translate-x-1/2
+                    transition-all duration-300
                   "
                 />
               )}

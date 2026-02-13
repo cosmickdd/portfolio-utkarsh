@@ -26,41 +26,32 @@ export default function ProjectCard({
       href={project.link}
       aria-label={`View ${project.title} case study`}
       className={`
-        group relative flex flex-col bg-white rounded-2xl overflow-hidden
-        border border-gray-100 hover:border-gray-300
-        transition-all duration-500 cursor-pointer
-        focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2
+        group cursor-target relative flex flex-col bg-white rounded-3xl overflow-hidden
+        border border-gray-200 shadow-sm hover:shadow-xl
+        transition-all duration-500
+        focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2
         ${
           isVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-6 pointer-events-none"
         }
-        sm:hover:-translate-y-2
-        sm:hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]
-        active:opacity-95 active:scale-98
+        hover:-translate-y-1
+        active:opacity-95
       `}
       style={{
         transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
-      {/* IMAGE */}
-      <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50 flex-shrink-0">
+      {/* IMAGE CONTAINER */}
+      <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-gray-100 flex-shrink-0">
         <img
           src={project.image}
           alt={`${project.title} project thumbnail`}
-          className="w-full h-full object-cover transition-transform duration-700 sm:group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
 
-        {/* Overlay gradient - always visible on mobile, appears on hover on desktop */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />
-
-        {/* Hover CTA (desktop only) */}
-        <div className="hidden sm:flex absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center">
-          <div className="inline-flex items-center gap-2 bg-white text-black px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-all duration-300 group-hover:gap-3">
-            View
-            <ArrowRight size={16} />
-          </div>
-        </div>
+        {/* Dark overlay on hover */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300" />
       </div>
 
       {/* CONTENT */}

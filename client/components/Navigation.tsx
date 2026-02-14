@@ -67,9 +67,9 @@ export default function Navigation({ onChatOpen }: NavigationProps) {
                   className="nav-link flex flex-col items-center justify-center gap-1 w-full h-full transition-all duration-200 relative"
                   title={link.label}
                 >
-                  {/* Thin red top indicator for active */}
+                  {/* Thin white top indicator for active */}
                   {active && (
-                    <div className="absolute top-0 w-6 h-1 bg-[#FF3B3B] rounded-b-sm" />
+                    <div className="absolute top-0 w-6 h-1 bg-white rounded-b-sm" />
                   )}
                   
                   {/* Icon */}
@@ -78,7 +78,7 @@ export default function Navigation({ onChatOpen }: NavigationProps) {
                     strokeWidth={1.5}
                     className={`transition-all duration-200 ${
                       active 
-                        ? "text-[#FF3B3B]" 
+                        ? "text-white" 
                         : "text-[#6B7280]"
                     }`}
                   />
@@ -86,7 +86,7 @@ export default function Navigation({ onChatOpen }: NavigationProps) {
                   {/* Label text - prevent wrapping */}
                   <span className={`text-[10px] font-medium transition-all duration-200 whitespace-nowrap leading-none ${
                     active 
-                      ? "text-[#FF3B3B] font-semibold" 
+                      ? "text-white font-semibold" 
                       : "text-[#6B7280]"
                   }`}>
                     {link.label}

@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
-import { Send, X } from "lucide-react";
+import { Send, X, Loader } from "lucide-react";
 
 interface Message {
   id: string;
   text: string;
-  sender: "user" | "bot";
+  sender: "user" | "assistant";
   timestamp: Date;
 }
 
@@ -16,13 +16,13 @@ export default function ChatInterface({
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hey! Welcome to the chat. How can I help you today?",
-      sender: "bot",
+      text: "Hi! I'm Utkarsh's AI assistant. Ask me anything about my background, experience, skills, or projects!",
+      sender: "assistant",
       timestamp: new Date(),
     },
   ]);
   const [input, setInput] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -34,7 +34,7 @@ export default function ChatInterface({
   }, [messages]);
 
   const handleSend = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || isLoading) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -45,19 +45,49 @@ export default function ChatInterface({
 
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
-    setIsTyping(true);
+    setIsLoading(true);
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botMessage: Message = {
+    try {
+      const response = await fetch("/.netlify/functions/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: input }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      
+      const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Thanks for the message! This is a demo chat interface. Feel free to explore and ask questions.",
-        sender: "bot",
+        text: data.message || "Sorry, I couldn't generate a response. Please try again.",
+        sender: "assistant",
         timestamp: new Date(),
       };
-      setMessages((prev) => [...prev, botMessage]);
-      setIsTyping(false);
-    }, 800);
+      
+      setMessages((prev) => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error("Chat error:", error);
+      
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "Sorry, I encountered an error. Please check the server logs and make sure your API key is configured correctly.",
+        sender: "assistant",
+        timestamp: new Date(),
+      };
+      
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+      // Scroll after setting loading to false
+      setTimeout(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -224,14 +254,11 @@ export default function ChatInterface({
                 </div>
               ))}
 
-              {isTyping && (
+              {isLoading && (
                 <div className="flex justify-start message-enter">
-                  <div className="bg-[#1F1F1F] rounded-[20px] px-4 py-3">
-                    <div className="typing-indicator">
-                      <span />
-                      <span />
-                      <span />
-                    </div>
+                  <div className="bg-[#1F1F1F] rounded-[20px] px-4 py-3 flex items-center gap-2">
+                    <Loader size={16} className="text-[#9CA3AF] animate-spin" />
+                    <span className="text-sm text-[#9CA3AF]">Thinking...</span>
                   </div>
                 </div>
               )}
@@ -249,14 +276,20 @@ export default function ChatInterface({
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
+                disabled={isLoading}
                 placeholder="Type your message..."
-                className="flex-1 bg-[#1F1F1F] text-[#E5E7EB] placeholder-[#6B7280] rounded-[999px] px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#DC2626]/50 transition-all"
+                className="flex-1 bg-[#1F1F1F] text-[#E5E7EB] placeholder-[#6B7280] rounded-[999px] px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#DC2626]/50 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
               />
               <button
                 onClick={handleSend}
-                className="w-10 h-10 bg-[#DC2626] hover:bg-[#B91C1C] text-white rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+                disabled={isLoading || !input.trim()}
+                className="w-10 h-10 bg-[#DC2626] hover:bg-[#B91C1C] text-white rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-[#DC2626] disabled:hover:scale-100"
               >
-                <Send size={18} />
+                {isLoading ? (
+                  <Loader size={18} className="animate-spin" />
+                ) : (
+                  <Send size={18} />
+                )}
               </button>
             </div>
           </div>
@@ -313,14 +346,11 @@ export default function ChatInterface({
               </div>
             ))}
 
-            {isTyping && (
+            {isLoading && (
               <div className="flex justify-start message-enter">
-                <div className="bg-[#1F1F1F] rounded-[20px] px-4 py-3">
-                  <div className="typing-indicator">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
+                <div className="bg-[#1F1F1F] rounded-[20px] px-4 py-3 flex items-center gap-2">
+                  <Loader size={16} className="text-[#9CA3AF] animate-spin" />
+                  <span className="text-sm text-[#9CA3AF]">Thinking...</span>
                 </div>
               </div>
             )}
@@ -338,14 +368,20 @@ export default function ChatInterface({
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
+              disabled={isLoading}
               placeholder="Type your message..."
-              className="flex-1 bg-[#2A2A2A] text-[#E5E7EB] placeholder-[#6B7280] rounded-[999px] px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#DC2626]/50 transition-all"
+              className="flex-1 bg-[#2A2A2A] text-[#E5E7EB] placeholder-[#6B7280] rounded-[999px] px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#DC2626]/50 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             />
             <button
               onClick={handleSend}
-              className="w-10 h-10 bg-[#DC2626] hover:bg-[#B91C1C] text-white rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+              disabled={isLoading || !input.trim()}
+              className="w-10 h-10 bg-[#DC2626] hover:bg-[#B91C1C] text-white rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-[#DC2626] disabled:hover:scale-100"
             >
-              <Send size={18} />
+              {isLoading ? (
+                <Loader size={18} className="animate-spin" />
+              ) : (
+                <Send size={18} />
+              )}
             </button>
           </div>
         </div>

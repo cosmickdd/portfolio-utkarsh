@@ -3,6 +3,8 @@
   functions = "netlify/functions"
   publish = "dist/spa"
 
+[dev]
+  command = "npm run dev"
 
 [functions]
   external_node_modules = ["express"]

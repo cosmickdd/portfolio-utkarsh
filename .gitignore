@@ -29,3 +29,6 @@ dist-ssr
 *.sw?
 
 .config/
+
+# Local Netlify folder
+.netlify

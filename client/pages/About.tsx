@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 
-export default function About() {
+export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
   const [stats, setStats] = useState([0, 0, 0, 0]);
   const statsRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +35,7 @@ export default function About() {
   }, []);
 
   return (
-    <Layout>
+    <Layout onChatOpen={onChatOpen}>
       <main className="bg-white">
 
         {/* HERO — Clear, confident, restrained */}

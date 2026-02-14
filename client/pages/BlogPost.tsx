@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getBlogBySlug } from '@shared/blogTopics';
 import { AlertCircle, ArrowRight, Share2, Bookmark, ExternalLink, Lightbulb } from 'lucide-react';
 
-export default function BlogPost() {
+export default function BlogPost({ onChatOpen }: { onChatOpen?: () => void }) {
   const { slug } = useParams<{ slug: string }>();
   const blog = slug ? getBlogBySlug(slug) : null;
 

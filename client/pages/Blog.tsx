@@ -4,7 +4,7 @@ import { blogTopics, getAllCategories, searchBlogs } from '@shared/blogTopics';
 import { Search, Filter, BookOpen, TrendingUp } from 'lucide-react';
 import Layout from "@/components/Layout";
 
-export default function Blog() {
+export default function Blog({ onChatOpen }: { onChatOpen?: () => void }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(null);
@@ -48,7 +48,7 @@ export default function Blog() {
   }));
 
   return (
-    <Layout>
+    <Layout onChatOpen={onChatOpen}>
       <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-20 px-4">

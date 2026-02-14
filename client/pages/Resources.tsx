@@ -136,7 +136,7 @@ const resources: Record<Category, Resource[]> = {
   ],
 };
 
-export default function Resources() {
+export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
   const [category, setCategory] = useState<Category>("design");
   const [query, setQuery] = useState("");
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
@@ -202,7 +202,7 @@ export default function Resources() {
   };
 
   return (
-    <Layout>
+    <Layout onChatOpen={onChatOpen}>
       <main className="bg-white">
 
         {/* HERO */}

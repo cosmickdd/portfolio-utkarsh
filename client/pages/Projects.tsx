@@ -1,9 +1,9 @@
 import Layout from "@/components/Layout";
 import ProjectsSection from "@/components/ProjectsSection";
 
-export default function Projects() {
+export default function Projects({ onChatOpen }: { onChatOpen?: () => void }) {
   return (
-    <Layout>
+    <Layout onChatOpen={onChatOpen}>
       <main className="flex-1 relative">
         <ProjectsSection />
       </main>

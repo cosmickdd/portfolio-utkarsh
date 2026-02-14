@@ -5,14 +5,14 @@ import Layout from "@/components/Layout";
 import SplitImage from "@/components/SplitImage";
 import ProjectsSection from "@/components/ProjectsSection";
 
-export default function Index() {
+export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
   const [sliderPos, setSliderPos] = useState(50);
 
   const showDesigner = sliderPos > 18;
   const showDeveloper = sliderPos < 82;
 
   return (
-    <Layout>
+    <Layout onChatOpen={onChatOpen}>
       {/* HERO */}
       <section className="min-h-screen md:h-[calc(100vh-88px)] flex items-center justify-center px-4 sm:px-6 -mt-24 sm:-mt-32 md:py-0 pb-12 md:pb-0">
         <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 lg:gap-16">

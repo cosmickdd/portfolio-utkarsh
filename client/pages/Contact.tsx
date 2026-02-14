@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Mail, Clock, MapPin, Send, CheckCircle2 } from "lucide-react";
 import Layout from "@/components/Layout";
 
-export default function Contact() {
+export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -86,7 +86,7 @@ export default function Contact() {
   };
 
   return (
-    <Layout>
+    <Layout onChatOpen={onChatOpen}>
       <main className="bg-white overflow-hidden">
 
         {/* HERO */}

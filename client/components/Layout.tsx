@@ -1,7 +1,12 @@
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: React.ReactNode;
+  onChatOpen?: () => void;
+}
+
+export default function Layout({ children, onChatOpen }: LayoutProps) {
   return (
     <div className="min-h-screen bg-white">
 
@@ -9,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header />
 
       {/* Navigation (below header) */}
-      <Navigation />
+      <Navigation onChatOpen={onChatOpen} />
 
       {/* MAIN CONTENT */}
       <main className="pt-[64px] sm:pt-[76px] md:pt-[88px]">

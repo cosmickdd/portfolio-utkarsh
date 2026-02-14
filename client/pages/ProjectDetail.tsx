@@ -284,7 +284,7 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
   },
 };
 
-export default function ProjectDetail() {
+export default function ProjectDetail({ onChatOpen }: { onChatOpen?: () => void }) {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const project = slug ? PROJECT_DATA[slug] : null;
@@ -313,7 +313,7 @@ export default function ProjectDetail() {
   const isDesigner = project.category === "designer";
 
   return (
-    <Layout>
+    <Layout onChatOpen={onChatOpen}>
       <main className="flex-1 bg-white">
         {/* HERO SECTION */}
         <section className="relative w-full h-96 sm:h-[500px] lg:h-[600px] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50">

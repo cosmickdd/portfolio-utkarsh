@@ -1,50 +1,42 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { Home, User, BookOpen, Mail, MessageCircle } from "lucide-react";
 
 export default function BottomNav() {
+  const location = useLocation();
+
+  const navItems = [
+    { path: "/", icon: Home, label: "Portfolio" },
+    { path: "/about", icon: User, label: "About" },
+    { path: "/resources", icon: BookOpen, label: "Resources" },
+    { path: "/contact", icon: Mail, label: "Contact" },
+    { path: "/chat", icon: MessageCircle, label: "Chat" },
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
+
   return (
-    <nav className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-[90%] max-w-[1091px]">
-      <div className="bg-black/70 backdrop-blur-sm border border-black rounded-[50px] md:rounded-[60px] px-6 md:px-12 lg:px-16 py-3 md:py-6 lg:py-8 shadow-xl">
-        <ul className="flex items-center justify-center gap-3 md:gap-6 lg:gap-10 xl:gap-12 flex-wrap">
-          <li>
-            <Link
-              to="/projects"
-              className="text-white font-inter text-lg md:text-2xl lg:text-3xl xl:text-4xl hover:text-gray-300 transition-colors whitespace-nowrap"
-            >
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/about"
-              className="text-white font-inter text-lg md:text-2xl lg:text-3xl xl:text-4xl hover:text-gray-300 transition-colors whitespace-nowrap"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/resources"
-              className="text-white font-inter text-lg md:text-2xl lg:text-3xl xl:text-4xl hover:text-gray-300 transition-colors whitespace-nowrap"
-            >
-              Resources
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className="text-white font-inter text-lg md:text-2xl lg:text-3xl xl:text-4xl hover:text-gray-300 transition-colors whitespace-nowrap"
-            >
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/blog"
-              className="text-white font-inter text-lg md:text-2xl lg:text-3xl xl:text-4xl hover:text-gray-300 transition-colors whitespace-nowrap"
-            >
-              Blog
-            </Link>
-          </li>
+    <nav className="hidden md:fixed md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:z-50 md:w-fit">
+      <div className="bg-black rounded-full px-2 py-2 shadow-2xl hover:shadow-3xl transition-shadow backdrop-blur-xl">
+        <ul className="flex items-center justify-center gap-1">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const active = isActive(item.path);
+            return (
+              <li key={item.path}>
+                <Link
+                  to={item.path}
+                  className={`flex items-center justify-center p-3 rounded-full transition-all duration-300 group ${
+                    active
+                      ? "bg-white/20 text-white"
+                      : "text-white/60 hover:text-white hover:bg-white/10"
+                  }`}
+                  title={item.label}
+                >
+                  <Icon size={20} strokeWidth={2} />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>

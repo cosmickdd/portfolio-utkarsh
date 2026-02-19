@@ -249,7 +249,7 @@ export default function ProjectsSection() {
                 {/* Profile Section */}
                 <div className="flex items-center gap-4">
                   <img 
-                    src="/images/profile.jpg" 
+                    src="/images/image.png" 
                     alt="Profile"
                     className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-orange-500 flex-shrink-0"
                   />

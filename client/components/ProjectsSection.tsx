@@ -292,13 +292,15 @@ export default function ProjectsSection() {
 
                 {/* CTA Button */}
                 <a
-                  href="/contact"
-                  className="inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 active:scale-95"
+                  href="/resume.pdf"
+                  className="inline-flex items-center gap-0 px-6 sm:px-8 py-3.5 sm:py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 active:scale-95 group"
                 >
-                  Let's Talk
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
+                  <span>Resume</span>
+                  <div className="ml-3 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-all duration-300">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-black rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </div>
                 </a>
               </div>
             </div>

@@ -232,8 +232,9 @@ export default function ProjectsSection() {
 
         {/* PREMIUM CTA FOOTER - DARK MODE */}
         <div className="relative mt-20 sm:mt-28 md:mt-36 bg-slate-950 text-white">
-          <div className="px-4 sm:px-6 md:px-8 lg:px-10 py-16 sm:py-20 md:py-28">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="py-16 sm:py-20 md:py-28">
+            <div className="px-6 sm:px-8 md:px-12 lg:px-16">
+              <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
               
               {/* LEFT SIDE - HEADING */}
               <div>
@@ -259,14 +260,14 @@ export default function ProjectsSection() {
                       {activeTab === "designer" ? "Product Designer" : "Full Stack Developer"}
                     </p>
                     <div className="flex gap-2 mt-2">
-                      <a href="#" className="text-slate-400 hover:text-white transition">
+                      <a href="https://linkedin.com/in/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-orange-400 transition">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
                       </a>
-                      <a href="#" className="text-slate-400 hover:text-white transition">
+                      <a href="https://twitter.com/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-orange-400 transition">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 3c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0 6c3.5 0 6.5 2.686 7.5 6.5-1.643 2.237-4.408 3.5-7.5 3.5s-5.857-1.263-7.5-3.5c1-3.814 4-6.5 7.5-6.5z"/>
+                          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417a9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                         </svg>
                       </a>
                     </div>
@@ -277,14 +278,14 @@ export default function ProjectsSection() {
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm text-slate-400 mb-1">Contact me</p>
-                    <a href="mailto:your@email.com" className="text-base sm:text-lg text-white hover:text-orange-400 transition font-medium break-all">
-                      utkarsh@example.com
+                    <a href="mailto:cosimckdd@gmail.com" className="text-base sm:text-lg text-white hover:text-orange-400 transition font-medium break-all">
+                      cosimckdd@gmail.com
                     </a>
                   </div>
                   <div>
                     <p className="text-sm text-slate-400 mb-1">Phone</p>
-                    <a href="tel:+11234567890" className="text-base sm:text-lg text-white hover:text-orange-400 transition font-medium">
-                      +1 (123) 456-7890
+                    <a href="tel:+919455234541" className="text-base sm:text-lg text-white hover:text-orange-400 transition font-medium">
+                      +91 9455234541
                     </a>
                   </div>
                 </div>
@@ -302,16 +303,17 @@ export default function ProjectsSection() {
               </div>
             </div>
 
-            {/* FOOTER BOTTOM */}
-            <div className="mt-16 sm:mt-20 pt-12 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-400 to-orange-600"></div>
-                <p className="text-sm text-slate-400">© 2025. All rights reserved.</p>
-              </div>
-              <div className="flex items-center gap-6">
-                <a href="#" className="text-sm text-slate-400 hover:text-white transition">Twitter</a>
-                <a href="#" className="text-sm text-slate-400 hover:text-white transition">LinkedIn</a>
-                <a href="#" className="text-sm text-slate-400 hover:text-white transition">GitHub</a>
+              {/* FOOTER BOTTOM */}
+              <div className="mt-16 sm:mt-20 pt-12 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-2">
+                  <img src="/images/logoicon.png" alt="Logo" className="w-6 h-6" />
+                  <p className="text-sm text-slate-400">© 2025. All rights reserved.</p>
+                </div>
+                <div className="flex items-center gap-6">
+                  <a href="https://twitter.com/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-400 hover:text-orange-400 transition">Twitter</a>
+                  <a href="https://linkedin.com/in/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-400 hover:text-orange-400 transition">LinkedIn</a>
+                  <a href="https://github.com/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-400 hover:text-orange-400 transition">GitHub</a>
+                </div>
               </div>
             </div>
           </div>

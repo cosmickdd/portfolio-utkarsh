@@ -231,10 +231,9 @@ export default function ProjectsSection() {
         </div>
 
         {/* PREMIUM CTA FOOTER - DARK MODE */}
-        <div className="relative mt-20 sm:mt-28 md:mt-36 bg-slate-950 text-white">
-          <div className="py-16 sm:py-20 md:py-28">
-            <div className="px-6 sm:px-8 md:px-12 lg:px-16">
-              <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="relative mt-20 sm:mt-28 md:mt-36 w-screen -mx-[calc((100vw-100%)/2)] bg-slate-950 text-white">
+          <div className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 lg:px-10">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
               
               {/* LEFT SIDE - HEADING */}
               <div>

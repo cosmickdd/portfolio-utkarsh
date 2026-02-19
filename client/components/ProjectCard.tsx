@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -83,8 +82,8 @@ export default function ProjectCard({
         onMouseEnter={handleMouseEnter}
         onAnimationEnd={handleAnimationEnd}
         className={`
-          group cursor-target relative flex flex-col h-full bg-white rounded-3xl overflow-hidden
-          border border-gray-200/50 shadow-md hover:shadow-2xl
+          group cursor-target relative flex flex-col h-full bg-white rounded-2xl overflow-hidden
+          border border-gray-200 shadow-sm hover:shadow-xl
           transition-all duration-500
           focus:outline-none focus:ring-2 focus:ring-slate-800 focus:ring-offset-2
           ${
@@ -92,7 +91,7 @@ export default function ProjectCard({
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-8 pointer-events-none"
           }
-          hover:-translate-y-2
+          hover:-translate-y-1
           active:opacity-95
           ${isAnimating ? "card-glow" : ""}
         `}
@@ -100,83 +99,58 @@ export default function ProjectCard({
           transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        {/* IMAGE CONTAINER WITH PREMIUM EFFECTS */}
-        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0">
-          {/* Main Image */}
+        {/* IMAGE CONTAINER - REFINED */}
+        <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100 flex-shrink-0">
+          {/* Main Image with subtle frame */}
           <img
             src={project.image}
             alt={`${project.title} case study visual`}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
 
-          {/* Layered Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent group-hover:from-black/70 group-hover:via-black/30 transition-all duration-500" />
-          
-          {/* Premium Corner Accent */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
-          
-          {/* Floating Badge */}
-          <div className="absolute top-4 left-4 sm:top-5 sm:left-5 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-y-0 translate-y-2">
-            <span className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/95 backdrop-blur-sm rounded-full text-xs sm:text-sm font-bold text-black shadow-lg">
-              <span className="w-2 h-2 bg-slate-900 rounded-full animate-pulse"></span>
-              View Project
-            </span>
-          </div>
+          {/* Subtle Overlay - Less dramatic */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent group-hover:from-black/30 transition-all duration-500" />
         </div>
 
         {/* CONTENT */}
-        <div className="flex flex-col flex-grow p-5 sm:p-6 md:p-7 lg:p-8">
-          {/* Category Badge */}
-          <div className="mb-3.5 sm:mb-4 flex items-center gap-2">
-            <span className="inline-flex items-center justify-center">
-              <Sparkles size={14} className="text-slate-700" />
-            </span>
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-700">
-              {project.category === "designer" ? "Design Vision" : "Technical Architect"}
+        <div className="flex flex-col flex-grow p-5 sm:p-6 md:p-7">
+          {/* Category Badge - Refined */}
+          <div className="mb-3 inline-flex w-fit">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-slate-600 px-2 py-1 rounded-md bg-slate-100">
+              {project.category === "designer" ? "Design" : "Development"}
             </span>
           </div>
 
-          {/* Title & Description */}
-          <div className="mb-4 sm:mb-5">
-            <h3 className="font-catamaran font-bold text-lg sm:text-xl md:text-2xl text-black mb-2.5 line-clamp-2 group-hover:text-gray-800 transition-colors duration-300">
+          {/* Title & Description - Better Hierarchy */}
+          <div className="mb-5">
+            <h3 className="font-catamaran font-bold text-xl sm:text-2xl text-slate-900 mb-2.5 line-clamp-2 group-hover:text-slate-800 transition-colors duration-300">
               {project.title}
             </h3>
-            <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed line-clamp-3 group-hover:text-gray-700 transition-colors">
+            <p className="text-sm text-slate-600 leading-relaxed line-clamp-3 group-hover:text-slate-700 transition-colors">
               {project.description}
             </p>
           </div>
 
-          {/* Impact Metric Badge - Enhanced */}
+          {/* Impact Metric - Redesigned */}
           {(project.impact || project.metric) && (
-            <div className="mb-4 sm:mb-5 p-3 sm:p-4 rounded-xl bg-gray-50 border border-gray-200 group-hover:border-gray-300 transition-all duration-300">
-              <p className="text-sm sm:text-base font-semibold text-gray-900 leading-snug">
+            <div className="mb-5 p-4 rounded-lg bg-gradient-to-r from-slate-50 to-stone-50 border border-slate-200 group-hover:border-slate-300 transition-all duration-300">
+              <p className="text-sm font-semibold text-slate-900 leading-snug">
                 {project.metric || project.impact}
               </p>
             </div>
           )}
 
-          {/* TAGS - Enhanced*/}
-          <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-5 sm:mb-6 flex-grow">
+          {/* TAGS - Redesigned */}
+          <div className="flex flex-wrap gap-2 mt-auto">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-gray-50 to-gray-100 group-hover:from-gray-100 group-hover:to-gray-50 text-gray-700 font-semibold transition-all duration-300 border border-gray-150 group-hover:border-gray-300 hover:scale-105"
+                className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 font-medium transition-all duration-300 border border-slate-200 group-hover:bg-slate-200 group-hover:border-slate-300 hover:scale-105"
               >
                 {tag}
               </span>
             ))}
           </div>
-
-          {/* CTA - Interactive */}
-          <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-black group-hover:text-gray-700 transition-all duration-300 group-hover:translate-x-1">
-            <span>Explore Case Study</span>
-            <ArrowRight size={14} className="transition-all duration-300 group-hover:translate-x-2 group-hover:translate-y-0" />
-          </div>
-        </div>
-
-        {/* Premium shine effect on hover */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent" />
         </div>
       </a>
     </>

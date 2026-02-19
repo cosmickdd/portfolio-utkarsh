@@ -20,7 +20,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "prana-ai",
       title: "Prana AI",
       description: "Designed an AI health assistant that brings Ayurveda to life. Built clean, intuitive interfaces across web and mobile so users get personalized wellness advice easily.",
-      image: "https://images.unsplash.com/photo-1576091160550-112173faf246?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1576091160550-2173fb9c6ded?w=800&h=600&fit=crop",
       tags: ["AI", "Healthcare", "UX Systems"],
       link: "/projects/prana-ai",
       category: "designer",

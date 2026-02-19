@@ -230,22 +230,91 @@ export default function ProjectsSection() {
           )}
         </div>
 
-        {/* PREMIUM CTA */}
-        <div className="text-center pt-12 sm:pt-16 lg:pt-20 border-t border-gray-200/60">
-          <p className="text-gray-600 mb-6 text-sm sm:text-base md:text-lg font-medium">
-            {activeTab === "designer"
-              ? "Let's create something beautiful together—something that actually works for your users."
-              : "Ready to build something amazing? Let's talk about your next big idea."}
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-black to-gray-900 text-white rounded-xl font-bold text-sm sm:text-base hover:shadow-2xl hover:shadow-black/20 transition-all duration-300 hover:-translate-y-1 active:scale-95"
-          >
-            Start Conversation
-            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
+        {/* PREMIUM CTA FOOTER - DARK MODE */}
+        <div className="relative mt-20 sm:mt-28 md:mt-36 bg-slate-950 text-white">
+          <div className="px-4 sm:px-6 md:px-8 lg:px-10 py-16 sm:py-20 md:py-28">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+              
+              {/* LEFT SIDE - HEADING */}
+              <div>
+                <h2 className="font-catamaran font-bold text-4xl sm:text-5xl md:text-6xl leading-tight text-white mb-8">
+                  {activeTab === "designer"
+                    ? "Feel free to connect. Let's build impactful products together"
+                    : "Feel free to connect. Let's build amazing things together"}
+                </h2>
+              </div>
+
+              {/* RIGHT SIDE - CONTACT CARD */}
+              <div className="space-y-8">
+                {/* Profile Section */}
+                <div className="flex items-center gap-4">
+                  <img 
+                    src="/images/profile.jpg" 
+                    alt="Profile"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-orange-500 flex-shrink-0"
+                  />
+                  <div>
+                    <p className="text-lg sm:text-xl font-bold text-white">Utkarsh</p>
+                    <p className="text-sm sm:text-base text-slate-400">
+                      {activeTab === "designer" ? "Product Designer" : "Full Stack Developer"}
+                    </p>
+                    <div className="flex gap-2 mt-2">
+                      <a href="#" className="text-slate-400 hover:text-white transition">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                      </a>
+                      <a href="#" className="text-slate-400 hover:text-white transition">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 3c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0 6c3.5 0 6.5 2.686 7.5 6.5-1.643 2.237-4.408 3.5-7.5 3.5s-5.857-1.263-7.5-3.5c1-3.814 4-6.5 7.5-6.5z"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contact Info */}
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-sm text-slate-400 mb-1">Contact me</p>
+                    <a href="mailto:your@email.com" className="text-base sm:text-lg text-white hover:text-orange-400 transition font-medium break-all">
+                      utkarsh@example.com
+                    </a>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-400 mb-1">Phone</p>
+                    <a href="tel:+11234567890" className="text-base sm:text-lg text-white hover:text-orange-400 transition font-medium">
+                      +1 (123) 456-7890
+                    </a>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 active:scale-95"
+                >
+                  Let's Talk
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* FOOTER BOTTOM */}
+            <div className="mt-16 sm:mt-20 pt-12 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-400 to-orange-600"></div>
+                <p className="text-sm text-slate-400">© 2025. All rights reserved.</p>
+              </div>
+              <div className="flex items-center gap-6">
+                <a href="#" className="text-sm text-slate-400 hover:text-white transition">Twitter</a>
+                <a href="#" className="text-sm text-slate-400 hover:text-white transition">LinkedIn</a>
+                <a href="#" className="text-sm text-slate-400 hover:text-white transition">GitHub</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

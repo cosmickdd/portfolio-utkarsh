@@ -122,19 +122,22 @@ export default function ProjectsSection() {
 
         {/* PREMIUM TOGGLE */}
         <div className="flex justify-center mb-12 sm:mb-14 lg:mb-16">
-          <div className="inline-flex bg-gradient-to-r from-gray-50 to-gray-100/50 backdrop-blur-sm rounded-full p-1 border border-gray-200/60 shadow-sm">
+          <div className="relative inline-flex bg-white/80 backdrop-blur-md rounded-2xl p-1.5 border border-gray-200 shadow-lg shadow-black/5">
             {(["designer", "developer"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`
-                  cursor-target px-8 sm:px-10 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 uppercase tracking-wider
+                  relative z-10 cursor-target px-6 sm:px-9 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-500 uppercase tracking-wide
                   ${activeTab === tab
-                    ? "bg-black text-white shadow-lg shadow-black/20 scale-105"
-                    : "text-gray-500 hover:text-gray-700 hover:bg-white/50"}
+                    ? "text-white"
+                    : "text-gray-600 hover:text-gray-900"}
                 `}
               >
-                {tab === "designer" ? "My Design Work" : "My Engineering"}
+                <span className="relative z-10">{tab === "designer" ? "Design" : "Engineering"}</span>
+                {activeTab === tab && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 rounded-xl shadow-xl shadow-black/30 -z-10 animate-in fade-in slide-in-from-top-1 duration-500" />
+                )}
               </button>
             ))}
           </div>

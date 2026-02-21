@@ -96,7 +96,7 @@ export default function Header() {
                   className="
                     absolute left-1/2 -bottom-1
                     w-4 h-[2px]
-                    bg-white
+                    bg-orange-500
                     -translate-x-1/2
                     transition-all duration-300
                   "

@@ -130,7 +130,7 @@ export default function ProjectsSection() {
                 className={`
                   cursor-target px-8 sm:px-10 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 uppercase tracking-wider
                   ${activeTab === tab
-                    ? "bg-black text-white shadow-lg shadow-black/20 scale-105"
+                    ? "bg-orange-500 text-white shadow-lg shadow-orange-500/30 scale-105"
                     : "text-gray-500 hover:text-gray-700 hover:bg-white/50"}
                 `}
               >
@@ -189,7 +189,7 @@ export default function ProjectsSection() {
                   cursor-target p-2.5 sm:p-3 rounded-full transition-all duration-300
                   ${currentPage === 0
                     ? "bg-gray-100 text-gray-300 cursor-not-allowed"
-                    : "bg-gray-100 hover:bg-black text-gray-700 hover:text-white active:scale-95"}
+                    : "bg-gray-100 hover:bg-orange-500 text-gray-700 hover:text-white active:scale-95"}
                 `}
                 aria-label="Previous projects"
               >
@@ -205,7 +205,7 @@ export default function ProjectsSection() {
                     className={`
                       cursor-target transition-all duration-300 rounded-full
                       ${currentPage === i
-                        ? "w-3 h-3 sm:w-3.5 sm:h-3.5 bg-black"
+                        ? "w-3 h-3 sm:w-3.5 sm:h-3.5 bg-orange-500"
                         : "w-2 h-2 sm:w-2.5 sm:h-2.5 bg-gray-300 hover:bg-gray-400"}
                     `}
                     aria-label={`Go to page ${i + 1}`}
@@ -221,7 +221,7 @@ export default function ProjectsSection() {
                   cursor-target p-2.5 sm:p-3 rounded-full transition-all duration-300
                   ${currentPage === totalPages - 1
                     ? "bg-gray-100 text-gray-300 cursor-not-allowed"
-                    : "bg-gray-100 hover:bg-black text-gray-700 hover:text-white active:scale-95"}
+                    : "bg-gray-100 hover:bg-orange-500 text-gray-700 hover:text-white active:scale-95"}
                 `}
                 aria-label="Next projects"
               >

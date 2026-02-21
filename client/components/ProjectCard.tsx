@@ -83,9 +83,9 @@ export default function ProjectCard({
         onAnimationEnd={handleAnimationEnd}
         className={`
           group cursor-target relative flex flex-col h-full bg-white rounded-2xl overflow-hidden
-          border border-gray-200 shadow-sm hover:shadow-xl
+          border border-gray-200 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-200
           transition-all duration-500
-          focus:outline-none focus:ring-2 focus:ring-slate-800 focus:ring-offset-2
+          focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2
           ${
             isVisible
               ? "opacity-100 translate-y-0"

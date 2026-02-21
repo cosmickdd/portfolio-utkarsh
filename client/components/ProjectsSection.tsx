@@ -236,10 +236,10 @@ export default function ProjectsSection() {
     {/* PREMIUM CTA FOOTER - DARK MODE */}
     <section className="w-full bg-slate-950 text-white mt-20 sm:mt-28 md:mt-36">
       <div className="px-6 sm:px-8 md:px-12 lg:px-16">
-        <div className="max-w-7xl mx-auto py-16 sm:py-20 md:py-28">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
+        <div className="max-w-6xl mx-auto py-16 sm:py-20 md:py-28">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-10 lg:gap-14 items-start">
             {/* LEFT SIDE - HEADING */}
-            <div>
+            <div className="md:pl-6 lg:pl-10">
               <h2 className="font-catamaran font-bold text-4xl sm:text-5xl md:text-6xl leading-tight text-white mb-8">
                 {activeTab === "designer"
                   ? "Feel free to connect. Let's build impactful products together"
@@ -248,7 +248,7 @@ export default function ProjectsSection() {
             </div>
 
             {/* RIGHT SIDE - CONTACT CARD */}
-            <div className="space-y-8">
+            <div className="space-y-8 md:pr-6 lg:pr-10">
               {/* Profile Section */}
               <div className="flex items-center gap-4">
                 <img

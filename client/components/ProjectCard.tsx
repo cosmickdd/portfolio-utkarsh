@@ -175,40 +175,45 @@ export default function ProjectCard({
             </div>
           </button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>{project.title}</DialogTitle>
-            <DialogDescription>
+        <DialogContent className="sm:max-w-md border border-slate-800 bg-slate-950 text-white rounded-2xl shadow-2xl shadow-black/40">
+          <DialogHeader className="space-y-2">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-slate-300">
+              Open Links
+            </div>
+            <DialogTitle className="text-xl text-white">
+              {project.title}
+            </DialogTitle>
+            <DialogDescription className="text-slate-400">
               Choose what you want to open.
             </DialogDescription>
           </DialogHeader>
-          <div className="grid gap-3">
+          <div className="grid gap-3 pt-1">
             <a
               href={linkSet.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50 transition"
+              className="w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-sm font-semibold text-white hover:border-orange-500/70 hover:bg-orange-500/10 transition"
             >
               Live Project
-              <span className="text-slate-400">↗</span>
+              <span className="text-orange-300">↗</span>
             </a>
             <a
               href={linkSet.design}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50 transition"
+              className="w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-sm font-semibold text-white hover:border-orange-500/70 hover:bg-orange-500/10 transition"
             >
               Design
-              <span className="text-slate-400">↗</span>
+              <span className="text-orange-300">↗</span>
             </a>
             <a
               href={linkSet.caseStudy}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50 transition"
+              className="w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-sm font-semibold text-white hover:border-orange-500/70 hover:bg-orange-500/10 transition"
             >
               Case Study
-              <span className="text-slate-400">↗</span>
+              <span className="text-orange-300">↗</span>
             </a>
           </div>
         </DialogContent>

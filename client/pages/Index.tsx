@@ -26,7 +26,7 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
             }`}
           >
             <h2 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight">
-              <span className="text-orange-500">designer</span>
+              designer
             </h2>
             <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 max-w-sm mx-auto lg:mx-0 leading-relaxed">
               Product designer specialising in UI design and systems
@@ -45,7 +45,7 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
             }`}
           >
             <h2 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight whitespace-nowrap">
-              <span className="text-orange-500">&lt;developer&gt;</span>
+              &lt;developer&gt;
             </h2>
             <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 max-w-sm mx-auto lg:mx-0 leading-relaxed">
               Front-end developer & ML enthusiast

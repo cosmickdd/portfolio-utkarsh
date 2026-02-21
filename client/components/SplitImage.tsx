@@ -69,7 +69,7 @@ export default function SplitImage({
           className="absolute top-0 bottom-0 pointer-events-none"
           style={{ left: `${sliderPos}%` }}
         >
-          <div className="w-[2px] h-full bg-orange-500" />
+          <div className="w-[2px] h-full bg-neutral-300" />
         </div>
       </div>
     </div>

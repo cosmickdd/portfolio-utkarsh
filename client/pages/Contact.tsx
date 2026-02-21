@@ -145,7 +145,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 transition-all bg-white hover:border-gray-300"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-black focus:ring-1 focus:ring-black/5 transition-all bg-white hover:border-gray-300"
                     placeholder="Your name"
                   />
                 </div>
@@ -160,7 +160,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 transition-all bg-white hover:border-gray-300"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-black focus:ring-1 focus:ring-black/5 transition-all bg-white hover:border-gray-300"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -174,7 +174,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                     required
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 transition-all hover:border-gray-300 text-gray-900"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-black focus:ring-1 focus:ring-black/5 transition-all hover:border-gray-300 text-gray-900"
                   >
                     <option value="">Select a project type</option>
                     <option value="product">Product Design & Engineering</option>
@@ -195,7 +195,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl resize-none focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 transition-all bg-white hover:border-gray-300 text-gray-900"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl resize-none focus:outline-none focus:border-black focus:ring-1 focus:ring-black/5 transition-all bg-white hover:border-gray-300 text-gray-900"
                     placeholder="Tell me about your idea, goals, or challenges. More details help me understand your needs better."
                   />
                   <p className="text-xs text-gray-500 mt-2">Minimum 20 characters recommended</p>
@@ -204,7 +204,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-semibold rounded-xl hover:bg-orange-600 transition-all disabled:opacity-60 disabled:cursor-not-allowed active:scale-95 shadow-lg shadow-orange-500/20"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all disabled:opacity-60 disabled:cursor-not-allowed active:scale-95"
                 >
                   {isSubmitting ? (
                     <>
@@ -222,7 +222,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
               </form>
             ) : (
               <div className="text-center py-16 sm:py-20 px-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 animate-bounce shadow-lg shadow-orange-500/30">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 animate-bounce">
                   <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">

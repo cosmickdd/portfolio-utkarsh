@@ -27,7 +27,7 @@ export default function BottomNav() {
                   to={item.path}
                   className={`flex items-center justify-center p-3 rounded-full transition-all duration-300 group ${
                     active
-                      ? "bg-orange-500 text-white"
+                      ? "bg-white/20 text-white"
                       : "text-white/60 hover:text-white hover:bg-white/10"
                   }`}
                   title={item.label}

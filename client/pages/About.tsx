@@ -114,7 +114,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                       "Technology should serve people, not the other way around"
                     ].map((belief, idx) => (
                       <div key={idx} className="flex gap-4 sm:gap-5 group">
-                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-orange-500 text-white flex items-center justify-center text-xs sm:text-sm font-semibold group-hover:bg-orange-600 transition-colors duration-300">
+                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black text-white flex items-center justify-center text-xs sm:text-sm font-semibold group-hover:bg-blue-600 transition-colors duration-300">
                           ✓
                         </div>
                         <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light pt-1 group-hover:text-gray-900 transition-colors">
@@ -339,7 +339,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200 text-xs sm:text-sm md:text-base shadow-lg shadow-orange-500/30"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 text-xs sm:text-sm md:text-base"
             >
               Start a Conversation
               <ArrowRight className="w-3.5 sm:w-4 md:w-5 h-3.5 sm:h-4 md:h-5" />

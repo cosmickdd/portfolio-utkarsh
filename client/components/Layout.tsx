@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export default function Layout({ children, onChatOpen }: LayoutProps) {
   return (
-    <div className="flex flex-col bg-white min-h-screen">
+    <div className="bg-white">
 
       {/* Fixed Header */}
       <Header />
@@ -17,7 +17,7 @@ export default function Layout({ children, onChatOpen }: LayoutProps) {
       <Navigation onChatOpen={onChatOpen} />
 
       {/* MAIN CONTENT */}
-      <main className="pt-24 sm:pt-32 md:pt-40 flex-1">
+      <main className="pt-24 sm:pt-32 md:pt-40">
         {children}
       </main>
 

@@ -98,10 +98,12 @@ export default function Navigation({ onChatOpen }: NavigationProps) {
         </ul>
       </nav>
       
-      {/* Add bottom padding to body to prevent content hiding */}
+      {/* Add bottom padding only on mobile to prevent content hiding */}
       <style>{`
-        body {
-          padding-bottom: 70px;
+        @media (max-width: 767px) {
+          body {
+            padding-bottom: 70px;
+          }
         }
       `}</style>
     </>

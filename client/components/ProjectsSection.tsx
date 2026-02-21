@@ -237,7 +237,7 @@ export default function ProjectsSection() {
     <section className="w-full bg-slate-950 text-white mt-20 sm:mt-28 md:mt-36">
       <div className="px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="max-w-7xl mx-auto py-16 sm:py-20 md:py-28">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
             {/* LEFT SIDE - HEADING */}
             <div>
               <h2 className="font-catamaran font-bold text-4xl sm:text-5xl md:text-6xl leading-tight text-white mb-8">
@@ -329,12 +329,12 @@ export default function ProjectsSection() {
           </div>
 
           {/* FOOTER BOTTOM */}
-          <div className="mt-16 sm:mt-20 pt-12 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="mt-16 sm:mt-20 pt-12 border-t border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             <div className="flex items-center gap-2">
               <img src="/images/logoicon.png" alt="Logo" className="w-6 h-6" />
               <p className="text-sm text-slate-400">© 2025. All rights reserved.</p>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 md:justify-self-end">
               <a
                 href="https://twitter.com/cosmickdd"
                 target="_blank"

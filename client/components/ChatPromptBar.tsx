@@ -20,25 +20,55 @@ const QUESTIONS = [
 
 export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimatingOut(true);
-      setTimeout(() => {
+    const currentQuestion = QUESTIONS[currentIndex];
+    
+    if (!isDeleting) {
+      // Typing effect
+      if (displayedText.length < currentQuestion.length) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(currentQuestion.slice(0, displayedText.length + 1));
+        }, 50); // 50ms per character for smooth typing
+        return () => clearTimeout(timeout);
+      } else {
+        // Wait 3 seconds before deleting
+        const timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 3000);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      // Deleting effect
+      if (displayedText.length > 0) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1));
+        }, 30); // Faster deletion
+        return () => clearTimeout(timeout);
+      } else {
+        // Move to next question
+        setIsDeleting(false);
         setCurrentIndex((prev) => (prev + 1) % QUESTIONS.length);
-        setIsAnimatingOut(false);
-      }, 300);
-    }, 4000);
+      }
+    }
+  }, [displayedText, currentIndex, isDeleting]);
 
-    return () => clearInterval(interval);
-  }, []);
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onOpen();
+    }
+  };
 
   return (
     <button
       onClick={onOpen}
+      onKeyDown={handleKeyDown}
       className="
         group
+        relative
         w-full
         max-w-[600px]
         mx-auto
@@ -53,20 +83,23 @@ export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
         rounded-xl
         hover:border-2
         hover:border-black
+        hover:bg-[#FAFAFA]
         focus:border-2
         focus:border-black
         focus:bg-[#FAFAFA]
         focus:outline-none
+        active:bg-[#F5F5F5]
         transition-all
-        duration-300
+        duration-200
         cursor-pointer
         flex
         items-center
         gap-3
+        overflow-hidden
       "
     >
       {/* Chat Icon */}
-      <div className="flex-shrink-0">
+      <div className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
         <MessageCircle
           size={18}
           strokeWidth={2}
@@ -75,31 +108,23 @@ export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
       </div>
 
       {/* Animated Question */}
-      <div className="flex-1 text-left min-w-0">
-        <div
-          className={`
-            text-base
-            font-normal
-            text-[#555555]
-            transition-all
-            duration-300
-            truncate
-            ${
-              isAnimatingOut
-                ? "opacity-0 -translate-y-2"
-                : "opacity-100 translate-y-0"
-            }
-          `}
-        >
-          {QUESTIONS[currentIndex]}
+      <div className="flex-1 text-left min-w-0 relative h-6 flex items-center">
+        <div className="text-base font-normal text-[#555555] group-hover:text-black truncate transition-colors duration-200">
+          {displayedText}
+          <span className="inline-block w-0.5 h-4 bg-black ml-0.5 animate-pulse" />
         </div>
       </div>
 
       {/* Arrow Indicator */}
       <div className="flex-shrink-0">
-        <div className="text-base text-black group-hover:translate-x-[2px] transition-transform duration-300">
+        <div className="text-base font-medium text-black group-hover:translate-x-1 group-hover:scale-110 transition-all duration-300 ease-out">
           →
         </div>
+      </div>
+
+      {/* Subtle shine effect on hover */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-black/[0.02] to-transparent skew-x-12 group-hover:animate-[shine_1.5s_ease-out]" />
       </div>
     </button>
   );

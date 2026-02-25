@@ -31,7 +31,7 @@ export default function Blog({ onChatOpen }: { onChatOpen?: () => void }) {
     'development': 'bg-green-100 text-green-800 hover:bg-green-200',
     'ux-ui': 'bg-pink-100 text-pink-800 hover:bg-pink-200',
     'web': 'bg-indigo-100 text-indigo-800 hover:bg-indigo-200',
-    'mobile': 'bg-orange-100 text-orange-800 hover:bg-orange-200',
+    'mobile': 'bg-slate-100 text-slate-800 hover:bg-slate-200',
     'tools': 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200',
     'trends': 'bg-cyan-100 text-cyan-800 hover:bg-cyan-200',
   };

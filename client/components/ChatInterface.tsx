@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useRef, useEffect } from "react";
-import { Send, X, Loader } from "lucide-react";
+import { Send, X, Loader, GripHorizontal } from "lucide-react";
 
 interface Message {
   id: string;
@@ -8,11 +10,11 @@ interface Message {
   timestamp: Date;
 }
 
-export default function ChatInterface({
-  onClose,
-}: {
+interface ChatInterfaceProps {
   onClose?: () => void;
-}) {
+}
+
+export default function ChatInterface({ onClose }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -23,7 +25,17 @@ export default function ChatInterface({
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Widget dragging state
+  const [position, setPosition] = useState({ x: typeof window !== "undefined" ? window.innerWidth - 420 : 0, y: 100 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const widgetRef = useRef<HTMLDivElement>(null);
+
+  // Desktop only - hide on mobile
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -32,6 +44,44 @@ export default function ChatInterface({
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Mouse down handler for drag
+  const handleDragStart = (e: React.MouseEvent) => {
+    if (!isMinimized) return;
+    
+    const drag = e.currentTarget as HTMLDivElement;
+    const rect = drag.getBoundingClientRect();
+    
+    setIsDragging(true);
+    setDragOffset({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  // Mouse move handler
+  useEffect(() => {
+    if (!isDragging) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setPosition((prev) => ({
+        x: Math.max(0, Math.min(e.clientX - dragOffset.x, window.innerWidth - 320)),
+        y: Math.max(0, Math.min(e.clientY - dragOffset.y, window.innerHeight - 60)),
+      }));
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging, dragOffset]);
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
@@ -98,25 +148,16 @@ export default function ChatInterface({
   };
 
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, width: '100vw', height: '100vh', zIndex: 99999, overflow: 'hidden' }}>
+    <>
       <style>{`
-        @keyframes slideUp {
+        @keyframes slideInsert {
           from {
             opacity: 0;
-            transform: translateY(8px);
+            transform: translateY(20px) scale(0.95);
           }
           to {
             opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideUpMobile {
-          from {
-            transform: translateY(100%);
-          }
-          to {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
           }
         }
 
@@ -125,8 +166,12 @@ export default function ChatInterface({
           50% { transform: translateY(-4px); }
         }
 
+        .chat-widget {
+          animation: slideInsert 0.3s ease-out;
+        }
+
         .message-enter {
-          animation: slideUp 0.3s ease-out;
+          animation: slideInsert 0.3s ease-out;
         }
 
         .typing-indicator span {
@@ -148,244 +193,159 @@ export default function ChatInterface({
         }
 
         /* Custom scrollbar */
-        .messages-container::-webkit-scrollbar {
-          width: 6px;
+        .chat-messages::-webkit-scrollbar {
+          width: 4px;
         }
 
-        .messages-container::-webkit-scrollbar-track {
+        .chat-messages::-webkit-scrollbar-track {
           background: transparent;
         }
 
-        .messages-container::-webkit-scrollbar-thumb {
+        .chat-messages::-webkit-scrollbar-thumb {
           background: rgba(255, 255, 255, 0.1);
-          border-radius: 3px;
+          border-radius: 2px;
         }
 
-        .messages-container::-webkit-scrollbar-thumb:hover {
+        .chat-messages::-webkit-scrollbar-thumb:hover {
           background: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Gradient fade at top/bottom */
-        .messages-fade-top {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 12px;
-          background: linear-gradient(to bottom, #050505, transparent);
-          pointer-events: none;
-          border-radius: 28px 28px 0 0;
-          z-index: 10;
-        }
-
-        .messages-fade-bottom {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 12px;
-          background: linear-gradient(to top, #050505, transparent);
-          pointer-events: none;
-          z-index: 10;
-        }
-
-        /* Mobile slide animation */
-        @media (max-width: 768px) {
-          .chat-panel-mobile {
-            animation: slideUpMobile 0.3s ease-out;
-          }
         }
       `}</style>
 
-      {/* OVERLAY - Single overlay for both desktop and mobile */}
-      <div 
-        className="fixed inset-0 bg-black/50 backdrop-blur-[8px] z-40 cursor-pointer"
-        onClick={onClose}
-      />
-
-      {/* DESKTOP VERSION - Fullscreen */}
-      <div className="hidden md:flex fixed inset-0 z-50 flex-col bg-[#050505]" onClick={(e) => e.stopPropagation()}>
-          {/* HEADER */}
-          <div className="h-14 bg-[#121212] border-b border-[rgba(255,255,255,0.05)] flex items-center justify-between px-5">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#DC2626] to-[#991B1B] flex items-center justify-center">
-                <span className="text-xs font-bold text-white">UK</span>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-[#E5E7EB]">Utkarsh</p>
-                <p className="text-xs text-[#9CA3AF]">Active</p>
-              </div>
-            </div>
+      {/* Draggable Widget - Desktop Only */}
+      {!isMobile && (
+        <div
+          ref={widgetRef}
+          className="chat-widget fixed z-[98]"
+          style={{
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+            cursor: isDragging ? "grabbing" : "default",
+          }}
+        >
+          {isMinimized ? (
+            // Minimized Widget
             <button
-              onClick={onClose}
-              className="p-1.5 hover:bg-white/10 rounded-lg transition-colors"
+              onMouseDown={handleDragStart}
+              onClick={() => setIsMinimized(false)}
+              className="group flex items-center gap-3 bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all px-5 py-3.5 cursor-grab active:cursor-grabbing hover:border-gray-300"
             >
-              <X size={20} className="text-[#9CA3AF]" />
+              <div className="flex-shrink-0 cursor-grab">
+                <GripHorizontal size={16} className="text-gray-400 group-hover:text-gray-600" />
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center flex-shrink-0">
+                  <span className="text-xs font-bold text-white">UK</span>
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-gray-900">Chat</p>
+                  <p className="text-xs text-gray-600">Ask me anything</p>
+                </div>
+              </div>
+              <div className="text-gray-400 group-hover:text-gray-600">↑</div>
             </button>
-          </div>
+          ) : (
+            // Expanded Widget
+            <div className="w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 flex flex-col max-h-[600px]">
+              {/* Header */}
+              <div
+                onMouseDown={handleDragStart}
+                className="h-14 bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-between px-5 cursor-grab active:cursor-grabbing border-b border-gray-700"
+              >
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-white">UK</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-white truncate">Utkarsh</p>
+                    <p className="text-xs text-gray-400">Usually replies quickly</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsMinimized(true)}
+                  className="p-1.5 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
+                >
+                  <X size={18} className="text-gray-300" />
+                </button>
+              </div>
 
-          {/* MESSAGES AREA */}
-          <div className="flex-1 overflow-y-auto messages-container relative">
-            <div className="messages-fade-top" />
-            <div className="p-5 space-y-3.5">
-              {messages.map((msg) => (
-                <div key={msg.id} className="message-enter">
-                  <div
-                    className={`flex ${
-                      msg.sender === "user" ? "justify-end" : "justify-start"
-                    }`}
-                  >
+              {/* Messages */}
+              <div className="flex-1 overflow-y-auto chat-messages p-4 space-y-3 bg-white">
+                {messages.map((msg) => (
+                  <div key={msg.id} className="message-enter">
                     <div
-                      className={`max-w-xs px-4 py-3 rounded-[20px] ${
-                        msg.sender === "user"
-                          ? "bg-[#DC2626] text-white"
-                          : "bg-[#1F1F1F] text-[#E5E7EB]"
+                      className={`flex ${
+                        msg.sender === "user" ? "justify-end" : "justify-start"
                       }`}
                     >
-                      <p className="text-sm break-words">{msg.text}</p>
-                      <p className="text-xs opacity-40 mt-1">
-                        {msg.timestamp.toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                      </p>
+                      <div
+                        className={`max-w-xs px-4 py-2.5 rounded-2xl ${
+                          msg.sender === "user"
+                            ? "bg-gray-900 text-white rounded-br-none"
+                            : "bg-gray-100 text-gray-900 rounded-bl-none"
+                        }`}
+                      >
+                        <p className="text-sm break-words">{msg.text}</p>
+                        <p
+                          className={`text-xs mt-1.5 ${
+                            msg.sender === "user"
+                              ? "text-gray-400"
+                              : "text-gray-500"
+                          }`}
+                        >
+                          {msg.timestamp.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
 
-              {isLoading && (
-                <div className="flex justify-start message-enter">
-                  <div className="bg-[#1F1F1F] rounded-[20px] px-4 py-3 flex items-center gap-2">
-                    <Loader size={16} className="text-[#9CA3AF] animate-spin" />
-                    <span className="text-sm text-[#9CA3AF]">Thinking...</span>
+                {isLoading && (
+                  <div className="flex justify-start message-enter">
+                    <div className="bg-gray-100 text-gray-900 rounded-2xl rounded-bl-none px-4 py-2.5 flex items-center gap-2">
+                      <Loader size={14} className="text-gray-600 animate-spin" />
+                      <span className="text-sm text-gray-600">Thinking...</span>
+                    </div>
                   </div>
-                </div>
-              )}
-
-              <div ref={messagesEndRef} />
-            </div>
-            <div className="messages-fade-bottom" />
-          </div>
-
-          {/* INPUT AREA */}
-          <div className="bg-[#121212] border-t border-[rgba(255,255,255,0.05)] p-4">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
-                disabled={isLoading}
-                placeholder="Type your message..."
-                className="flex-1 bg-[#1F1F1F] text-[#E5E7EB] placeholder-[#6B7280] rounded-[999px] px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#DC2626]/50 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-              />
-              <button
-                onClick={handleSend}
-                disabled={isLoading || !input.trim()}
-                className="w-10 h-10 bg-[#DC2626] hover:bg-[#B91C1C] text-white rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-[#DC2626] disabled:hover:scale-100"
-              >
-                {isLoading ? (
-                  <Loader size={18} className="animate-spin" />
-                ) : (
-                  <Send size={18} />
                 )}
-              </button>
-            </div>
-          </div>
-        </div>
 
-      {/* MOBILE VERSION - Hidden on desktop */}
-      <div className="md:hidden chat-panel-mobile fixed bottom-0 left-0 right-0 z-50 h-[85vh] bg-[#050505] rounded-t-[28px] flex flex-col" onClick={(e) => e.stopPropagation()}>
-        {/* HEADER */}
-        <div className="h-14 bg-[#121212] border-b border-[rgba(255,255,255,0.05)] flex items-center justify-between px-5">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#DC2626] to-[#991B1B] flex items-center justify-center">
-              <span className="text-xs font-bold text-white">UK</span>
-            </div>
-            <div>
-              <p className="text-sm font-medium text-[#E5E7EB]">Utkarsh</p>
-              <p className="text-xs text-[#9CA3AF]">Active</p>
-            </div>
-          </div>
-          <button
-            onClick={onClose}
-            className="p-1.5 hover:bg-white/10 rounded-lg transition-colors"
-          >
-            <X size={20} className="text-[#9CA3AF]" />
-          </button>
-        </div>
+                <div ref={messagesEndRef} />
+              </div>
 
-        {/* MESSAGES AREA */}
-        <div className="flex-1 overflow-y-auto messages-container relative">
-          <div className="messages-fade-top" />
-          <div className="p-4 space-y-3">
-            {messages.map((msg) => (
-              <div key={msg.id} className="message-enter">
-                <div
-                  className={`flex ${
-                    msg.sender === "user" ? "justify-end" : "justify-start"
-                  }`}
-                >
-                  <div
-                    className={`max-w-xs px-4 py-3 rounded-[20px] ${
-                      msg.sender === "user"
-                        ? "bg-[#DC2626] text-white"
-                        : "bg-[#1F1F1F] text-[#E5E7EB]"
-                    }`}
+              {/* Input Area */}
+              <div className="bg-white border-t border-gray-200 p-4 space-y-3">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    disabled={isLoading}
+                    placeholder="Type a message..."
+                    className="flex-1 bg-gray-100 text-gray-900 placeholder-gray-500 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900/20 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                  />
+                  <button
+                    onClick={handleSend}
+                    disabled={isLoading || !input.trim()}
+                    className="w-10 h-10 bg-gray-900 hover:bg-gray-800 text-white rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-gray-900 disabled:hover:scale-100"
                   >
-                    <p className="text-sm break-words">{msg.text}</p>
-                    <p className="text-xs opacity-40 mt-1">
-                      {msg.timestamp.toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
-                  </div>
+                    {isLoading ? (
+                      <Loader size={18} className="animate-spin" />
+                    ) : (
+                      <Send size={18} />
+                    )}
+                  </button>
                 </div>
+                <p className="text-xs text-gray-500 text-center">
+                  Powered by AI
+                </p>
               </div>
-            ))}
-
-            {isLoading && (
-              <div className="flex justify-start message-enter">
-                <div className="bg-[#1F1F1F] rounded-[20px] px-4 py-3 flex items-center gap-2">
-                  <Loader size={16} className="text-[#9CA3AF] animate-spin" />
-                  <span className="text-sm text-[#9CA3AF]">Thinking...</span>
-                </div>
-              </div>
-            )}
-
-            <div ref={messagesEndRef} />
-          </div>
-          <div className="messages-fade-bottom" />
+            </div>
+          )}
         </div>
-
-        {/* INPUT AREA */}
-        <div className="bg-[#121212] border-t border-[rgba(255,255,255,0.05)] p-4">
-          <div className="flex gap-2">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={handleKeyPress}
-              disabled={isLoading}
-              placeholder="Type your message..."
-              className="flex-1 bg-[#2A2A2A] text-[#E5E7EB] placeholder-[#6B7280] rounded-[999px] px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#DC2626]/50 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-            />
-            <button
-              onClick={handleSend}
-              disabled={isLoading || !input.trim()}
-              className="w-10 h-10 bg-[#DC2626] hover:bg-[#B91C1C] text-white rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-[#DC2626] disabled:hover:scale-100"
-            >
-              {isLoading ? (
-                <Loader size={18} className="animate-spin" />
-              ) : (
-                <Send size={18} />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

@@ -76,7 +76,7 @@ export default function CustomCursor() {
             transition: "opacity 0.15s ease-out",
           }}
         >
-          <div className="inline-flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-full text-xs font-semibold shadow-lg whitespace-nowrap">
+          <div className="inline-flex items-center gap-2 bg-slate-900 border border-slate-700 text-white px-5 py-2.5 rounded-full text-xs font-semibold shadow-2xl whitespace-nowrap">
             See Case Study & Live Site
             <ArrowRight size={14} strokeWidth={2.5} />
           </div>

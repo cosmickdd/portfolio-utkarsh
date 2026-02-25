@@ -34,7 +34,7 @@ export default function BlogPost({ onChatOpen }: { onChatOpen?: () => void }) {
     'development': 'bg-green-100 text-green-800',
     'ux-ui': 'bg-pink-100 text-pink-800',
     'web': 'bg-indigo-100 text-indigo-800',
-    'mobile': 'bg-orange-100 text-orange-800',
+    'mobile': 'bg-slate-100 text-slate-800',
     'tools': 'bg-yellow-100 text-yellow-800',
     'trends': 'bg-cyan-100 text-cyan-800',
   };

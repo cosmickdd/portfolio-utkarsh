@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import SplitImage from "@/components/SplitImage";
+import ChatPromptBar from "@/components/ChatPromptBar";
 import ProjectsSection from "@/components/ProjectsSection";
 
 export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
@@ -14,7 +15,10 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
   return (
     <Layout onChatOpen={onChatOpen}>
       {/* HERO */}
-      <section className="min-h-screen md:h-[calc(100vh-88px)] flex items-center justify-center px-4 sm:px-6 -mt-24 sm:-mt-32 md:py-0 pb-12 md:pb-0">
+      <section className="min-h-screen md:h-[calc(100vh-88px)] flex flex-col items-center justify-center px-4 sm:px-6 -mt-24 sm:-mt-32 md:py-0 pb-12 md:pb-0">
+        {/* Chat Prompt Bar */}
+        <ChatPromptBar onOpen={onChatOpen || (() => {})} />
+
         <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 lg:gap-16">
 
           {/* DESIGNER */}

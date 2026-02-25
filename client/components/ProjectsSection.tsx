@@ -13,6 +13,9 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
       tags: ["AI", "Founding Designer", "Rapid Growth"],
       link: "/projects/aiinterviewagents",
+      links: {
+        caseStudy: "/aiinterviewagents",
+      },
       category: "designer",
       metric: "5,000+ users in 15 days • 90%+ user satisfaction",
     },
@@ -23,18 +26,26 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       image: "https://images.unsplash.com/photo-1576091160550-2173fb9c6ded?w=800&h=600&fit=crop",
       tags: ["AI", "Healthcare", "UX Systems"],
       link: "/projects/prana-ai",
+      links: {
+        caseStudy: "/prana-ai",
+      },
       category: "designer",
       metric: "Launched across iOS & Android • Personalized user experience",
     },
     {
-      id: "rapidophilia",
-      title: "Rapidophilia",
-      description: "Built a travel discovery platform that actually understands what you want to do. Smart recommendations, seamless booking, all designed to make travel planning fun.",
-      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop",
-      tags: ["React", "Node.js", "AI/ML"],
-      link: "/projects/rapidophilia",
+      id: "nadanparinda",
+      title: "Nadanparinda",
+      description: "Complete end-to-end design for a tour, travel and mountaineering website. Created an immersive experience that captures the spirit of adventure and makes trip planning seamless.",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+      tags: ["UI/UX Design", "Travel", "Figma"],
+      link: "https://nadanparinda.vercel.app",
+      links: {
+        live: "https://nadanparinda.vercel.app",
+        design: "https://www.figma.com/community/file/1608433306616575638",
+        caseStudy: "/nadanparinda",
+      },
       category: "designer",
-      metric: "Increased bookings by 45% • Users save 2+ hours per trip",
+      metric: "Complete design system • Live production website",
     },
   ],
   developer: [
@@ -45,18 +56,24 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
       tags: ["Python", "Composio", "Automation"],
       link: "/projects/aiocc",
+      links: {
+        caseStudy: "/aiocc",
+      },
       category: "developer",
       metric: "Saves 10+ hours/week • 5 tools unified in one platform",
     },
     {
-      id: "project-two",
-      title: "Project Two",
-      description: "Another great engineering project showcasing cutting-edge technology and scalable architecture.",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
-      tags: ["TypeScript", "Node.js", "Cloud"],
-      link: "/projects/project-two",
+      id: "rapidophilia",
+      title: "Rapidophilia",
+      description: "Built a travel discovery platform that actually understands what you want to do. Smart recommendations, seamless booking, all designed to make travel planning fun.",
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop",
+      tags: ["React", "Node.js", "AI/ML"],
+      link: "/projects/rapidophilia",
+      links: {
+        caseStudy: "/rapidophilia",
+      },
       category: "developer",
-      metric: "40% faster performance • Reduced infrastructure costs",
+      metric: "Increased bookings by 45% • Users save 2+ hours per trip",
     },
     {
       id: "project-three",
@@ -65,6 +82,9 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&h=600&fit=crop",
       tags: ["React", "Firebase", "Real-time"],
       link: "/projects/project-three",
+      links: {
+        caseStudy: "/project-three",
+      },
       category: "developer",
       metric: "Sub-second load times • 99.9% uptime guarantee",
     },
@@ -257,7 +277,7 @@ export default function ProjectsSection() {
                 <img
                   src="/images/image.png"
                   alt="Profile"
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-orange-500 flex-shrink-0"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-white/20 flex-shrink-0 shadow-xl"
                 />
                 <div>
                   <p className="text-lg sm:text-xl font-bold text-white">Utkarsh</p>
@@ -269,7 +289,7 @@ export default function ProjectsSection() {
                       href="https://linkedin.com/in/cosmickdd"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-orange-400 transition"
+                      className="text-slate-400 hover:text-white transition-colors"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -279,7 +299,7 @@ export default function ProjectsSection() {
                       href="https://twitter.com/cosmickdd"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-orange-400 transition"
+                      className="text-slate-400 hover:text-white transition-colors"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417a9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
@@ -295,7 +315,7 @@ export default function ProjectsSection() {
                   <p className="text-sm text-slate-400 mb-1">Contact me</p>
                   <a
                     href="mailto:cosimckdd@gmail.com"
-                    className="text-base sm:text-lg text-white hover:text-orange-400 transition font-medium break-all"
+                    className="text-base sm:text-lg text-white hover:text-white/80 transition-colors font-medium break-all"
                   >
                     cosimckdd@gmail.com
                   </a>
@@ -304,7 +324,7 @@ export default function ProjectsSection() {
                   <p className="text-sm text-slate-400 mb-1">Phone</p>
                   <a
                     href="tel:+919455234541"
-                    className="text-base sm:text-lg text-white hover:text-orange-400 transition font-medium"
+                    className="text-base sm:text-lg text-white hover:text-white/80 transition-colors font-medium"
                   >
                     +91 9455234541
                   </a>
@@ -315,12 +335,12 @@ export default function ProjectsSection() {
               <a
                 href="/resume.pdf"
                 download="Utkarsh_Tiwari_Resume.pdf"
-                className="inline-flex items-center gap-0 px-6 sm:px-8 py-3.5 sm:py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 active:scale-95 group"
+                className="inline-flex items-center gap-0 px-6 sm:px-8 py-3.5 sm:py-4 bg-white hover:bg-white/90 text-slate-900 rounded-full font-bold text-sm sm:text-base transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 active:scale-95 group"
               >
                 <span>Resume</span>
-                <div className="ml-3 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-all duration-300">
+                <div className="ml-3 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-900 flex items-center justify-center transition-all duration-300">
                   <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-black rotate-45 group-hover:rotate-0 transition-transform duration-300"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-white rotate-45 group-hover:rotate-0 transition-transform duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -343,7 +363,7 @@ export default function ProjectsSection() {
                 href="https://twitter.com/cosmickdd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-slate-400 hover:text-orange-400 transition"
+                className="text-sm text-slate-400 hover:text-white transition-colors"
               >
                 Twitter
               </a>
@@ -351,7 +371,7 @@ export default function ProjectsSection() {
                 href="https://linkedin.com/in/cosmickdd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-slate-400 hover:text-orange-400 transition"
+                className="text-sm text-slate-400 hover:text-white transition-colors"
               >
                 LinkedIn
               </a>
@@ -359,7 +379,7 @@ export default function ProjectsSection() {
                 href="https://github.com/cosmickdd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-slate-400 hover:text-orange-400 transition"
+                className="text-sm text-slate-400 hover:text-white transition-colors"
               >
                 GitHub
               </a>

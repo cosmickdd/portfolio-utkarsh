@@ -192,28 +192,28 @@ export default function ProjectCard({
               href={linkSet.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-sm font-semibold text-white hover:border-orange-500/70 hover:bg-orange-500/10 transition"
+              className="group w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3.5 text-sm font-semibold text-white hover:border-white/20 hover:bg-white/5 transition-all duration-200"
             >
               Live Project
-              <span className="text-orange-300">↗</span>
+              <span className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200">↗</span>
             </a>
             <a
               href={linkSet.design}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-sm font-semibold text-white hover:border-orange-500/70 hover:bg-orange-500/10 transition"
+              className="group w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3.5 text-sm font-semibold text-white hover:border-white/20 hover:bg-white/5 transition-all duration-200"
             >
               Design
-              <span className="text-orange-300">↗</span>
+              <span className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200">↗</span>
             </a>
             <a
               href={linkSet.caseStudy}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-sm font-semibold text-white hover:border-orange-500/70 hover:bg-orange-500/10 transition"
+              className="group w-full inline-flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3.5 text-sm font-semibold text-white hover:border-white/20 hover:bg-white/5 transition-all duration-200"
             >
               Case Study
-              <span className="text-orange-300">↗</span>
+              <span className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200">↗</span>
             </a>
           </div>
         </DialogContent>

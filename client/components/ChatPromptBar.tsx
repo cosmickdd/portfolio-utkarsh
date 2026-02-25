@@ -40,35 +40,37 @@ export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
       className="
         group
         w-full
-        max-w-md
+        max-w-[600px]
         mx-auto
-        mb-8
+        mb-12
+        md:mb-16
+        h-14
         px-5
-        py-3.5
-        sm:px-6
-        sm:py-4
+        py-4
         bg-white
         border
-        border-gray-200
-        rounded-full
-        shadow-sm
-        hover:shadow-md
+        border-black
+        rounded-xl
+        hover:border-2
+        hover:border-black
+        focus:border-2
+        focus:border-black
+        focus:bg-[#FAFAFA]
+        focus:outline-none
         transition-all
         duration-300
-        hover:border-gray-300
-        active:scale-95
         cursor-pointer
         flex
         items-center
         gap-3
-        sm:gap-4
       "
     >
       {/* Chat Icon */}
       <div className="flex-shrink-0">
         <MessageCircle
-          size={20}
-          className="text-gray-700 group-hover:text-gray-900 transition-colors duration-300"
+          size={18}
+          strokeWidth={2}
+          className="text-black"
         />
       </div>
 
@@ -76,10 +78,9 @@ export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
       <div className="flex-1 text-left min-w-0">
         <div
           className={`
-            text-sm
-            sm:text-base
-            text-gray-600
-            group-hover:text-gray-900
+            text-base
+            font-normal
+            text-[#555555]
             transition-all
             duration-300
             truncate
@@ -96,7 +97,7 @@ export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
 
       {/* Arrow Indicator */}
       <div className="flex-shrink-0">
-        <div className="text-gray-400 group-hover:text-gray-600 group-hover:translate-x-0.5 transition-all duration-300">
+        <div className="text-base text-black group-hover:translate-x-[2px] transition-transform duration-300">
           →
         </div>
       </div>

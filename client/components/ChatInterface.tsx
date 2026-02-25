@@ -261,7 +261,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
                   </div>
                 </div>
                 <button
-                  onClick={() => setIsMinimized(true)}
+                  onClick={onClose}
                   className="p-1.5 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
                 >
                   <X size={18} className="text-gray-300" />

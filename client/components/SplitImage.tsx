@@ -31,10 +31,10 @@ export default function SplitImage({
         ref={containerRef}
         className="
           relative
-          w-[260px]
-          sm:w-[300px]
-          md:w-[360px]
-          lg:w-[420px]
+          w-[200px]
+          sm:w-[240px]
+          md:w-[280px]
+          lg:w-[320px]
           select-none
           touch-none
         "

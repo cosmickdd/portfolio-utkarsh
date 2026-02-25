@@ -15,11 +15,11 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
   return (
     <Layout onChatOpen={onChatOpen}>
       {/* HERO */}
-      <section className="min-h-screen md:h-[calc(100vh-88px)] flex flex-col items-center justify-center px-4 sm:px-6 -mt-24 sm:-mt-32 md:py-0 pb-12 md:pb-0">
+      <section className="min-h-screen md:h-[calc(100vh-88px)] flex flex-col items-center justify-center px-4 sm:px-6 -mt-24 sm:-mt-32 md:py-0 pb-12 md:pb-0 space-y-12 md:space-y-0">
         {/* Chat Prompt Bar */}
         <ChatPromptBar onOpen={onChatOpen || (() => {})} />
 
-        <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 lg:gap-16">
+        <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-4 sm:gap-6 lg:gap-12">
 
           {/* DESIGNER */}
           <div
@@ -29,10 +29,10 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
                 : "opacity-0 translate-y-3 pointer-events-none"
             }`}
           >
-            <h2 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight">
+            <h2 className="font-catamaran font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
               designer
             </h2>
-            <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 max-w-sm mx-auto lg:mx-0 leading-relaxed">
+            <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-gray-600 max-w-sm mx-auto lg:mx-0 leading-relaxed">
               Product designer specialising in UI design and systems
             </p>
           </div>
@@ -48,10 +48,10 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
                 : "opacity-0 translate-y-3 pointer-events-none"
             }`}
           >
-            <h2 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight whitespace-nowrap">
+            <h2 className="font-catamaran font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight whitespace-nowrap">
               &lt;developer&gt;
             </h2>
-            <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 max-w-sm mx-auto lg:mx-0 leading-relaxed">
+            <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-gray-600 max-w-sm mx-auto lg:mx-0 leading-relaxed">
               Front-end developer & ML enthusiast
             </p>
           </div>

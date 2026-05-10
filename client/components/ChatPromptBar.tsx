@@ -1,6 +1,5 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface ChatPromptBarProps {
@@ -25,107 +24,62 @@ export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
 
   useEffect(() => {
     const currentQuestion = QUESTIONS[currentIndex];
-    
+
     if (!isDeleting) {
-      // Typing effect
       if (displayedText.length < currentQuestion.length) {
         const timeout = setTimeout(() => {
           setDisplayedText(currentQuestion.slice(0, displayedText.length + 1));
-        }, 50); // 50ms per character for smooth typing
+        }, 50);
         return () => clearTimeout(timeout);
       } else {
-        // Wait 3 seconds before deleting
-        const timeout = setTimeout(() => {
-          setIsDeleting(true);
-        }, 3000);
+        const timeout = setTimeout(() => setIsDeleting(true), 3000);
         return () => clearTimeout(timeout);
       }
     } else {
-      // Deleting effect
       if (displayedText.length > 0) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(displayedText.slice(0, -1));
-        }, 30); // Faster deletion
+        const timeout = setTimeout(() => setDisplayedText(displayedText.slice(0, -1)), 30);
         return () => clearTimeout(timeout);
       } else {
-        // Move to next question
         setIsDeleting(false);
         setCurrentIndex((prev) => (prev + 1) % QUESTIONS.length);
       }
     }
   }, [displayedText, currentIndex, isDeleting]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      onOpen();
-    }
-  };
-
   return (
     <button
       onClick={onOpen}
-      onKeyDown={handleKeyDown}
       className="
-        group
-        relative
-        w-full
-        max-w-[600px]
-        mx-auto
-        mb-12
-        md:mb-16
-        h-14
-        px-5
-        py-4
-        bg-white
-        border
-        border-black
-        rounded-xl
-        hover:border-2
-        hover:border-black
-        hover:bg-[#FAFAFA]
-        focus:border-2
-        focus:border-black
-        focus:bg-[#FAFAFA]
+        group relative
+        w-full max-w-[480px]
+        mx-auto mb-10 md:mb-14
+        h-[46px]
+        px-6
+        bg-white/80 backdrop-blur-sm
+        rounded-full
+        shadow-[0_1px_3px_rgba(0,0,0,0.04),0_0_0_1px_rgba(0,0,0,0.06)]
+        hover:shadow-[0_2px_8px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.08)]
+        hover:-translate-y-px
         focus:outline-none
-        active:bg-[#F5F5F5]
-        transition-all
-        duration-200
+        focus:shadow-[0_2px_8px_rgba(0,0,0,0.08),0_0_0_2px_rgba(0,0,0,0.1)]
+        active:scale-[0.998]
+        transition-all duration-300
         cursor-pointer
-        flex
-        items-center
-        gap-3
-        overflow-hidden
+        flex items-center
       "
     >
-      {/* Chat Icon */}
-      <div className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-        <MessageCircle
-          size={18}
-          strokeWidth={2}
-          className="text-black"
-        />
-      </div>
+      <span className="flex-1 text-left text-[13px] sm:text-sm text-gray-400 truncate tracking-wide">
+        {displayedText}
+        <span className="inline-block w-[1.5px] h-[14px] bg-gray-300 ml-0.5 animate-pulse rounded-full align-middle" />
+      </span>
 
-      {/* Animated Question */}
-      <div className="flex-1 text-left min-w-0 relative h-6 flex items-center">
-        <div className="text-base font-normal text-[#555555] group-hover:text-black truncate transition-colors duration-200">
-          {displayedText}
-          <span className="inline-block w-0.5 h-4 bg-black ml-0.5 animate-pulse" />
-        </div>
-      </div>
-
-      {/* Arrow Indicator */}
-      <div className="flex-shrink-0">
-        <div className="text-base font-medium text-black group-hover:translate-x-1 group-hover:scale-110 transition-all duration-300 ease-out">
-          →
-        </div>
-      </div>
-
-      {/* Subtle shine effect on hover */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-        <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-black/[0.02] to-transparent skew-x-12 group-hover:animate-[shine_1.5s_ease-out]" />
-      </div>
+      {/* Subtle arrow — simple SVG, not an imported icon */}
+      <svg
+        width="14" height="14" viewBox="0 0 14 14" fill="none"
+        className="flex-shrink-0 ml-3 text-gray-300 group-hover:text-gray-500 group-hover:translate-x-0.5 transition-all duration-300"
+      >
+        <path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
     </button>
   );
 }

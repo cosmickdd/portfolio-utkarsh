@@ -7,7 +7,7 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.5rem",
       screens: {
         "2xl": "1400px",
       },
@@ -22,6 +22,11 @@ export default {
           "sans-serif",
         ],
         inter: ["Inter", "-apple-system", "Roboto", "Helvetica", "sans-serif"],
+      },
+      spacing: {
+        '72': '18rem',
+        '84': '21rem',
+        '96': '24rem',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -94,6 +99,25 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      transitionDuration: {
+        '200': '200ms',
+        '300': '300ms',
+        '500': '500ms',
+      },
+      boxShadow: {
+        'sm-card': '0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06)',
+        'md-card': '0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06)',
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem', { lineHeight: '1.5rem' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
       },
     },
   },

@@ -3,128 +3,88 @@ export async function handleInstagramPosts(req: any, res: any) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  const buildFallbackPosts = () => [
+    {
+      id: "1",
+      caption: "Follow @utxuiux for daily design inspiration and UI/UX tips",
+      mediaUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop",
+      permalink: "https://instagram.com/utxuiux",
+      timestamp: new Date().toISOString(),
+    },
+    {
+      id: "2",
+      caption: "Explore the latest design trends and creative work",
+      mediaUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop",
+      permalink: "https://instagram.com/utxuiux",
+      timestamp: new Date(Date.now() - 86400000).toISOString(),
+    },
+    {
+      id: "3",
+      caption: "Design systems and component libraries",
+      mediaUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop",
+      permalink: "https://instagram.com/utxuiux",
+      timestamp: new Date(Date.now() - 172800000).toISOString(),
+    },
+  ];
+
   try {
     const username = "utxuiux";
     
-    // Method 1: Try using Rapid API Instagram service
+    // Method 1: Try using RapidAPI instagram120 POST endpoint
     const rapidApiKey = process.env.RAPIDAPI_KEY;
-    
+
     if (rapidApiKey) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 7000);
+
       try {
         const response = await fetch(
-          `https://instagram-data1.p.rapidapi.com/user/info/${username}`,
+          `https://instagram120.p.rapidapi.com/api/instagram/posts`,
           {
-            method: "GET",
+            method: "POST",
             headers: {
+              "Content-Type": "application/json",
+              "x-rapidapi-host": "instagram120.p.rapidapi.com",
               "x-rapidapi-key": rapidApiKey,
-              "x-rapidapi-host": "instagram-data1.p.rapidapi.com",
             },
+            body: JSON.stringify({ username, maxId: "" }),
+            signal: controller.signal,
           }
         );
 
         if (response.ok) {
           const data = await response.json();
-          
-          // Try to get posts from the response
-          if (data.feeds && Array.isArray(data.feeds)) {
-            const posts = data.feeds
-              .slice(0, 3)
-              .map((post: any) => ({
-                id: post.pk || post.id,
-                caption: post.caption?.text || post.caption || "",
-                mediaUrl: post.image_url || post.display_url || post.thumbnail_url,
-                permalink: `https://instagram.com/p/${post.code || post.shortcode}`,
-                timestamp: new Date(post.taken_at * 1000 || post.timestamp).toISOString(),
-              }));
-            
-            if (posts.length > 0) {
-              console.log(`✓ Fetched ${posts.length} posts from Instagram via RapidAPI`);
-              return res.status(200).json({ posts });
-            }
+
+          // Normalize various response shapes into a posts array
+          let postsArray: any[] = [];
+          if (Array.isArray(data)) postsArray = data;
+          else if (Array.isArray(data.posts)) postsArray = data.posts;
+          else if (Array.isArray(data.data)) postsArray = data.data;
+          else if (Array.isArray(data.items)) postsArray = data.items;
+
+          if (postsArray.length > 0) {
+            const posts = postsArray.slice(0, 3).map((post: any) => ({
+              id: post.id || post.pk || post.media_id || Math.random().toString(),
+              caption: post.caption || post.caption_text || post.title || "",
+              mediaUrl: post.display_url || post.image || post.media_url || (post.images && post.images[0] && post.images[0].url) || null,
+              permalink: post.link || post.permalink || (post.code ? `https://instagram.com/p/${post.code}` : `https://instagram.com/${username}`),
+              timestamp: post.taken_at ? new Date(post.taken_at * 1000).toISOString() : (post.timestamp ? new Date(post.timestamp).toISOString() : new Date().toISOString()),
+            }));
+
+            return res.status(200).json({ posts });
           }
+        } else {
+          return res.status(200).json({ posts: buildFallbackPosts() });
         }
       } catch (error) {
-        console.error("RapidAPI error:", error);
+        return res.status(200).json({ posts: buildFallbackPosts() });
+      } finally {
+        clearTimeout(timeout);
       }
     }
 
-    // Method 3: Try Instagram JSON endpoint with proper headers
-    try {
-      const username = "utxuiux";
-      const response = await fetch(`https://www.instagram.com/${username}/`, {
-        headers: {
-          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Mobile/15E148 Safari/604.1",
-          "Accept-Language": "en-US,en;q=0.9",
-          "Accept": "text/html,application/xhtml+xml",
-          "Sec-Fetch-Dest": "document",
-          "Sec-Fetch-Mode": "navigate",
-        },
-      });
-
-      if (response.ok) {
-        const html = await response.text();
-        
-        // Extract JSON data from HTML script tag
-        const match = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s);
-        if (match) {
-          const jsonData = JSON.parse(match[1]);
-          if (jsonData.itemListElement && Array.isArray(jsonData.itemListElement)) {
-            const posts = jsonData.itemListElement
-              .slice(0, 3)
-              .map((item: any) => ({
-                id: item.url?.split("/").filter(Boolean).pop() || Math.random().toString(),
-                caption: item.description || "Instagram Post",
-                mediaUrl: item.image || "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop",
-                permalink: item.url || `https://instagram.com/${username}`,
-                timestamp: new Date(item.datePublished || Date.now()).toISOString(),
-              }));
-            
-            if (posts.length > 0) {
-              console.log(`✓ Fetched ${posts.length} posts from Instagram (JSON)`);
-              return res.status(200).json({ posts });
-            }
-          }
-        }
-      }
-    } catch (error) {
-      console.error("Instagram JSON API error:", error);
-    }
-
-    // Fallback: Return instructional message
-    console.log("⚠ Could not fetch real Instagram posts. To enable:");
-    console.log("1. Get a RapidAPI key from https://rapidapi.com/instagram-data1-instagram-data2/api/instagram-data1");
-    console.log("2. Add to .env: RAPIDAPI_KEY=your_key_here");
-    
-    const placeholderPosts = [
-      {
-        id: "1",
-        caption: "Follow @utxuiux for daily design inspiration and UI/UX tips",
-        mediaUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop",
-        permalink: "https://instagram.com/utxuiux",
-        timestamp: new Date().toISOString(),
-      },
-      {
-        id: "2",
-        caption: "Explore the latest design trends and creative work",
-        mediaUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop",
-        permalink: "https://instagram.com/utxuiux",
-        timestamp: new Date(Date.now() - 86400000).toISOString(),
-      },
-      {
-        id: "3",
-        caption: "Design systems and component libraries",
-        mediaUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop",
-        permalink: "https://instagram.com/utxuiux",
-        timestamp: new Date(Date.now() - 172800000).toISOString(),
-      },
-    ];
-
-    return res.status(200).json({ posts: placeholderPosts });
+    return res.status(200).json({ posts: buildFallbackPosts() });
   } catch (error: any) {
-    console.error("Instagram posts error:", error);
-    return res.status(500).json({
-      error: "Failed to fetch Instagram posts",
-      details: error.message,
-    });
+    return res.status(200).json({ posts: buildFallbackPosts() });
   }
 }

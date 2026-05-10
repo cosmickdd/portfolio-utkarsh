@@ -25,12 +25,6 @@ const BehanceIcon = () => (
   </svg>
 );
 
-const DribbbleIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-full h-full" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
-  </svg>
-);
-
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" className="w-full h-full" fill="currentColor">
     <path fillRule="evenodd" clipRule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" />
@@ -38,6 +32,13 @@ const InstagramIcon = () => (
     <path fillRule="evenodd" clipRule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
   </svg>
 );
+
+const socialLinks = [
+  { Icon: TwitterIcon, href: "https://twitter.com/cosmickdd", label: "Twitter" },
+  { Icon: LinkedInIcon, href: "https://linkedin.com/in/cosmickdd", label: "LinkedIn" },
+  { Icon: BehanceIcon, href: "https://behance.net/cosmickdd", label: "Behance" },
+  { Icon: InstagramIcon, href: "https://instagram.com/utxuiux", label: "Instagram" },
+];
 
 export default function Header() {
   const location = useLocation();
@@ -62,30 +63,32 @@ export default function Header() {
     <header
       className={`
         fixed top-0 left-0 w-full z-50
-        transition-all duration-300
-        bg-black
-        backdrop-blur-md
+        transition-all duration-500
+        ${isScrolled 
+          ? "bg-black/95 backdrop-blur-xl shadow-lg shadow-black/10" 
+          : "bg-black backdrop-blur-md"}
       `}
     >
-      <div className="max-w-[1900px] mx-auto flex items-center justify-between px-3 sm:px-5 md:px-10 py-3 sm:py-4 md:py-6">
+      <div className="max-w-[1900px] mx-auto flex items-center justify-between px-3 sm:px-5 md:px-10 py-3 sm:py-4 md:py-5">
 
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 sm:gap-3">
-          <img src="/logo.svg" alt="COSMICKDD" className="h-5 sm:h-6 md:h-7 lg:h-9 w-auto" />
+        <a href="/" className="flex items-center gap-2 sm:gap-3 group">
+          <img src="/logo.svg" alt="COSMICKDD" className="h-5 sm:h-6 md:h-7 lg:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={`
                 cursor-target relative text-sm font-medium transition-all duration-300
+                px-4 py-2 rounded-lg
                 ${
                   isActive(link.href)
-                    ? "text-white"
-                    : "text-white/60 hover:text-white"
+                    ? "text-white bg-white/10"
+                    : "text-white/50 hover:text-white hover:bg-white/5"
                 }
               `}
             >
@@ -94,10 +97,11 @@ export default function Header() {
               {isActive(link.href) && (
                 <span
                   className="
-                    absolute left-1/2 -bottom-1
+                    absolute left-1/2 -bottom-0.5
                     w-4 h-[2px]
                     bg-white
                     -translate-x-1/2
+                    rounded-full
                     transition-all duration-300
                   "
                 />
@@ -107,20 +111,21 @@ export default function Header() {
         </nav>
 
         {/* Social Icons */}
-        <div className="flex items-center gap-2.5 sm:gap-3.5 md:gap-5 lg:gap-6">
-          {[TwitterIcon, LinkedInIcon, BehanceIcon, InstagramIcon].map(
-            (Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white hover:opacity-70 transition"
-              >
+        <div className="flex items-center gap-1 sm:gap-1.5">
+          {socialLinks.map(({ Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={label}
+              className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg text-white/50 hover:text-white hover:bg-white/10 transition-all duration-300"
+            >
+              <div className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                 <Icon />
-              </a>
-            )
-          )}
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </header>

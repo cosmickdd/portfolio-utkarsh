@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,6 +21,9 @@ export default function Layout({ children, onChatOpen }: LayoutProps) {
       <main className="pt-24 sm:pt-32 md:pt-40">
         {children}
       </main>
+
+      {/* FOOTER */}
+      <Footer />
 
     </div>
   );

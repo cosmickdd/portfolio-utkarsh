@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 interface SplitImageProps {
   sliderPos: number;
@@ -14,15 +14,28 @@ export default function SplitImage({
   className = "",
 }: SplitImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   const updatePosition = (clientX: number) => {
     if (!containerRef.current) return;
-
     const rect = containerRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
     const percent = Math.min(100, Math.max(0, (x / rect.width) * 100));
-
     setSliderPos(percent);
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    setIsDragging(true);
+    updatePosition(e.clientX);
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (isDragging) updatePosition(e.clientX);
+  };
+
+  const handlePointerUp = () => {
+    setIsDragging(false);
   };
 
   return (
@@ -31,16 +44,16 @@ export default function SplitImage({
         ref={containerRef}
         className="
           relative
-          w-[200px]
-          sm:w-[240px]
-          md:w-[280px]
-          lg:w-[320px]
-          select-none
-          touch-none
+          w-[220px] sm:w-[260px] md:w-[300px] lg:w-[340px]
+          select-none touch-none
+          overflow-hidden
         "
-        onPointerMove={(e) => updatePosition(e.clientX)}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        style={{ cursor: "ew-resize" }}
       >
-        {/* BASE IMAGE */}
+        {/* BASE IMAGE — designer side (sets the container size) */}
         <img
           src="/mvp/mobilescreen1.png"
           alt="Designer"
@@ -48,28 +61,25 @@ export default function SplitImage({
           draggable={false}
         />
 
-        {/* OVERLAY IMAGE */}
+        {/* OVERLAY IMAGE — developer side, pinned to exact same dimensions */}
         <div
-          className="absolute inset-0 overflow-hidden pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
         >
           <img
             src="/mvp/mobilescreen2.png"
             alt="Developer"
-            className="w-full h-auto block"
+            className="absolute inset-0 w-full h-full object-cover object-top"
             draggable={false}
-            style={{
-              transform: "translateY(-4px)", // alignment fix
-            }}
           />
         </div>
 
-        {/* DIVIDER */}
+        {/* DIVIDER — clean 1px line, no handle */}
         <div
-          className="absolute top-0 bottom-0 pointer-events-none"
-          style={{ left: `${sliderPos}%` }}
+          className="absolute top-0 bottom-0 z-30 pointer-events-none"
+          style={{ left: `${sliderPos}%`, transform: "translateX(-0.5px)" }}
         >
-          <div className="w-[2px] h-full bg-neutral-300" />
+          <div className="w-[1px] h-full bg-white/80" />
         </div>
       </div>
     </div>

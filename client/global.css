@@ -1,6 +1,6 @@
 /** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -112,6 +112,8 @@
       Roboto,
       Helvetica,
       sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html,
@@ -136,6 +138,10 @@
     white-space: pre;
   }
 }
+
+/* ========================================
+   Animations
+   ======================================== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -150,6 +156,7 @@
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out;
 }
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -174,8 +181,20 @@
   }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ========================================
+   Global Layout
+   ======================================== */
 html, body {
-  background-color: #030712;
+  background-color: #ffffff;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -186,4 +205,41 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+/* ========================================
+   Selection Styling
+   ======================================== */
+::selection {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: inherit;
+}
+
+/* ========================================
+   Scrollbar Styling (subtle)
+   ======================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ========================================
+   Focus visible ring for accessibility
+   ======================================== */
+:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.8);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

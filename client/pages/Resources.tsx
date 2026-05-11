@@ -432,9 +432,9 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
                 <p className="text-gray-500 text-base font-medium">Instagram posts loading...</p>
                 <p className="text-gray-400 text-sm mt-1">Make sure your Instagram account is public</p>
               </div>
-            ) : (}
-
-            {/* CTA Button */}
+            ) : (
+              <div>Empty state or error</div>
+            )}
             <div className="flex justify-center pt-2">
               <a
                 href="https://instagram.com/utxuiux"

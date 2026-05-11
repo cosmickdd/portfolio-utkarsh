@@ -1,4 +1,4 @@
-import { ExternalLink, Mail, Instagram, Github } from "lucide-react";
+import { Mail, Instagram, Github } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -34,8 +34,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
+        <div className="mt-12 pt-8 border-t border-gray-800 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <p className="text-gray-400 text-sm">© 2026 Utkarsh Tiwari. Built with React, TypeScript, and Tailwind CSS.</p>
+          <div className="flex items-center gap-6 md:justify-self-end">
+            <a href="https://twitter.com/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">Twitter</a>
+            <a href="https://linkedin.com/in/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+            <a href="https://github.com/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">GitHub</a>
+          </div>
         </div>
       </div>
     </footer>

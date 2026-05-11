@@ -154,19 +154,19 @@ export default function ProjectThree({ onChatOpen }: { onChatOpen?: () => void }
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=450&fit=crop&sat=-100" alt="Architecture diagram" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
-                <p className="text-[14px] text-[#666666] mt-4">Architecture — Multi-region sync</p>
+                <p className="text-[14px] text-[#666666] mt-4">Architecture  -  Multi-region sync</p>
               </div>
               <div>
                 <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=450&fit=crop&sat=-100" alt="Presence UI" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
-                <p className="text-[14px] text-[#666666] mt-4">Presence — Real-time avatars</p>
+                <p className="text-[14px] text-[#666666] mt-4">Presence  -  Real-time avatars</p>
               </div>
               <div>
                 <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&h=450&fit=crop&sat=-100" alt="Conflict resolution" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
-                <p className="text-[14px] text-[#666666] mt-4">Conflicts — CRDT resolution</p>
+                <p className="text-[14px] text-[#666666] mt-4">Conflicts  -  CRDT resolution</p>
               </div>
               <div>
                 <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=450&fit=crop&sat=-100" alt="Performance monitoring" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
-                <p className="text-[14px] text-[#666666] mt-4">Performance — Sub-100ms latency</p>
+                <p className="text-[14px] text-[#666666] mt-4">Performance  -  Sub-100ms latency</p>
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@ export default function ProjectThree({ onChatOpen }: { onChatOpen?: () => void }
                 The biggest insight: invisible infrastructure is the best infrastructure. Users don't care about CRDT algorithms or conflict resolution. They care that their changes appear instantly and stay consistent. We hid the complexity behind a simple UX.
               </p>
               <p className="text-[16px] leading-[1.6] text-black">
-                This project taught me that performance isn't a feature—it's part of the product. When latency becomes invisible, it becomes part of the experience itself.
+                This project taught me that performance isn't a feature - it's part of the product. When latency becomes invisible, it becomes part of the experience itself.
               </p>
             </div>
           </div>

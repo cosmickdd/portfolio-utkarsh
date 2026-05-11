@@ -102,7 +102,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
     <Layout onChatOpen={onChatOpen}>
       <main className="bg-white overflow-hidden">
 
-        {/* HERO — Side-by-side layout */}
+        {/* HERO  -  Side-by-side layout */}
         <section className="px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 lg:pt-24 pb-16 sm:pb-24 lg:pb-32 relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute top-20 right-10 w-[400px] h-[400px] bg-gradient-to-bl from-blue-50 to-transparent rounded-full blur-3xl opacity-40 pointer-events-none" />
@@ -111,7 +111,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
           <div className="max-w-6xl mx-auto relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
               
-              {/* Left — Info */}
+              {/* Left  -  Info */}
               <div>
                 <div className={`transition-all duration-700 delay-100 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 mb-5">
@@ -134,7 +134,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                   </p>
                 </div>
 
-                {/* Trust Signals — Premium Cards */}
+                {/* Trust Signals  -  Premium Cards */}
                 <div className={`space-y-3 transition-all duration-700 delay-500 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
                   {trustSignals.map(({ icon: Icon, text, detail }) => (
                     <div
@@ -190,7 +190,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                 </div>
               </div>
 
-              {/* Right — Form */}
+              {/* Right  -  Form */}
               <div className={`transition-all duration-700 delay-400 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
                 {!submitted ? (
                   <div className="bg-gray-50/80 rounded-xl p-6 sm:p-8 border border-gray-200/80 shadow-sm-card">

@@ -84,7 +84,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
               </p>
               
               <p className="text-[18px] leading-[1.6] text-black">
-                Candidates need realistic practice with immediate feedback, personalized guidance, and confidence-building exercises—all accessible and affordable.
+                Candidates need realistic practice with immediate feedback, personalized guidance, and confidence-building exercises - all accessible and affordable.
               </p>
               
               <div className="space-y-4 pt-4">
@@ -212,7 +212,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
                   alt="Onboarding flow exploration"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Onboarding — Fast entry to first interview</p>
+                <p className="text-[14px] text-[#666666] mt-4">Onboarding  -  Fast entry to first interview</p>
               </div>
               
               <div>
@@ -221,7 +221,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
                   alt="Interview interface design"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Interview Screen — Question presentation & recording</p>
+                <p className="text-[14px] text-[#666666] mt-4">Interview Screen  -  Question presentation & recording</p>
               </div>
               
               <div>
@@ -230,7 +230,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
                   alt="Feedback interface"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Feedback Flow — AI analysis & guidance</p>
+                <p className="text-[14px] text-[#666666] mt-4">Feedback Flow  -  AI analysis & guidance</p>
               </div>
               
               <div>
@@ -239,7 +239,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
                   alt="Progress dashboard"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Dashboard — Progress tracking & insights</p>
+                <p className="text-[14px] text-[#666666] mt-4">Dashboard  -  Progress tracking & insights</p>
               </div>
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
               </h2>
               
               <p className="text-[16px] leading-[1.6] text-black">
-                This was my first experience as a founding designer at a hyper-growth startup. The viral adoption surprised us—the product resonated deeply because it solved a real pain point with meaningful, personalized AI feedback.
+                This was my first experience as a founding designer at a hyper-growth startup. The viral adoption surprised us - the product resonated deeply because it solved a real pain point with meaningful, personalized AI feedback.
               </p>
               
               <p className="text-[16px] leading-[1.6] text-black">
@@ -338,7 +338,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
               </p>
               
               <p className="text-[16px] leading-[1.6] text-black">
-                The 5,000+ signups in 15 days taught me that product-market fit trumps pixel-perfect design. Users didn't care about visual polish—they cared that the AI understood their weaknesses and guided improvement.
+                The 5,000+ signups in 15 days taught me that product-market fit trumps pixel-perfect design. Users didn't care about visual polish - they cared that the AI understood their weaknesses and guided improvement.
               </p>
               
               <div className="pt-8 space-y-6">

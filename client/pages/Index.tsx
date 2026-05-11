@@ -19,7 +19,7 @@ function DesignBackground({ opacity }: { opacity: number }) {
       className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block"
       style={{ opacity, transition: "opacity 600ms ease" }}
     >
-      {/* Overlapping color circles — like a color wheel study */}
+      {/* Overlapping color circles  -  like a color wheel study */}
       <svg
         className="absolute"
         style={{ top: "8%", left: "4%" }}
@@ -30,7 +30,7 @@ function DesignBackground({ opacity }: { opacity: number }) {
         <circle cx="90" cy="105" r="55" fill="#fde68a" opacity="0.25" />
       </svg>
 
-      {/* Bezier curve — like a pen tool path */}
+      {/* Bezier curve  -  like a pen tool path */}
       <svg
         className="absolute"
         style={{ top: "42%", left: "3%" }}
@@ -47,7 +47,7 @@ function DesignBackground({ opacity }: { opacity: number }) {
         {/* Anchor points */}
         <circle cx="10" cy="70" r="3" fill="#c4b5fd" opacity="0.5" />
         <circle cx="170" cy="25" r="3" fill="#f9a8d4" opacity="0.5" />
-        {/* Control point handles — thin lines */}
+        {/* Control point handles  -  thin lines */}
         <line x1="10" y1="70" x2="50" y2="10" stroke="#c4b5fd" strokeWidth="0.5" opacity="0.25" />
         <line x1="170" y1="25" x2="90" y2="80" stroke="#f9a8d4" strokeWidth="0.5" opacity="0.25" />
         <circle cx="50" cy="10" r="2" fill="none" stroke="#c4b5fd" strokeWidth="0.8" opacity="0.3" />
@@ -86,7 +86,7 @@ function DesignBackground({ opacity }: { opacity: number }) {
 
 /* ─────────────────────────────────────────────
    DEVELOPER BACKGROUND
-   Scattered, rotated code snippets — Adham style
+   Scattered, rotated code snippets  -  Adham style
    ───────────────────────────────────────────── */
 function CodeBackground({ opacity }: { opacity: number }) {
   const snippets = useMemo(() => [

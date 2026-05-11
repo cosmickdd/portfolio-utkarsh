@@ -74,7 +74,7 @@ export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
         <span className="inline-block w-[1.5px] h-[14px] bg-gray-300 ml-0.5 animate-pulse rounded-full align-middle" />
       </span>
 
-      {/* Subtle arrow — simple SVG, not an imported icon */}
+      {/* Subtle arrow  -  simple SVG, not an imported icon */}
       <svg
         width="14" height="14" viewBox="0 0 14 14" fill="none"
         className="flex-shrink-0 ml-3 text-gray-300 group-hover:text-gray-500 group-hover:translate-x-0.5 transition-all duration-300"

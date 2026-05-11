@@ -53,7 +53,7 @@ export default function SplitImage({
         onPointerUp={handlePointerUp}
         style={{ cursor: "ew-resize" }}
       >
-        {/* BASE IMAGE — designer side (sets the container size) */}
+        {/* BASE IMAGE  -  designer side (sets the container size) */}
         <img
           src="/mvp/mobilescreen1.png"
           alt="Designer"
@@ -61,7 +61,7 @@ export default function SplitImage({
           draggable={false}
         />
 
-        {/* OVERLAY IMAGE — developer side, pinned to exact same dimensions */}
+        {/* OVERLAY IMAGE  -  developer side, pinned to exact same dimensions */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
@@ -74,7 +74,7 @@ export default function SplitImage({
           />
         </div>
 
-        {/* DIVIDER — clean 1px line, no handle */}
+        {/* DIVIDER  -  clean 1px line, no handle */}
         <div
           className="absolute top-0 bottom-0 z-30 pointer-events-none"
           style={{ left: `${sliderPos}%`, transform: "translateX(-0.5px)" }}

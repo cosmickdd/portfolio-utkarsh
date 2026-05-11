@@ -9,7 +9,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
     {
       id: "aiinterviewagents",
       title: "AI Interview Agents",
-      description: "Designed an interview prep platform that grew incredibly fast—5,000+ signups in 15 days. The interface made preparation feel effortless and actually enjoyable.",
+      description: "Designed an interview prep platform that grew incredibly fast - 5,000+ signups in 15 days. The interface made preparation feel effortless and actually enjoyable.",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
       tags: ["AI", "Founding Designer", "Rapid Growth"],
       link: "/projects/aiinterviewagents",
@@ -47,12 +47,51 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       category: "designer",
       metric: "Complete design system • Live production website",
     },
+    {
+      id: "quizaki",
+      title: "Quizaki",
+      description: "Designed an interactive quiz competition platform that brings excitement to learning. Built gamified experiences with real-time leaderboards and celebration moments.",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f70d504f0?w=800&h=600&fit=crop",
+      tags: ["Gamification", "UI/UX", "Real-time"],
+      link: "/projects/quizaki",
+      links: {
+        caseStudy: "/quizaki",
+      },
+      category: "designer",
+      metric: "100+ participants • Engagement-focused design",
+    },
+    {
+      id: "design-system-project",
+      title: "Design System - Component Library",
+      description: "Built a comprehensive design system with 40+ components, design tokens, and documentation. Enabled teams to ship features 3x faster with consistent branding.",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+      tags: ["Design Systems", "Figma", "Documentation"],
+      link: "https://www.figma.com/community",
+      links: {
+        design: "https://www.figma.com/community",
+      },
+      category: "designer",
+      metric: "40+ components • Used by 50+ designers",
+    },
+    {
+      id: "mobile-app-redesign",
+      title: "Mobile App Redesign - Fintech",
+      description: "Led redesign of a fintech mobile app with focus on accessibility and user onboarding. Increased activation rate by 35% through improved UX flows.",
+      image: "https://images.unsplash.com/photo-1512941691920-25bda77a13fe?w=800&h=600&fit=crop",
+      tags: ["Mobile Design", "Fintech", "UX Research"],
+      link: "/projects/fintech-mobile",
+      links: {
+        caseStudy: "/fintech-mobile",
+      },
+      category: "designer",
+      metric: "35% higher activation • 200k+ monthly users",
+    },
   ],
   developer: [
     {
       id: "aiocc",
       title: "AI Operations Command Center",
-      description: "Built a command center that connects all your tools—Gmail, Slack, Notion, Google Drive—in one place. Smart automation that actually saves time and makes work easier.",
+      description: "Built a command center that connects all your tools - Gmail, Slack, Notion, Google Drive - in one place. Smart automation that actually saves time and makes work easier.",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
       tags: ["Python", "Composio", "Automation"],
       link: "/projects/aiocc",
@@ -88,6 +127,45 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       category: "developer",
       metric: "Sub-second load times • 99.9% uptime guarantee",
     },
+    {
+      id: "realtime-collab",
+      title: "Real-time Collaboration Platform",
+      description: "Built a collaborative document editor with real-time sync, cursor presence, and conflict resolution. Powers 10k+ users daily.",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
+      tags: ["React", "WebSocket", "CRDT"],
+      link: "/projects/collab-platform",
+      links: {
+        caseStudy: "/collab-platform",
+      },
+      category: "developer",
+      metric: "10k+ daily users • Sub-100ms latency",
+    },
+    {
+      id: "data-analytics-dashboard",
+      title: "Data Analytics Dashboard",
+      description: "Built a real-time analytics dashboard that processes 100k+ events per day. Visualizes complex metrics with interactive charts and custom queries.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      tags: ["TypeScript", "D3.js", "PostgreSQL"],
+      link: "/projects/analytics-dashboard",
+      links: {
+        caseStudy: "/analytics-dashboard",
+      },
+      category: "developer",
+      metric: "100k+ events/day • 50+ concurrent users",
+    },
+    {
+      id: "ml-recommendation-engine",
+      title: "ML-Powered Recommendation Engine",
+      description: "Developed machine learning recommendation system that increased product discovery by 40%. Trained models on user behavior and content similarity.",
+      image: "https://images.unsplash.com/photo-1555949519-1a70d38e5e5d?w=800&h=600&fit=crop",
+      tags: ["Python", "TensorFlow", "ML Ops"],
+      link: "/projects/ml-recommendations",
+      links: {
+        caseStudy: "/ml-recommendations",
+      },
+      category: "developer",
+      metric: "40% increase in discovery • 0.92 accuracy score",
+    },
   ],
 };
 
@@ -97,7 +175,7 @@ export default function ProjectsSection() {
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const ITEMS_PER_PAGE = 3;
+  const ITEMS_PER_PAGE = 6;
   const projects = PROJECTS[activeTab];
   const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
   const startIndex = currentPage * ITEMS_PER_PAGE;
@@ -385,39 +463,6 @@ export default function ProjectsSection() {
             </div>
           </div>
 
-          {/* FOOTER BOTTOM */}
-          <div className="mt-16 sm:mt-20 pt-12 border-t border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div className="flex items-center gap-2">
-              <img src="/images/logoicon.png" alt="Logo" className="w-6 h-6" />
-              <p className="text-sm text-slate-400">© 2025. All rights reserved.</p>
-            </div>
-            <div className="flex items-center gap-6 md:justify-self-end">
-              <a
-                href="https://twitter.com/cosmickdd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-slate-400 hover:text-white transition-colors"
-              >
-                Twitter
-              </a>
-              <a
-                href="https://linkedin.com/in/cosmickdd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-slate-400 hover:text-white transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/cosmickdd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-slate-400 hover:text-white transition-colors"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>

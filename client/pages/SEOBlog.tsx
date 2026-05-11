@@ -28,7 +28,7 @@ export default function SEOBlog() {
                 UI/UX Design at AKGEC: A Student's Journey
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                AKGEC (Ajay Kumar Garg Engineering College) is fostering a culture of innovation where students engage in meaningful design projects. As a UI/UX designer and product designer at AKGEC, I've discovered that design thinking goes beyond creating beautiful interfaces—it's about solving real problems within our technical community.
+                AKGEC (Ajay Kumar Garg Engineering College) is fostering a culture of innovation where students engage in meaningful design projects. As a UI/UX designer and product designer at AKGEC, I've discovered that design thinking goes beyond creating beautiful interfaces - it's about solving real problems within our technical community.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
                 The Cloud Computing Cell at AKGEC provides a unique platform where design intersects with cloud technology, enabling students like me to contribute to projects that have tangible impact. This intersection of design and technology is where real learning happens.
@@ -133,7 +133,7 @@ export default function SEOBlog() {
                 Being part of AKGEC has shaped my understanding of design's role in technology education. The college's focus on practical, hands-on learning aligns perfectly with how UI/UX design should be taught and practiced.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Within the Cloud Computing Cell specifically, design isn't an afterthought—it's integrated into every project from conception. This approach ensures that technical solutions are not just functional, but also user-centric and accessible.
+                Within the Cloud Computing Cell specifically, design isn't an afterthought - it's integrated into every project from conception. This approach ensures that technical solutions are not just functional, but also user-centric and accessible.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
                 I'm committed to sharing my design knowledge with fellow AKGEC students, helping them understand how user experience principles can elevate their technical projects and future careers.

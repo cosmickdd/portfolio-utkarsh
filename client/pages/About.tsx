@@ -20,7 +20,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
       ([entry]) => {
         if (!entry.isIntersecting) return;
 
-        const targets = [6, 3, 20, 100];
+        const targets = [3, 3, 20, 100];
         const start = performance.now();
         const duration = 1800;
 
@@ -44,7 +44,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
     <Layout onChatOpen={onChatOpen}>
       <main className="bg-white">
 
-        {/* HERO — Refined with entrance animation */}
+        {/* HERO  -  Refined with entrance animation */}
         <section className="px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 lg:pb-32 relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute top-20 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-gray-100 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
@@ -68,7 +68,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
             <div className={`transition-all duration-700 delay-300 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed font-light mb-8 sm:mb-10">
-                I'm both a designer and engineer. I don't just design products—I build them myself. No handoff. No lost translation. I focus on clarity, systems, and creating products that genuinely work and feel right.
+                I'm both a designer and engineer. I don't just design products - I build them myself. No handoff. No lost translation. I focus on clarity, systems, and creating products that genuinely work and feel right.
               </p>
             </div>
 
@@ -87,7 +87,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
           </div>
         </section>
 
-        {/* STORY — Photo + Narrative */}
+        {/* STORY  -  Photo + Narrative */}
         <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 border-t border-gray-100">
           <div className="max-w-7xl mx-auto">
             {/* Two-column layout */}
@@ -110,44 +110,42 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
               </div>
 
               {/* Content */}
-              <div className="space-y-10 lg:pt-4">
+              <div className="space-y-8 lg:pt-4">
                 <div>
                   <span className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold">Who I Am</span>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mt-3 mb-5 leading-tight">
-                    Design meets code.<br />Quality never compromises.
+                    Designer & Engineer<br />Building Thoughtful Products
                   </h3>
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light mb-6">
-                    I grew up solving problems visually and logically. This duality shapes everything I do. When I design, I think about implementation. When I code, I obsess over the experience. The result? Products that work beautifully and feel right.
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light mb-5">
+                    I'm a full-stack maker. I design in Figma and build in code - without the gap between intention and reality. Over 3 years, I've learned that great products come from mastering both crafts.
                   </p>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light">
-                    Right now, I'm deep into ML and automation—finding ways to make products smarter, workflows faster, and human effort more intentional.
+                    Right now, I'm focused on AI and automation - making products smarter so complexity disappears for users.
                   </p>
                 </div>
 
-                {/* Philosophy Cards - Simplified */}
-                <div className="space-y-3 mt-8">
-                  <h4 className="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-4">My philosophy</h4>
-                  {[
-                    "Great design must work in production, not just in Figma",
-                    "Details matter. So does speed. Both can exist together",
-                    "Technology should serve people, not the other way around"
-                  ].map((belief, idx) => (
-                    <div key={idx} className="flex items-start gap-3 p-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded text-gray-400 text-sm font-semibold mt-0.5">
-                        →
+                {/* Core Values - Horizontal Cards */}
+                <div>
+                  <h4 className="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-3">What Guides Me</h4>
+                  <div className="space-y-2">
+                    {[
+                      "Details matter more than shortcuts",
+                      "Ship to learn, iterate with real feedback",
+                      "Simplicity is the hardest engineering problem"
+                    ].map((value, idx) => (
+                      <div key={idx} className="flex items-center gap-3 text-sm text-gray-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
+                        <p>{value}</p>
                       </div>
-                      <p className="text-sm text-gray-600 leading-relaxed">
-                        {belief}
-                      </p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* PROCESS — Horizontal timeline feel */}
+        {/* PROCESS  -  Horizontal timeline feel */}
         <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 bg-gray-50/50 border-t border-gray-100">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
@@ -183,7 +181,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
           </div>
         </section>
 
-        {/* BEYOND WORK — Personal interests & experiences */}
+        {/* BEYOND WORK  -  Personal interests & experiences */}
         <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 border-t border-gray-100 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
@@ -323,7 +321,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
           </div>
         </section>
 
-        {/* IMPACT — Premium dark section with animated counters */}
+        {/* IMPACT  -  Premium dark section with animated counters */}
         <section ref={statsRef} className="px-4 sm:px-6 lg:px-8 py-20 sm:py-32 lg:py-40 bg-black text-white relative overflow-hidden">
           {/* Animated gradient mesh background */}
           <div className="absolute inset-0 opacity-20 pointer-events-none">

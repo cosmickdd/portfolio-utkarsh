@@ -52,9 +52,9 @@ export default function ProjectCard({
           type="button"
           aria-label={`Open links for ${project.title}`}
           className={`
-            group cursor-pointer relative flex flex-col h-full bg-white rounded-lg overflow-hidden
+            group cursor-pointer relative flex flex-col h-full bg-white rounded-xl overflow-hidden
             border border-gray-200 hover:border-gray-300
-            hover:shadow-md transition-all duration-200 text-left
+            hover:shadow-lg transition-all duration-300 text-left
             focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2
             ${
               isVisible
@@ -63,13 +63,13 @@ export default function ProjectCard({
             }
           `}
         >
-          {/* IMAGE CONTAINER */}
-          <div className="relative w-full h-48 sm:h-56 overflow-hidden bg-gray-100 flex-shrink-0">
+          {/* IMAGE CONTAINER - Takes up most of the card */}
+          <div className="relative w-full flex-grow overflow-hidden bg-gray-100 min-h-[200px]">
             {!imgError ? (
               <img
                 src={project.image}
                 alt={`${project.title}`}
-                className="w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-200"
+                className="w-full h-full object-cover group-hover:opacity-95 transition-opacity duration-300"
                 style={{ objectPosition: project.category === "developer" ? "50% 38%" : "50% 50%" }}
                 onError={() => setImgError(true)}
               />
@@ -88,100 +88,86 @@ export default function ProjectCard({
                 </div>
               </div>
             )}
-
-            {/* Category Badge */}
-            <div className="absolute top-3 left-3">
-              <span className="text-[10px] font-semibold uppercase tracking-wide text-white px-2.5 py-1 rounded bg-black/60 backdrop-blur-sm">
-                {project.category === "designer" ? "Design" : "Dev"}
-              </span>
-            </div>
           </div>
 
-          {/* CONTENT */}
-          <div className="flex flex-col flex-grow p-5 sm:p-6">
+          {/* CONTENT - Minimal at bottom */}
+          <div className="flex flex-col p-4 sm:p-5 flex-shrink-0">
             {/* Title */}
-            <h3 className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2">
+            <h3 className="font-semibold text-base text-gray-900 mb-1 line-clamp-2">
               {project.title}
             </h3>
 
             {/* Description */}
-            <p className="text-sm text-gray-600 leading-relaxed line-clamp-2 mb-3">
+            <p className="text-xs text-gray-500 leading-relaxed line-clamp-1">
               {project.description}
             </p>
-
-            {/* Impact Metric */}
-            {(project.impact || project.metric) && (
-              <div className="mb-4 p-3 rounded-lg bg-gray-50 border border-gray-200">
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                  <p className="text-xs font-medium text-gray-700">
-                    {project.metric || project.impact}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* TAGS */}
-            <div className="flex flex-wrap gap-1.5 mt-auto">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] px-2 py-1 rounded bg-gray-100 text-gray-600 font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
         </button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md border border-gray-200 bg-white rounded-lg shadow-lg">
-        <DialogHeader className="space-y-2">
-          <DialogTitle className="text-xl text-gray-900 font-semibold">
-            {project.title}
-          </DialogTitle>
-          <DialogDescription className="text-gray-600 text-sm">
-            Access the project links below.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-2 pt-2">
-          <a
-            href={linkSet.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-between rounded-lg border border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 px-4 py-3 text-sm font-medium text-gray-900 transition-colors"
-          >
-            <div className="flex items-center gap-3">
-              <ExternalLink className="w-4 h-4 text-gray-500" />
-              Live Project
-            </div>
-            <span className="text-gray-400">→</span>
-          </a>
-          <a
-            href={linkSet.design}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-between rounded-lg border border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 px-4 py-3 text-sm font-medium text-gray-900 transition-colors"
-          >
-            <div className="flex items-center gap-3">
-              <Palette className="w-4 h-4 text-gray-500" />
-              Design
-            </div>
-            <span className="text-gray-400">→</span>
-          </a>
-          <a
-            href={linkSet.caseStudy}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-between rounded-lg border border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 px-4 py-3 text-sm font-medium text-gray-900 transition-colors"
-          >
-            <div className="flex items-center gap-3">
-              <FileCode className="w-4 h-4 text-gray-500" />
-              Case Study
-            </div>
-            <span className="text-gray-400">→</span>
-          </a>
+      <DialogContent className="sm:max-w-md w-[95vw] h-auto max-h-[90vh] border border-gray-200 bg-white rounded-2xl shadow-xl p-0 overflow-hidden">
+        {/* Header with gradient background */}
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 px-5 sm:px-6 py-6 sm:py-8 border-b border-gray-200">
+          <DialogHeader className="space-y-3">
+            <DialogTitle className="text-xl sm:text-2xl text-gray-900 font-bold break-words">
+              {project.title}
+            </DialogTitle>
+            <DialogDescription className="text-gray-600 text-sm sm:text-sm leading-relaxed line-clamp-4">
+              {project.description}
+            </DialogDescription>
+            {project.tags && project.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-2">
+                {project.tags.slice(0, 3).map((tag) => (
+                  <span key={tag} className="px-2 sm:px-2.5 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-gray-600">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </DialogHeader>
+        </div>
+
+        {/* Links section */}
+        <div className="px-5 sm:px-6 py-5 sm:py-6">
+          <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">Access Project</p>
+          <div className="space-y-2.5 sm:space-y-3">
+            <a
+              href={linkSet.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg border border-gray-200 hover:border-gray-900 bg-white hover:bg-gray-900 text-gray-900 hover:text-white font-medium transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 sm:active:scale-100 touch-target"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <ExternalLink className="w-4 h-4 flex-shrink-0" />
+                <span className="truncate">Live Project</span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </a>
+            <a
+              href={linkSet.design}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg border border-gray-200 hover:border-blue-500 bg-white hover:bg-blue-50 text-gray-900 hover:text-blue-900 font-medium transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 sm:active:scale-100 touch-target"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <Palette className="w-4 h-4 flex-shrink-0" />
+                <span className="truncate">View Design</span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </a>
+            <a
+              href={linkSet.caseStudy}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg border border-gray-200 hover:border-purple-500 bg-white hover:bg-purple-50 text-gray-900 hover:text-purple-900 font-medium transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 sm:active:scale-100 touch-target"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <FileCode className="w-4 h-4 flex-shrink-0" />
+                <span className="truncate">Read Case Study</span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </a>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

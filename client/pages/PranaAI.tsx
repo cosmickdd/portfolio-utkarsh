@@ -84,7 +84,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
               </p>
               
               <p className="text-[18px] leading-[1.6] text-black">
-                Users want preventive health advice based on their unique constitution, dietary preferences, and lifestyle—delivered in an accessible, modern format.
+                Users want preventive health advice based on their unique constitution, dietary preferences, and lifestyle - delivered in an accessible, modern format.
               </p>
               
               <div className="space-y-4 pt-4">
@@ -122,7 +122,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
                   Research
                 </h2>
                 <p className="text-[16px] leading-[1.6] text-black">
-                  I worked with Ayurvedic practitioners and interviewed 40+ wellness-conscious users. Users valued personalization above all—they wanted recommendations that felt tailored to their specific dosha, season, and lifestyle.
+                  I worked with Ayurvedic practitioners and interviewed 40+ wellness-conscious users. Users valued personalization above all - they wanted recommendations that felt tailored to their specific dosha, season, and lifestyle.
                 </p>
               </div>
               
@@ -210,7 +210,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
                   alt="Dosha assessment flow"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Dosha Assessment — Educational questionnaire</p>
+                <p className="text-[14px] text-[#666666] mt-4">Dosha Assessment  -  Educational questionnaire</p>
               </div>
               
               <div>
@@ -219,7 +219,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
                   alt="Personalized dashboard"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Dashboard — Dosha-filtered recommendations</p>
+                <p className="text-[14px] text-[#666666] mt-4">Dashboard  -  Dosha-filtered recommendations</p>
               </div>
               
               <div>
@@ -228,7 +228,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
                   alt="Wellness tips"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Wellness Tips — Daily actionable advice</p>
+                <p className="text-[14px] text-[#666666] mt-4">Wellness Tips  -  Daily actionable advice</p>
               </div>
               
               <div>
@@ -237,7 +237,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
                   alt="Educational content"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Learning — Understanding Ayurvedic principles</p>
+                <p className="text-[14px] text-[#666666] mt-4">Learning  -  Understanding Ayurvedic principles</p>
               </div>
             </div>
           </div>
@@ -326,7 +326,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
               </h2>
               
               <p className="text-[16px] leading-[1.6] text-black">
-                This project taught me that domain expertise matters in design. Working closely with Ayurvedic practitioners deepened my understanding of the philosophy, which made better design decisions possible. I wasn't just creating a UI—I was translating ancient wisdom into modern interfaces.
+                This project taught me that domain expertise matters in design. Working closely with Ayurvedic practitioners deepened my understanding of the philosophy, which made better design decisions possible. I wasn't just creating a UI - I was translating ancient wisdom into modern interfaces.
               </p>
               
               <p className="text-[16px] leading-[1.6] text-black">
@@ -334,7 +334,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
               </p>
               
               <p className="text-[16px] leading-[1.6] text-black">
-                The positive response (4.7 stars) validated that people genuinely crave holistic health approaches. The reviews mentioned feeling "understood" and "personalized"—exactly what we aimed for.
+                The positive response (4.7 stars) validated that people genuinely crave holistic health approaches. The reviews mentioned feeling "understood" and "personalized" - exactly what we aimed for.
               </p>
               
               <div className="pt-8 space-y-6">

@@ -107,7 +107,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
               </div>
               
               <blockquote className="border-l-2 border-black pl-6 italic text-[24px] sm:text-[28px] leading-[1.3] text-black mt-12">
-                "Travelers don't just book trips—they invest in experiences that could change their lives. The platform needs to honor that."
+                "Travelers don't just book trips - they invest in experiences that could change their lives. The platform needs to honor that."
               </blockquote>
             </div>
           </div>
@@ -212,7 +212,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                   alt="Homepage wireframe exploration"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Homepage — Hero layout exploration</p>
+                <p className="text-[14px] text-[#666666] mt-4">Homepage  -  Hero layout exploration</p>
               </div>
               
               <div>
@@ -221,7 +221,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                   alt="Trip detail wireframe"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Trip Detail — Information hierarchy study</p>
+                <p className="text-[14px] text-[#666666] mt-4">Trip Detail  -  Information hierarchy study</p>
               </div>
               
               <div>
@@ -230,7 +230,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                   alt="Booking flow wireframe"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Booking Flow — Multi-step progression</p>
+                <p className="text-[14px] text-[#666666] mt-4">Booking Flow  -  Multi-step progression</p>
               </div>
               
               <div>
@@ -239,7 +239,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                   alt="Guide profile wireframe"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />
-                <p className="text-[14px] text-[#666666] mt-4">Guide Profile — Trust element placement</p>
+                <p className="text-[14px] text-[#666666] mt-4">Guide Profile  -  Trust element placement</p>
               </div>
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
               </h2>
               
               <p className="text-[16px] leading-[1.6] text-black">
-                This project reinforced my belief that great design starts with deep user understanding. The research phase revealed insights that fundamentally shaped the design direction—particularly the importance of emotional connection in travel decisions.
+                This project reinforced my belief that great design starts with deep user understanding. The research phase revealed insights that fundamentally shaped the design direction - particularly the importance of emotional connection in travel decisions.
               </p>
               
               <p className="text-[16px] leading-[1.6] text-black">

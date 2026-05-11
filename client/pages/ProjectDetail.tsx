@@ -39,18 +39,18 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
       { label: "User Retention (Day 7)", value: "67%" },
     ],
     overview:
-      "AI Interview Agents is an intelligent interview preparation platform powered by conversational AI agents that simulate real interviews. As founding designer, I led the product design from conception through rapid scaling, achieving 5,000+ signups in the first 15 days—an extraordinary growth achievement driven by intuitive UX and product-market fit validation.",
+      "AI Interview Agents is an intelligent interview preparation platform powered by conversational AI agents that simulate real interviews. As founding designer, I led the product design from conception through rapid scaling, achieving 5,000+ signups in the first 15 days - an extraordinary growth achievement driven by intuitive UX and product-market fit validation.",
     challenge:
-      "Interview anxiety is real, but most prep platforms are outdated and static. We needed to create an experience where users felt like they were having real conversations with expert interviewers, not practicing against rigid templates. The platform had to be intuitive enough for non-technical users while leveraging cutting-edge AI. Time was critical—we had 15 days to validate product-market fit.",
+      "Interview anxiety is real, but most prep platforms are outdated and static. We needed to create an experience where users felt like they were having real conversations with expert interviewers, not practicing against rigid templates. The platform had to be intuitive enough for non-technical users while leveraging cutting-edge AI. Time was critical - we had 15 days to validate product-market fit.",
     solution:
-      "I designed a conversation-first interface that stripped away unnecessary UI chrome. Users jump directly into interviews with zero friction. Each interview agent has a distinct personality (encouraging, rigorous, technical) that users can choose. Real-time feedback appears naturally in conversation flow. Progress tracking is implicit, not forced. The design language emphasizes confidence—warm colors, encouraging copy, and celebratory micro-interactions for milestone completions. I also designed the onboarding to feel like starting a conversation with a coach, not a form-filling experience.",
+      "I designed a conversation-first interface that stripped away unnecessary UI chrome. Users jump directly into interviews with zero friction. Each interview agent has a distinct personality (encouraging, rigorous, technical) that users can choose. Real-time feedback appears naturally in conversation flow. Progress tracking is implicit, not forced. The design language emphasizes confidence - warm colors, encouraging copy, and celebratory micro-interactions for milestone completions. I also designed the onboarding to feel like starting a conversation with a coach, not a form-filling experience.",
     outcome:
       "5,000+ signups in 15 days with 24.3% conversion rate (industry average: 3-5%). Day 7 retention of 67%. User interviews revealed 91% of users described the experience as 'natural' and 'less intimidating than traditional prep.' The product achieved strong product-market fit signals, validating the AI-first interview prep category. Word-of-mouth and organic growth drove 40% of new users.",
     keyInsights: [
-      "Conversation interfaces must feel natural, not robotic—UI disappears when interaction is genuinely dialog-like",
+      "Conversation interfaces must feel natural, not robotic - UI disappears when interaction is genuinely dialog-like",
       "Rapid growth is possible when product design directly addresses core user anxiety, not just features",
-      "Onboarding is not a separate flow—it's the first experience, and it should feel like the core product",
-      "Micro-interactions and tone matter 10x more in AI products—they build trust in the intelligence layer",
+      "Onboarding is not a separate flow - it's the first experience, and it should feel like the core product",
+      "Micro-interactions and tone matter 10x more in AI products - they build trust in the intelligence layer",
       "Growth through word-of-mouth is the strongest validation that design resonates with users",
     ],
   },
@@ -80,7 +80,7 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
       "65% increase in user engagement with health recommendations. Session duration increased by 40%. Qualitative feedback showed improved trust in AI-generated guidance, with users describing the interface as 'transparent' and 'non-intimidating.'",
     keyInsights: [
       "Trust is built through clarity, not through minimalism",
-      "Mobile users interact with health advice differently than desktop users—different patterns emerge",
+      "Mobile users interact with health advice differently than desktop users - different patterns emerge",
       "Progressive disclosure reduces cognitive load while maintaining expert credibility",
     ],
   },
@@ -111,7 +111,7 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
     keyInsights: [
       "Brand and product design are inseparable in B2B SaaS",
       "Workflow guidance is a design problem, not just a training problem",
-      "Scientific credibility and user simplicity are not trade-offs—they can reinforce each other",
+      "Scientific credibility and user simplicity are not trade-offs - they can reinforce each other",
     ],
   },
   tvic: {
@@ -140,7 +140,7 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
       "False positive rate reduced by 42%. Operator decision time decreased by 28%. System adoption improved to 91% (from 62%). AI confidence scores now correlate with actual defect accuracy, indicating improved calibration.",
     keyInsights: [
       "Enterprise trust is earned through transparency, not through hiding uncertainty",
-      "Real-time systems need extreme clarity—ambiguity kills adoption",
+      "Real-time systems need extreme clarity - ambiguity kills adoption",
       "Operator feedback loops should be first-class features, not afterthoughts",
     ],
   },
@@ -161,15 +161,15 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
       { label: "Excitement Score", value: "87%" },
     ],
     overview:
-      "Quizaki is a live quiz platform built for competitive events. Participants answer questions in real-time and compete for top positions. The design challenge was creating moments of tension, excitement, and celebration—turning factual knowledge into thrilling competition.",
+      "Quizaki is a live quiz platform built for competitive events. Participants answer questions in real-time and compete for top positions. The design challenge was creating moments of tension, excitement, and celebration - turning factual knowledge into thrilling competition.",
     challenge:
       "Generic quiz platforms feel flat. We needed to design interactions that make participants feel the pressure of live competition, celebrate correct answers, and keep audiences engaged during events with hundreds of simultaneous players.",
     solution:
-      "I designed a series of micro-interactions: countdown timers with visual urgency, real-time leaderboard animations that reward correct answers instantly, confetti and celebration states for personal milestones, and tension-building reveals for final answers. Desktop and mobile experiences diverge intentionally—larger screens show full leaderboards; mobile prioritizes personal score feedback.",
+      "I designed a series of micro-interactions: countdown timers with visual urgency, real-time leaderboard animations that reward correct answers instantly, confetti and celebration states for personal milestones, and tension-building reveals for final answers. Desktop and mobile experiences diverge intentionally - larger screens show full leaderboards; mobile prioritizes personal score feedback.",
     outcome:
       "Event engagement increased by 58%. Average time-per-question rose by 22% (indicating deliberation, not distraction). Post-event feedback showed 87% of participants found the experience 'exciting' or 'very exciting.'",
     keyInsights: [
-      "Gamification without emotional design is just numbers—motion and timing matter",
+      "Gamification without emotional design is just numbers - motion and timing matter",
       "Responsive interaction design should adapt interaction *type*, not just layout",
       "Real-time feedback is more powerful than post-event rankings",
     ],
@@ -198,7 +198,7 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
     keyInsights: [
       "Real-time personalization at scale requires intelligent caching strategies",
       "Third-party API reliability is as important as your own system design",
-      "Mobile optimization drives conversion—invest heavily in mobile UX",
+      "Mobile optimization drives conversion - invest heavily in mobile UX",
     ],
   },
   aiocc: {
@@ -223,7 +223,7 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
     outcome:
       "Reduces average user operational time by 12 hours/week. Automation covers 87% of common SMB workflows. Lightweight Docker deployment enables quick onboarding. Enterprise customers report 40% reduction in communication overhead.",
     keyInsights: [
-      "API integration complexity explodes non-linearly—abstraction layers are essential",
+      "API integration complexity explodes non-linearly - abstraction layers are essential",
       "Lightweight architecture beats feature-rich bloat for SMB adoption",
       "Natural language interfaces require careful intent disambiguation",
     ],
@@ -252,7 +252,7 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
     keyInsights: [
       "Computer vision pipelines benefit from multi-model ensembles rather than single models",
       "User feedback loops in production tools are force multipliers for ML accuracy",
-      "Speed and accuracy are often both achievable—requires thoughtful algorithm selection",
+      "Speed and accuracy are often both achievable - requires thoughtful algorithm selection",
     ],
   },
   "hospital-landing-page": {
@@ -277,7 +277,7 @@ const PROJECT_DATA: Record<string, ProjectContent> = {
     outcome:
       "Achieved 98/100 accessibility score and WCAG 2.1 AA compliance. Lighthouse Performance score: 96. Online appointment bookings increased 220% post-launch. Patient portal login rate: 62% (industry average: 35%). Average session duration: 4.2 minutes.",
     keyInsights: [
-      "Healthcare accessibility isn't optional—it's a legal and ethical requirement that improves UX for everyone",
+      "Healthcare accessibility isn't optional - it's a legal and ethical requirement that improves UX for everyone",
       "Clear information hierarchy is more important than visual aesthetics in healthcare contexts",
       "Seamless integration with existing hospital systems is critical for adoption",
     ],

@@ -251,7 +251,7 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
           </div>
         </section>
 
-        {/* CATEGORY SELECTOR — Using refactored component */}
+        {/* CATEGORY SELECTOR  -  Using refactored component */}
         <section className="px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
           <div className="max-w-5xl mx-auto">
             <ResourcesSelector active={category} onChange={(c) => {
@@ -279,7 +279,7 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
           </div>
         </section>
 
-        {/* RESOURCES GRID — Premium Cards */}
+        {/* RESOURCES GRID  -  Premium Cards */}
         <section className="px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
           <div className="max-w-5xl mx-auto mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
             <div>
@@ -301,59 +301,37 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white hover:border-gray-300 hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-500"
+                  className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white hover:border-gray-300 hover:shadow-lg transition-all duration-300 flex flex-col h-full"
                   style={{ transitionDelay: `${i * 50}ms` }}
                 >
-                  <div className="relative h-44 sm:h-48 bg-gradient-to-br from-gray-100 via-white to-gray-50">
+                  {/* Image Area - Takes up most of the card */}
+                  <div className="relative flex-grow overflow-hidden bg-gray-100 min-h-[180px]">
                     {item.image ? (
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-cover group-hover:opacity-95 transition-opacity duration-300"
                       />
                     ) : (
-                      <div className="absolute inset-0 overflow-hidden">
-                        <div className="absolute -top-20 -right-20 w-52 h-52 rounded-full bg-gray-200/80 blur-3xl" />
-                        <div className="absolute bottom-0 left-0 right-0 h-full bg-[linear-gradient(135deg,rgba(0,0,0,0.04),transparent_55%)]" />
-                        <div className="absolute inset-x-5 top-5 flex items-center justify-between">
-                          <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-gray-400">Resource</span>
-                          <span className="text-xs text-gray-500">{getTypeLabel(item.type)}</span>
-                        </div>
-                        <div className="absolute inset-x-5 bottom-5">
-                          <div className="w-12 h-12 rounded-xl bg-white shadow-sm-card border border-gray-200 flex items-center justify-center text-gray-900 font-semibold">
+                      <div className="w-full h-full flex items-center justify-center bg-gray-50">
+                        <div className="text-center">
+                          <div className="w-12 h-12 rounded-lg bg-gray-200 flex items-center justify-center text-gray-600 font-bold mx-auto mb-2">
                             {item.title.slice(0, 1)}
                           </div>
+                          <p className="text-xs text-gray-400">{getTypeLabel(item.type)}</p>
                         </div>
                       </div>
                     )}
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-gray-600 shadow-sm">
-                      {getTypeLabel(item.type)}
-                    </div>
-                    <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm transition-all duration-300 group-hover:bg-black group-hover:text-white">
-                      <ArrowUpRight className="w-4 h-4 text-gray-700 group-hover:text-white transition-colors" />
-                    </div>
                   </div>
 
-                  <div className="p-5 sm:p-6">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-black transition leading-tight mb-2">
+                  {/* Content Area - Minimal at bottom */}
+                  <div className="p-4 sm:p-5 flex-shrink-0">
+                    <h3 className="font-semibold text-base text-gray-900 line-clamp-2 mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-4 font-light line-clamp-3">
+                    <p className="text-xs text-gray-500 line-clamp-1">
                       {item.description}
                     </p>
-
-                    <div className="flex flex-wrap gap-1.5">
-                      {item.tags.map(tag => (
-                        <span
-                          key={tag}
-                          className="text-[10px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-500 font-medium group-hover:bg-gray-200 transition-colors border border-transparent group-hover:border-gray-200"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </a>
               ))
@@ -373,7 +351,7 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
           </div>
         </section>
 
-        {/* INSTAGRAM SECTION — Premium dark card */}
+        {/* INSTAGRAM SECTION  -  Premium dark card */}
         <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-gray-50 border-t border-gray-100">
           <div className="max-w-5xl mx-auto">
             {/* Header */}
@@ -406,19 +384,16 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
                     href={post.permalink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative overflow-hidden rounded-2xl aspect-square bg-gray-200 border border-gray-200 hover:border-gray-300 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-black/10"
+                    className="group relative overflow-hidden rounded-xl aspect-square bg-gray-100 border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-lg"
                   >
                     <img
                       src={post.mediaUrl}
                       alt={post.caption || "Instagram post"}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-5">
-                      <p className="text-white text-sm line-clamp-2 font-medium leading-snug">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <p className="text-white text-sm line-clamp-2 font-medium">
                         {post.caption || "Design Inspiration"}
-                      </p>
-                      <p className="text-gray-300 text-xs mt-2">
-                        {new Date(post.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                       </p>
                     </div>
                   </a>
@@ -453,17 +428,17 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
         </section>
 
         {/* CTA SECTION */}
-        <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center bg-white border-t border-gray-100">
+        <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center bg-gray-900 border-t border-gray-800">
           <div className="max-w-2xl mx-auto">
-            <h2 className="font-semibold text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4">
+            <h2 className="font-semibold text-2xl sm:text-3xl md:text-4xl text-white mb-4">
               Found something valuable?
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base mb-8 font-light leading-relaxed">
+            <p className="text-gray-400 text-sm sm:text-base mb-8 font-light leading-relaxed">
               Know a resource, tool, or design that belongs here? I'd love to hear recommendations.
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 text-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200 text-sm"
             >
               Share a Resource
               <ArrowUpRight className="w-4 h-4" />

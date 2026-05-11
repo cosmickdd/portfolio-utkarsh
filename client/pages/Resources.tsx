@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Search, Zap, Loader, ArrowUpRight, Star, Instagram } from "lucide-react";
+import { ExternalLink, Search, Loader, ArrowUpRight, Star, Instagram } from "lucide-react";
 import Layout from "@/components/Layout";
 import { ResourcesSelector } from "../pages/resources-selector-rewrite";
 
@@ -445,23 +445,19 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
 
         {/* CTA SECTION */}
         <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center bg-white border-t border-gray-100">
-          <div className="max-w-xl mx-auto">
-            <div className="w-10 h-10 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-600"><path d="M12 2v8l4-4"/><path d="M12 2v8l-4-4"/><circle cx="12" cy="18" r="4"/></svg>
-            </div>
-            <h2 className="font-catamaran font-bold text-2xl sm:text-3xl md:text-4xl text-black mb-4">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="font-semibold text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4">
               Found something valuable?
             </h2>
-            <p className="text-gray-500 text-sm sm:text-base max-w-md mx-auto mb-8 font-light">
+            <p className="text-gray-600 text-sm sm:text-base mb-8 font-light leading-relaxed">
               Know a resource, tool, or design that belongs here? I'd love to hear recommendations.
             </p>
             <a
               href="/contact"
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all duration-300 text-sm hover:-translate-y-0.5 shadow-lg shadow-black/10"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 text-sm"
             >
-              <Zap className="w-4 h-4" />
               Share a Resource
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" />
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         </section>

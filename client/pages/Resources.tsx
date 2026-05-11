@@ -433,7 +433,9 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
                 <p className="text-gray-400 text-sm mt-1">Make sure your Instagram account is public</p>
               </div>
             ) : (
-              <div>Empty state or error</div>
+              <div className="text-center py-12 bg-white rounded-xl border border-gray-200">
+                <p className="text-gray-400 text-sm">Unable to load posts</p>
+              </div>
             )}
             <div className="flex justify-center pt-2">
               <a

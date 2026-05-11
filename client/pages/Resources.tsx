@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Search, Figma, BookOpen, Instagram, Zap, Code2, Loader, ArrowUpRight, Star } from "lucide-react";
+import { ExternalLink, Search, Zap, Loader, ArrowUpRight, Star, Instagram } from "lucide-react";
 import Layout from "@/components/Layout";
+import { ResourcesSelector } from "../pages/resources-selector-rewrite";
 
 type Category = "design" | "development" | "learning";
 
@@ -138,9 +139,9 @@ const resources: Record<Category, Resource[]> = {
 };
 
 const categoryConfig = {
-  design: { icon: Figma, label: "Design", description: "Figma files, design systems, and visual resources" },
-  development: { icon: Code2, label: "Development", description: "Code templates, libraries, and dev tools" },
-  learning: { icon: BookOpen, label: "Learning", description: "Courses, articles, and educational content" },
+  design: { icon: null, label: "Design", description: "Figma files, design systems, and visual resources" },
+  development: { icon: null, label: "Development", description: "Code templates, libraries, and dev tools" },
+  learning: { icon: null, label: "Learning", description: "Courses, articles, and educational content" },
 };
 
 export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
@@ -243,43 +244,13 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
           </div>
         </section>
 
-        {/* CATEGORY SELECTOR — Premium Cards */}
+        {/* CATEGORY SELECTOR — Using refactored component */}
         <section className="px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
           <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col sm:flex-row p-1.5 bg-gray-100/90 rounded-[1.5rem] border border-gray-200 shadow-sm gap-1.5 sm:gap-0">
-              {(["design", "development", "learning"] as Category[]).map(c => {
-                const config = categoryConfig[c];
-                const isActive = category === c;
-                return (
-                  <button
-                    key={c}
-                    onClick={() => {
-                      setCategory(c);
-                      setQuery("");
-                    }}
-                    aria-pressed={isActive}
-                    className={`group relative flex-1 flex items-center gap-3 rounded-[1.1rem] px-4 sm:px-5 py-3 sm:py-3.5 text-left transition-all duration-300 overflow-hidden ${
-                      isActive
-                        ? "bg-black text-white shadow-[0_14px_30px_rgba(0,0,0,0.18)]"
-                        : "bg-transparent text-gray-600 hover:bg-white/80 hover:text-gray-900"
-                    }`}
-                  >
-                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${isActive ? "bg-white/10 text-white" : "bg-white text-gray-900 shadow-sm ring-1 ring-gray-200 group-hover:ring-gray-300"}`}>
-                      <config.icon className="h-5 w-5" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className={`text-sm font-semibold leading-none ${isActive ? "text-white" : "text-gray-900"}`}>
-                        {config.label}
-                      </p>
-                      <p className={`mt-1 hidden text-xs leading-snug sm:block ${isActive ? "text-gray-300" : "text-gray-500"}`}>
-                        {config.description}
-                      </p>
-                    </div>
-                    <div className={`absolute inset-0 rounded-[1.1rem] border transition-opacity duration-300 ${isActive ? "border-white/10 opacity-100" : "border-transparent opacity-0 group-hover:border-gray-200/80 group-hover:opacity-100"}`} />
-                  </button>
-                );
-              })}
-            </div>
+            <ResourcesSelector active={category} onChange={(c) => {
+              setCategory(c);
+              setQuery("");
+            }} />
           </div>
         </section>
 
@@ -368,13 +339,13 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
 
                     <div className="flex flex-wrap gap-1.5">
                       {item.tags.map(tag => (
-                      <span
-                        key={tag}
-                        className="text-[10px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-500 font-medium group-hover:bg-gray-200 transition-colors border border-transparent group-hover:border-gray-200"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                        <span
+                          key={tag}
+                          className="text-[10px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-500 font-medium group-hover:bg-gray-200 transition-colors border border-transparent group-hover:border-gray-200"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </a>

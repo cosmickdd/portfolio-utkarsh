@@ -98,27 +98,38 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/.netlify/functions/chat", {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({
+          messages: [
+            ...messages
+              .filter(m => m.sender !== "assistant" || m.text !== "I'm Utkarsh's AI assistant. Ask me anything about my background, experience, skills, or projects!")
+              .map(m => ({
+                role: m.sender === "user" ? "user" : "assistant",
+                content: m.text
+              })),
+            { role: "user", content: input }
+          ]
+        }),
       });
 
       if (!response.ok) {
-        throw new Error(`API error: ${response.statusText}`);
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `API error: ${response.statusText}`);
       }
 
       const data = await response.json();
-      
+
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.message || "Sorry, I couldn't generate a response. Please try again.",
+        text: data.message?.content || data.message || "Sorry, I couldn't generate a response.",
         sender: "assistant",
         timestamp: new Date(),
       };
-      
+
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error("Chat error:", error);
@@ -326,7 +337,8 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
                     placeholder="Type a message..."
                     className="flex-1 bg-gray-100 text-gray-900 placeholder-gray-500 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900/20 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                   />
-                  <button
+                    <button
+                    type="button"
                     onClick={handleSend}
                     disabled={isLoading || !input.trim()}
                     className="w-10 h-10 bg-gray-900 hover:bg-gray-800 text-white rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-gray-900 disabled:hover:scale-100"

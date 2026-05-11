@@ -21,10 +21,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@azure-rest/ai-inference": "^1.0.0-beta.6",
+    "@azure/core-auth": "^1.10.1",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "gsap": "^3.14.2",
-    "nodemailer": "^7.0.12",
+    "nodemailer": "^8.0.7",
     "zod": "^3.25.76"
   },
   "devDependencies": {
@@ -68,7 +70,7 @@
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@types/three": "^0.176.0",
-    "@vercel/node": "^5.5.24",
+    "@vercel/node": "^4.0.0",
     "@vitejs/plugin-react-swc": "^4.0.0",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",

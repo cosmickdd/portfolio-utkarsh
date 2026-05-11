@@ -1,7 +1,11 @@
 import { Handler } from "@netlify/functions";
+import ModelClient, { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureKeyCredential } from "@azure/core-auth";
 import { retrieveRelevantChunks, generateContextFromChunks } from "../../server/rag";
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GITHUB_PAT = process.env.MISTRAL_API_KEY;
+const GITHUB_ENDPOINT = "https://models.github.ai/inference";
+const MODEL_NAME = "mistral-ai/mistral-small-2503";
 
 const handler: Handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -20,10 +24,10 @@ const handler: Handler = async (event) => {
     };
   }
 
-  if (!GEMINI_API_KEY) {
+  if (!GITHUB_PAT) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Gemini API key not configured" }),
+      body: JSON.stringify({ error: "GitHub PAT not configured" }),
     };
   }
 
@@ -48,59 +52,45 @@ IMPORTANT RULES:
 UTKARSH'S INFORMATION:
 ${context}`;
 
-    // 3. Build combined prompt (Gemini doesn't have separate system message)
-    const fullPrompt = `${systemPrompt}\n\nUser: ${message}`;
-
-    // 4. Call Gemini API
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text: fullPrompt,
-                },
-              ],
-            },
-          ],
-          generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 300,
-          },
-        }),
-      }
+    // 3. Initialize GitHub Models client
+    const client = ModelClient(
+      GITHUB_ENDPOINT,
+      new AzureKeyCredential(GITHUB_PAT)
     );
 
-    if (!response.ok) {
-      const error = await response.json();
-      console.error("Gemini API error:", error);
-      return {
-        statusCode: 500,
-        body: JSON.stringify({
-          error: "Failed to generate response",
-          details: error?.error?.message || error?.message || response.statusText,
-        }),
-      };
+    // 4. Call GitHub Models API
+    const response = await client.path("/chat/completions").post({
+      body: {
+        model: MODEL_NAME,
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt,
+          },
+          {
+            role: "user",
+            content: message,
+          },
+        ],
+        temperature: 0.7,
+        top_p: 0.1,
+        max_tokens: 300,
+      }
+    });
+
+    if (isUnexpected(response)) {
+      throw new Error(response.body?.error?.message || "GitHub Models API error");
     }
 
-    const data = await response.json();
-    console.log("Gemini response:", data);
-    const aiMessage =
-      data.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "I couldn't generate a response.";
+    const data = response.body;
+    const aiMessage = data.choices?.[0]?.message?.content || "I couldn't generate a response.";
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
         message: aiMessage,
-        context: relevantChunks.map((c) => c.category), // For debugging
+        context: relevantChunks.map((c) => c.category),
       }),
     };
   } catch (error) {

@@ -35,7 +35,7 @@ export async function handleInstagramPosts(req: any, res: any) {
 
     if (rapidApiKey) {
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 7000);
+      const timeout = setTimeout(() => controller.abort(), 15000);
 
       try {
         const response = await fetch(

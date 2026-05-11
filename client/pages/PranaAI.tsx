@@ -1,9 +1,18 @@
 import Layout from "@/components/Layout";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
   const navigate = useNavigate();
+
+  const handleLiveClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast.info("Live project is currently unavailable", {
+      description: "The platform is undergoing maintenance. Please check back later.",
+      duration: 4000,
+    });
+  };
 
   return (
     <Layout onChatOpen={onChatOpen}>
@@ -53,6 +62,27 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
                     <div className="text-[14px] uppercase tracking-[0.08em] text-[#666666] mb-2">Platforms</div>
                     <div className="text-[16px] text-black">iOS & Android</div>
                   </div>
+                </div>
+
+                {/* Project Links */}
+                <div className="flex flex-wrap gap-4 pt-6">
+                  <a
+                    href="https://prana-ai.vercel.app"
+                    onClick={handleLiveClick}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-black text-white text-sm font-medium hover:bg-[#333333] transition-colors rounded-full"
+                  >
+                    Live Product
+                  </a>
+                  <a
+                    href="https://www.figma.com/design/C1XQkWfRoENS4OabryGznK/Prana-Ai-Ranked-5th-at-prometeo-25-devquest--Community-?node-id=0-1&t=OX2ylfhatjwC8DTS-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 border border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-all rounded-full"
+                  >
+                    View Design
+                  </a>
                 </div>
               </div>
               

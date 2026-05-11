@@ -54,6 +54,26 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
                     <div className="text-[16px] text-black">Figma, React</div>
                   </div>
                 </div>
+
+                {/* Project Links */}
+                <div className="flex flex-wrap gap-4 pt-6">
+                  <a
+                    href="https://aiinterviewagents.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-black text-white text-sm font-medium hover:bg-[#333333] transition-colors rounded-full"
+                  >
+                    Live Product
+                  </a>
+                  <a
+                    href="https://www.figma.com/design/7TkMm9XqZPuc3DvvKz6q3r/AIIA?node-id=1839-5796&t=GcddPXSGzeAdnwWh-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 border border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-all rounded-full"
+                  >
+                    View Design
+                  </a>
+                </div>
               </div>
               
               {/* Right Column - 5 cols */}

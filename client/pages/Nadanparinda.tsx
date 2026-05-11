@@ -54,6 +54,26 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                     <div className="text-[16px] text-black">Figma</div>
                   </div>
                 </div>
+
+                {/* Project Links */}
+                <div className="flex flex-wrap gap-4 pt-6">
+                  <a
+                    href="https://nadanparinda.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-black text-white text-sm font-medium hover:bg-[#333333] transition-colors rounded-full"
+                  >
+                    Live Product
+                  </a>
+                  <a
+                    href="https://www.figma.com/design/63sXdDeQYgKuOxYCO9rGQW/nadanparinda?node-id=0-1&t=0n0zwE7ZEklMv5bw-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 border border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-all rounded-full"
+                  >
+                    View Design
+                  </a>
+                </div>
               </div>
               
               {/* Right Column - 5 cols */}

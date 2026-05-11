@@ -10,6 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ArrowUpRight, ExternalLink, Palette, FileCode } from "lucide-react";
+import { toast } from "sonner";
 
 export interface Project {
   id: string;
@@ -22,6 +23,7 @@ export interface Project {
     live?: string;
     design?: string;
     caseStudy?: string;
+    isLiveUnavailable?: boolean;
   };
   category: "designer" | "developer";
   impact?: string;
@@ -43,6 +45,16 @@ export default function ProjectCard({
     live: project.links?.live ?? project.link,
     design: project.links?.design ?? project.link,
     caseStudy: project.links?.caseStudy ?? project.link,
+  };
+
+  const handleLiveClick = (e: React.MouseEvent) => {
+    if (project.links?.isLiveUnavailable) {
+      e.preventDefault();
+      toast.info("Live project is currently unavailable", {
+        description: "The platform is undergoing maintenance. Please check back later.",
+        duration: 4000,
+      });
+    }
   };
 
   return (
@@ -135,6 +147,7 @@ export default function ProjectCard({
               href={linkSet.live}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleLiveClick}
               className="group w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg border border-gray-200 hover:border-gray-900 bg-white hover:bg-gray-900 text-gray-900 hover:text-white font-medium transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 sm:active:scale-100 touch-target"
             >
               <div className="flex items-center gap-3 min-w-0">

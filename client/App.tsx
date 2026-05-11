@@ -20,6 +20,8 @@ import PranaAI from "./pages/PranaAI";
 import AIOperationsCommandCenter from "./pages/AIOperationsCommandCenter";
 import Rapidophilia from "./pages/Rapidophilia";
 import ProjectThree from "./pages/ProjectThree";
+import Quizaki from "./pages/Quizaki";
+import Trek from "./pages/Trek";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +46,8 @@ export default function App() {
             <Route path="/nadanparinda" element={<Nadanparinda onChatOpen={() => setShowChat(true)} />} />
             <Route path="/aiinterviewagents" element={<AIInterviewAgents onChatOpen={() => setShowChat(true)} />} />
             <Route path="/prana-ai" element={<PranaAI onChatOpen={() => setShowChat(true)} />} />
+            <Route path="/quizaki" element={<Quizaki onChatOpen={() => setShowChat(true)} />} />
+            <Route path="/trek" element={<Trek onChatOpen={() => setShowChat(true)} />} />
             <Route path="/aiocc" element={<AIOperationsCommandCenter onChatOpen={() => setShowChat(true)} />} />
             <Route path="/rapidophilia" element={<Rapidophilia onChatOpen={() => setShowChat(true)} />} />
             <Route path="/project-three" element={<ProjectThree onChatOpen={() => setShowChat(true)} />} />

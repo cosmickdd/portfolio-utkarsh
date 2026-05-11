@@ -18,7 +18,7 @@ export default function Layout({ children, onChatOpen }: LayoutProps) {
       <Navigation onChatOpen={onChatOpen} />
 
       {/* MAIN CONTENT */}
-      <main className="pt-12 sm:pt-20 md:pt-40">
+      <main className="pt-16 sm:pt-24 md:pt-40">
         {children}
       </main>
 

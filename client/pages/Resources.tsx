@@ -164,10 +164,17 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
   const fetchInstagramPosts = async () => {
     setLoadingPosts(true);
     try {
-      const response = await fetch("/api/instagram-posts");
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
+
+      const response = await fetch("/api/instagram-posts", { signal: controller.signal });
+      clearTimeout(timeout);
+
       if (response.ok) {
         const data = await response.json();
-        setInstagramPosts(data.posts || []);
+        if (data.posts && data.posts.length > 0) {
+          setInstagramPosts(data.posts);
+        }
       }
     } catch (error) {
       console.error("Failed to fetch Instagram posts:", error);
@@ -417,15 +424,15 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
                   </a>
                 ))}
               </div>
-            ) : (
-              <div className="text-center py-14 bg-white rounded-xl border border-gray-200 shadow-sm-card">
+            ) : loadingPosts ? (
+              <div className="text-center py-14 bg-white rounded-xl border border-gray-200 shadow-sm-card animate-pulse">
                 <div className="w-12 h-12 rounded-xl bg-gray-100 shadow-sm flex items-center justify-center mx-auto mb-4">
                   <Instagram className="w-6 h-6 text-gray-300" />
                 </div>
                 <p className="text-gray-500 text-base font-medium">Instagram posts loading...</p>
                 <p className="text-gray-400 text-sm mt-1">Make sure your Instagram account is public</p>
               </div>
-            )}
+            ) : (}
 
             {/* CTA Button */}
             <div className="flex justify-center pt-2">

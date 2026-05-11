@@ -50,6 +50,7 @@ export default function ChatPromptBar({ onOpen }: ChatPromptBarProps) {
     <button
       onClick={onOpen}
       className="
+        hidden md:flex
         group relative
         w-full max-w-[480px]
         mx-auto mb-10 md:mb-14

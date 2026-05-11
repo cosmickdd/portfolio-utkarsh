@@ -29,7 +29,7 @@ export async function handleInstagramPosts(req: any, res: any) {
 
   try {
     const username = "utxuiux";
-    
+
     // Method 1: Try using RapidAPI instagram120 POST endpoint
     const rapidApiKey = process.env.RAPIDAPI_KEY;
 
@@ -71,20 +71,26 @@ export async function handleInstagramPosts(req: any, res: any) {
               timestamp: post.taken_at ? new Date(post.taken_at * 1000).toISOString() : (post.timestamp ? new Date(post.timestamp).toISOString() : new Date().toISOString()),
             }));
 
+            console.log(`[Instagram] Successfully fetched ${posts.length} real posts for @${username}`);
             return res.status(200).json({ posts });
           }
         } else {
+          const errorBody = await response.text();
+          console.warn(`[Instagram] RapidAPI returned ${response.status}: ${errorBody}`);
           return res.status(200).json({ posts: buildFallbackPosts() });
         }
-      } catch (error) {
+      } catch (error: any) {
+        console.warn(`[Instagram] RapidAPI request failed: ${error.message || error}`);
         return res.status(200).json({ posts: buildFallbackPosts() });
       } finally {
         clearTimeout(timeout);
       }
     }
 
+    console.warn("[Instagram] RAPIDAPI_KEY not configured, using fallback posts");
     return res.status(200).json({ posts: buildFallbackPosts() });
   } catch (error: any) {
+    console.error("[Instagram] Unexpected error:", error);
     return res.status(200).json({ posts: buildFallbackPosts() });
   }
 }

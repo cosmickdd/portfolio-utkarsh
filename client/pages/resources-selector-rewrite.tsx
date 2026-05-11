@@ -15,23 +15,23 @@ export function ResourcesSelector() {
   return (
     <section className="px-4 sm:px-6 lg:px-8 pb-8">
       <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col sm:flex-row p-1.5 bg-gray-100/90 rounded-[1.5rem] border border-gray-200 shadow-sm gap-1.5 sm:gap-0">
+        <div className="grid grid-cols-3 sm:flex sm:flex-row gap-2 sm:gap-0 p-1.5 bg-gray-100/90 rounded-[1.5rem] border border-gray-200 shadow-sm sm:rounded-[1.5rem]">
           {categories.map(({ id, label, Icon }) => {
             const isActive = active === id;
             return (
               <button
                 key={id}
                 onClick={() => setActive(id)}
-                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-[1.1rem] font-semibold transition-all duration-300 ${
+                className={`flex flex-col sm:flex-row sm:flex-1 items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-2.5 sm:py-3 rounded-[1.1rem] font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-black text-white shadow-[0_14px_30px_rgba(0,0,0,0.18)]"
                     : "bg-transparent text-gray-600 hover:bg-white/80 hover:text-gray-900"
                 }`}
               >
-                <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${isActive ? "bg-white/10" : "bg-white shadow-sm ring-1 ring-gray-200"}`}>
-                  <Icon className="h-5 w-5" />
+                <div className={`flex h-8 sm:h-10 w-8 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl ${isActive ? "bg-white/10" : "bg-white shadow-sm ring-1 ring-gray-200"}`}>
+                  <Icon className="h-4 sm:h-5 w-4 sm:w-5" />
                 </div>
-                <span className="hidden sm:inline">{label}</span>
+                <span className="text-xs sm:text-base leading-tight sm:leading-normal">{label}</span>
               </button>
             );
           })}

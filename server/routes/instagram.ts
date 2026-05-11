@@ -27,7 +27,7 @@ const fetchInstagramFromApi = async (username: string, rapidApiKey: string, retr
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 15000);
+      const timeout = setTimeout(() => controller.abort(), 30000);
 
       const response = await fetch(
         `https://instagram120.p.rapidapi.com/api/instagram/posts`,
@@ -49,7 +49,13 @@ const fetchInstagramFromApi = async (username: string, rapidApiKey: string, retr
         const data = await response.json();
 
         let postsArray: any[] = [];
-        if (Array.isArray(data)) postsArray = data;
+
+        // Handle result.edges structure (actual RapidAPI response)
+        if (data.result?.edges && Array.isArray(data.result.edges)) {
+          postsArray = data.result.edges.map((edge: any) => edge.node);
+        }
+        // Handle other possible structures
+        else if (Array.isArray(data)) postsArray = data;
         else if (Array.isArray(data.result)) postsArray = data.result;
         else if (Array.isArray(data.posts)) postsArray = data.posts;
         else if (Array.isArray(data.data)) postsArray = data.data;
@@ -58,8 +64,8 @@ const fetchInstagramFromApi = async (username: string, rapidApiKey: string, retr
         if (postsArray.length > 0) {
           const posts = postsArray.slice(0, 3).map((post: any) => ({
             id: post.id || post.pk || post.media_id || Math.random().toString(),
-            caption: post.caption || post.caption_text || post.title || "",
-            mediaUrl: post.display_url || post.image || post.media_url || (post.images && post.images[0] && post.images[0].url) || null,
+            caption: post.caption?.text || post.caption || post.caption_text || post.title || "",
+            mediaUrl: post.display_url || (post.image_versions2?.candidates?.[0]?.url) || post.image || post.media_url || (post.images && post.images[0] && post.images[0].url) || null,
             permalink: post.link || post.permalink || (post.code ? `https://instagram.com/p/${post.code}` : `https://instagram.com/${username}`),
             timestamp: post.taken_at ? new Date(post.taken_at * 1000).toISOString() : (post.timestamp ? new Date(post.timestamp).toISOString() : new Date().toISOString()),
           }));

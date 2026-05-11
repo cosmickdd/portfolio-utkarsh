@@ -3,7 +3,7 @@ import ModelClient, { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
 import { retrieveRelevantChunks, generateContextFromChunks } from "../../server/rag";
 
-const GITHUB_PAT = process.env.MISTRAL_API_KEY;
+const GITHUB_PAT = process.env.MISTRAL_API_KEY || process.env.GITHUB_TOKEN;
 const GITHUB_ENDPOINT = "https://models.github.ai/inference";
 const MODEL_NAME = "mistral-ai/mistral-small-2503";
 
@@ -15,12 +15,21 @@ const handler: Handler = async (event) => {
     };
   }
 
-  const { message } = JSON.parse(event.body || "{}");
+  const { messages } = JSON.parse(event.body || "{}");
 
-  if (!message || message.trim().length === 0) {
+  if (!messages || !Array.isArray(messages) || messages.length === 0) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Message is required" }),
+      body: JSON.stringify({ error: "Messages are required" }),
+    };
+  }
+
+  const lastMessage = messages[messages.length - 1]?.content;
+
+  if (!lastMessage) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "No user message found" }),
     };
   }
 
@@ -33,9 +42,9 @@ const handler: Handler = async (event) => {
 
   try {
     // 1. Retrieve relevant resume chunks using RAG
-    const relevantChunks = retrieveRelevantChunks(message, 3);
+    const relevantChunks = retrieveRelevantChunks(lastMessage, 3);
     const context = generateContextFromChunks(relevantChunks);
-
+    
     // 2. Build system context
     const systemPrompt = `You are Utkarsh Tiwari's AI assistant. You help visitors learn about Utkarsh's professional background, skills, and experience.
 
@@ -69,7 +78,7 @@ ${context}`;
           },
           {
             role: "user",
-            content: message,
+            content: lastMessage,
           },
         ],
         temperature: 0.7,

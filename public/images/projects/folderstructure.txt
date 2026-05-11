@@ -1,0 +1,18 @@
+New Image Folder Structure
+I've created the following directories in your public/images/ folder:
+
+Page-specific folders:
+public/images/home/
+public/images/about/
+public/images/blog/
+public/images/contact/
+public/images/resources/
+Project-specific subfolders:
+public/images/projects/aiinterviewagents/
+public/images/projects/prana-ai/
+public/images/projects/nadanparinda/
+public/images/projects/quizaki/
+public/images/projects/trek/
+public/images/projects/aiocc/
+public/images/projects/rapidophilia/
+public/images/projects/project-three/

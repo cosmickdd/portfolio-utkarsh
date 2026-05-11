@@ -158,7 +158,7 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
   return (
     <Layout onChatOpen={onChatOpen}>
       {/* HERO */}
-      <section className="min-h-screen md:h-[calc(100vh-88px)] flex flex-col items-center justify-center px-4 sm:px-6 -mt-24 sm:-mt-32 md:py-0 pb-12 md:pb-0 space-y-4 sm:space-y-6 md:space-y-0 relative overflow-hidden">
+      <section className="min-h-screen md:h-[calc(100vh-88px)] flex flex-col items-center justify-center px-4 sm:px-6 -mt-24 sm:-mt-32 md:py-0 pb-12 md:pb-0 space-y-4 sm:space-y-4 md:space-y-0 relative overflow-hidden">
 
         <DesignBackground opacity={designerAmount * 0.85} />
         <CodeBackground opacity={developerAmount * 0.6} />

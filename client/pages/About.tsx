@@ -68,16 +68,16 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
             <div className={`transition-all duration-700 delay-300 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed font-light mb-8 sm:mb-10">
-                Designer + Engineer focused on clarity, systems, and long-term product quality.
+                I'm both a designer and engineer. I don't just design products—I build them myself. No handoff. No lost translation. I focus on clarity, systems, and creating products that genuinely work and feel right.
               </p>
             </div>
 
             <div className={`transition-all duration-700 delay-500 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
               <ul className="flex flex-wrap gap-2 sm:gap-3">
-                {["Product Design", "Frontend Engineering", "Design Systems", "AI Products"].map(label => (
+                {["Product Design", "Frontend Dev", "Design Systems", "AI/Automation"].map(label => (
                   <li
                     key={label}
-                    className="group px-4 sm:px-5 py-2.5 sm:py-3 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium text-gray-700 hover:border-gray-900 hover:bg-gray-50 hover:shadow-sm transition-all duration-300 cursor-default"
+                    className="px-4 sm:px-5 py-2.5 sm:py-3 border border-gray-200 rounded-lg text-xs sm:text-sm font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 cursor-default"
                   >
                     {label}
                   </li>
@@ -114,26 +114,29 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                 <div>
                   <span className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold">Who I Am</span>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mt-3 mb-5 leading-tight">
-                    Designer. Developer.<br />Builder.
+                    Design meets code.<br />Quality never compromises.
                   </h3>
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light mb-6">
+                    I grew up solving problems visually and logically. This duality shapes everything I do. When I design, I think about implementation. When I code, I obsess over the experience. The result? Products that work beautifully and feel right.
+                  </p>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light">
-                    I design beautiful products and code them myself. No handoff. No translation loss. I love building things that work well and feel right. Right now, I'm diving deep into ML and automation — finding ways to make products smarter and workflows faster.
+                    Right now, I'm deep into ML and automation—finding ways to make products smarter, workflows faster, and human effort more intentional.
                   </p>
                 </div>
 
-                {/* Philosophy Cards */}
-                <div className="space-y-3">
+                {/* Philosophy Cards - Simplified */}
+                <div className="space-y-3 mt-8">
+                  <h4 className="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-4">My philosophy</h4>
                   {[
-                    "Great design must be built, not just designed",
-                    "Details matter. Speed matters. Both can happen together",
-                    "The best products are built by people who care about both craft and users",
+                    "Great design must work in production, not just in Figma",
+                    "Details matter. So does speed. Both can exist together",
                     "Technology should serve people, not the other way around"
                   ].map((belief, idx) => (
-                    <div key={idx} className="group/card flex items-start gap-4 p-4 rounded-xl border border-gray-100 hover:border-gray-200 hover:bg-gray-50/80 transition-all duration-300">
-                      <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-black text-white flex items-center justify-center text-[11px] font-bold group-hover/card:bg-gray-800 transition-colors duration-300">
-                        {String(idx + 1).padStart(2, '0')}
+                    <div key={idx} className="flex items-start gap-3 p-3">
+                      <div className="flex-shrink-0 w-5 h-5 rounded text-gray-400 text-sm font-semibold mt-0.5">
+                        →
                       </div>
-                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed group-hover/card:text-gray-900 transition-colors">
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         {belief}
                       </p>
                     </div>
@@ -157,26 +160,23 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
               {[
-                { num: "01", title: "Research", desc: "Clarify what not to build before defining solutions" },
-                { num: "02", title: "Design", desc: "Reduce cognitive load before visual polish" },
-                { num: "03", title: "Engineer", desc: "Build systems that scale without rewrites" },
+                { num: "01", title: "Research", desc: "Understand the problem before designing solutions" },
+                { num: "02", title: "Design", desc: "Create clarity before visual polish" },
+                { num: "03", title: "Build", desc: "Ship systems that scale without rework" },
                 { num: "04", title: "Iterate", desc: "Measure outcomes and refine intentionally" },
-              ].map((step, idx) => (
-                <div key={step.title} className="group relative p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white hover:border-gray-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500">
-                  {/* Step number */}
-                  <div className="mb-6">
-                    <span className="text-[40px] sm:text-[48px] font-bold text-gray-100 group-hover:text-gray-200 transition-colors leading-none">
+              ].map((step) => (
+                <div key={step.title} className="p-6 sm:p-8 rounded-xl border border-gray-200 bg-white hover:border-gray-300 hover:shadow-md transition-all duration-300">
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-gray-100">
                       {step.num}
                     </span>
                   </div>
-                  <h4 className="text-lg sm:text-xl font-bold text-black mb-3 group-hover:text-gray-900">
+                  <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
                     {step.title}
                   </h4>
-                  <p className="text-gray-500 text-sm leading-relaxed font-light group-hover:text-gray-600 transition-colors">
+                  <p className="text-gray-500 text-sm leading-relaxed font-light">
                     {step.desc}
                   </p>
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-black rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
               ))}
             </div>

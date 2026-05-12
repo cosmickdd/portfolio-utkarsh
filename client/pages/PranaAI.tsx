@@ -89,7 +89,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
               {/* Right Column */}
               <div className="lg:col-span-5">
                 <img
-                  src="https://images.unsplash.com/photo-1576091160550-2173fb9c6ded?w=800&h=600&fit=crop&sat=-100"
+                  src="https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/prana-ai_husjzd"
                   alt="Prana AI app mockup"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />

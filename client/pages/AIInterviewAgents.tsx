@@ -79,7 +79,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
               {/* Right Column - 5 cols */}
               <div className="lg:col-span-5">
                 <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&sat=-100"
+                  src="https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/aiinterviewagents_y8gpbb"
                   alt="AI Interview Agents platform mockup"
                   className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
                 />

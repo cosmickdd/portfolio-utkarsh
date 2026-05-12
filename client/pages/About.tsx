@@ -202,9 +202,9 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                   emoji: "🏔️"
                 },
                 {
-                  title: "Photography",
-                  description: "Capturing moments. Visual storytelling through landscapes and candid shots.",
-                  image: "/images/hobbies/photography.jpg",
+                  title: "Guitar",
+                  description: "Playing melodies to unwind. Exploring rhythm, creativity, and expression through music.",
+                  image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/7c0212328f4d4f8f983dd645d6fa6c8b_gpxhod",
                 },
                 {
                   title: "Community Building",

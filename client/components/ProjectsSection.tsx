@@ -25,7 +25,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "prana-ai",
       title: "Prana AI",
       description: "Designed an AI health assistant that brings Ayurveda to life. Built clean, intuitive interfaces across web and mobile so users get personalized wellness advice easily.",
-      image: "/images/projects/prana-ai.png",
+      image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/prana-ai_husjzd",
       tags: ["AI", "Healthcare", "UX Systems"],
       link: "https://pranaai.vercel.app",
       links: {

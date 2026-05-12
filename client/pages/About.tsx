@@ -97,7 +97,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                 <div className="absolute -inset-4 bg-gradient-to-br from-gray-100 via-transparent to-gray-100 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-lg shadow-black/5">
                   <img
-                    src="/images/me-working.jpg"
+                    src="https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/912087b0-6ac2-4116-b6df-0eb374f64df5_bjw56v"
                     alt="Building products with design and development"
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   />

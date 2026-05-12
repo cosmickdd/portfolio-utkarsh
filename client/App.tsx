@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 import Nadanparinda from "./pages/Nadanparinda";
 import AIInterviewAgents from "./pages/AIInterviewAgents";
 import PranaAI from "./pages/PranaAI";
+import RumiAI from "./pages/RumiAI";
 import AIOperationsCommandCenter from "./pages/AIOperationsCommandCenter";
 import Rapidophilia from "./pages/Rapidophilia";
 import ProjectThree from "./pages/ProjectThree";
@@ -46,6 +47,7 @@ export default function App() {
             <Route path="/nadanparinda" element={<Nadanparinda onChatOpen={() => setShowChat(true)} />} />
             <Route path="/aiinterviewagents" element={<AIInterviewAgents onChatOpen={() => setShowChat(true)} />} />
             <Route path="/prana-ai" element={<PranaAI onChatOpen={() => setShowChat(true)} />} />
+            <Route path="/rumi-ai" element={<RumiAI onChatOpen={() => setShowChat(true)} />} />
             <Route path="/quizaki" element={<Quizaki onChatOpen={() => setShowChat(true)} />} />
             <Route path="/trek" element={<Trek onChatOpen={() => setShowChat(true)} />} />
             <Route path="/aiocc" element={<AIOperationsCommandCenter onChatOpen={() => setShowChat(true)} />} />

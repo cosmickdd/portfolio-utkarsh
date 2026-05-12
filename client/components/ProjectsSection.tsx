@@ -10,7 +10,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "aiinterviewagents",
       title: "AI Interview Agents",
       description: "Designed an interview prep platform that grew incredibly fast - 5,000+ signups in 15 days. The interface made preparation feel effortless and actually enjoyable.",
-      image: "/images/projects/aiinterviewagents.png",
+      image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/aiinterviewagents_y8gpbb",
       tags: ["AI", "Founding Designer", "Rapid Growth"],
       link: "https://aiinterviewagents.com",
       links: {

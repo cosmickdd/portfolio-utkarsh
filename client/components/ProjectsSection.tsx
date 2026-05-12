@@ -85,7 +85,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "rumi-ai",
       title: "RUMI AI",
       description: "Designed a team management dashboard that turns complexity into clarity. Smart AI-powered analytics surface risks and priorities in context, helping managers make better decisions faster.",
-      image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/rumi-ai_placeholder",
+      image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/rumi_d5hgao",
       tags: ["AI", "Analytics", "Team Management"],
       link: "/rumi-ai",
       links: {

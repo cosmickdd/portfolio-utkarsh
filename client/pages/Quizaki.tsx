@@ -81,7 +81,7 @@ export default function Quizaki({ onChatOpen }: { onChatOpen?: () => void }) {
                 <img
                   src="/images/projects/quizaki.png"
                   alt="Quizaki platform mockup"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
               </div>
             </div>

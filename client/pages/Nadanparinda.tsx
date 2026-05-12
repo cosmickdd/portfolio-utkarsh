@@ -81,7 +81,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                 <img
                   src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&sat=-100"
                   alt="Nadanparinda platform mockup"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
               </div>
             </div>
@@ -230,7 +230,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                 <img
                   src="https://images.unsplash.com/photo-1551550257-19f2afc88e0f?w=600&h=450&fit=crop&sat=-100"
                   alt="Homepage wireframe exploration"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Homepage  -  Hero layout exploration</p>
               </div>
@@ -239,7 +239,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                 <img
                   src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&h=450&fit=crop&sat=-100"
                   alt="Trip detail wireframe"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Trip Detail  -  Information hierarchy study</p>
               </div>
@@ -248,7 +248,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                 <img
                   src="https://images.unsplash.com/photo-1498550744921-75f79806b163?w=600&h=450&fit=crop&sat=-100"
                   alt="Booking flow wireframe"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Booking Flow  -  Multi-step progression</p>
               </div>
@@ -257,7 +257,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                 <img
                   src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&h=450&fit=crop&sat=-100"
                   alt="Guide profile wireframe"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Guide Profile  -  Trust element placement</p>
               </div>
@@ -277,7 +277,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
               <img
                 src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=700&fit=crop&sat=-100"
                 alt="Final design system overview"
-                className="w-full aspect-[16/9] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                className="w-full aspect-[16/9] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
               />
             </div>
             
@@ -287,7 +287,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                 <img
                   src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=450&fit=crop&sat=-100"
                   alt="Before redesign"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA] mb-4"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] mb-4 cursor-pointer"
                 />
                 <div className="text-[18px] font-semibold text-black mb-2">Before</div>
                 <p className="text-[14px] leading-[1.6] text-[#666666]">
@@ -299,7 +299,7 @@ export default function Nadanparinda({ onChatOpen }: { onChatOpen?: () => void }
                 <img
                   src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&h=450&fit=crop&sat=-100"
                   alt="After redesign"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA] mb-4"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] mb-4 cursor-pointer"
                 />
                 <div className="text-[18px] font-semibold text-black mb-2">After</div>
                 <p className="text-[14px] leading-[1.6] text-[#666666]">

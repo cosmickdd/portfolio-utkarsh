@@ -47,7 +47,7 @@ export default function AIOperationsCommandCenter({ onChatOpen }: { onChatOpen?:
                 </div>
               </div>
               <div className="lg:col-span-5">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&sat=-100" alt="Command center mockup" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&sat=-100" alt="Command center mockup" className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer" />
               </div>
             </div>
             <div className="mt-12 border-b border-[#EAEAEA]"></div>
@@ -153,19 +153,19 @@ export default function AIOperationsCommandCenter({ onChatOpen }: { onChatOpen?:
             <h2 className="text-[36px] sm:text-[40px] leading-[1.2] font-semibold text-black mb-12">Exploration</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450&fit=crop&sat=-100" alt="Dashboard" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450&fit=crop&sat=-100" alt="Dashboard" className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer" />
                 <p className="text-[14px] text-[#666666] mt-4">Dashboard - Unified command center</p>
               </div>
               <div>
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=450&fit=crop&sat=-100" alt="Workflow builder" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=450&fit=crop&sat=-100" alt="Workflow builder" className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer" />
                 <p className="text-[14px] text-[#666666] mt-4">Workflow Builder - Visual automation</p>
               </div>
               <div>
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=450&fit=crop&sat=-100" alt="Tool connections" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=450&fit=crop&sat=-100" alt="Tool connections" className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer" />
                 <p className="text-[14px] text-[#666666] mt-4">Integrations - Connected tools</p>
               </div>
               <div>
-                <img src="https://images.unsplash.com/photo-1594627318298-50b3e4dc5ffe?w=600&h=450&fit=crop&sat=-100" alt="Activity feed" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
+                <img src="https://images.unsplash.com/photo-1594627318298-50b3e4dc5ffe?w=600&h=450&fit=crop&sat=-100" alt="Activity feed" className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer" />
                 <p className="text-[14px] text-[#666666] mt-4">Activity Feed - Automation logs</p>
               </div>
             </div>
@@ -176,18 +176,18 @@ export default function AIOperationsCommandCenter({ onChatOpen }: { onChatOpen?:
           <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
             <h2 className="text-[36px] sm:text-[40px] leading-[1.2] font-semibold text-black mb-12">Final Solution</h2>
             <div className="mb-16">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop&sat=-100" alt="Complete system" className="w-full aspect-[16/9] object-cover grayscale rounded-[16px] border border-[#EAEAEA]" />
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop&sat=-100" alt="Complete system" className="w-full aspect-[16/9] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer" />
             </div>
             <div className="grid md:grid-cols-2 gap-8 mt-16">
               <div>
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=450&fit=crop&sat=-100" alt="Before" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA] mb-4" />
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=450&fit=crop&sat=-100" alt="Before" className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] mb-4 cursor-pointer" />
                 <div className="text-[18px] font-semibold text-black mb-2">Before</div>
                 <p className="text-[14px] leading-[1.6] text-[#666666]">
                   5 browser tabs. Manual context switching. Repetitive data entry. No unified view.
                 </p>
               </div>
               <div>
-                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&h=450&fit=crop&sat=-100" alt="After" className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA] mb-4" />
+                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&h=450&fit=crop&sat=-100" alt="After" className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] mb-4 cursor-pointer" />
                 <div className="text-[18px] font-semibold text-black mb-2">After</div>
                 <p className="text-[14px] leading-[1.6] text-[#666666]">
                   One dashboard. All tools integrated. Automated workflows. Clear command center.

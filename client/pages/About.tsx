@@ -99,7 +99,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                   <img
                     src="https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/912087b0-6ac2-4116-b6df-0eb374f64df5_bjw56v"
                     alt="Building products with design and development"
-                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
                   />
                   {/* Subtle overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />

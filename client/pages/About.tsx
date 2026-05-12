@@ -198,7 +198,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                 {
                   title: "Mountain Trekking",
                   description: "Adventure seeker. Love exploring high altitudes and connecting with nature.",
-                  image: "/images/hobbies/mountains.jpg",
+                  image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/7306cc32-c5ec-4840-965d-0f2ae11c3596_e8wlwj",
                   emoji: "🏔️"
                 },
                 {

@@ -91,7 +91,7 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
                 <img
                   src="https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/prana-ai_husjzd"
                   alt="Prana AI app mockup"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
               </div>
             </div>
@@ -238,34 +238,34 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
                 <img
                   src="https://images.unsplash.com/photo-1576091160550-2173fb9c6ded?w=600&h=450&fit=crop&sat=-100"
                   alt="Dosha assessment flow"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Dosha Assessment  -  Educational questionnaire</p>
               </div>
-              
+
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=450&fit=crop&sat=-100"
                   alt="Personalized dashboard"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Dashboard  -  Dosha-filtered recommendations</p>
               </div>
-              
+
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=450&fit=crop&sat=-100"
                   alt="Wellness tips"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Wellness Tips  -  Daily actionable advice</p>
               </div>
-              
+
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1512149213365-4c8b12e83b5f?w=600&h=450&fit=crop&sat=-100"
                   alt="Educational content"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Learning  -  Understanding Ayurvedic principles</p>
               </div>
@@ -284,28 +284,28 @@ export default function PranaAI({ onChatOpen }: { onChatOpen?: () => void }) {
               <img
                 src="https://images.unsplash.com/photo-1576091160550-2173fb9c6ded?w=1200&h=700&fit=crop&sat=-100"
                 alt="Complete app interface"
-                className="w-full aspect-[16/9] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                className="w-full aspect-[16/9] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
               />
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-8 mt-16">
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=450&fit=crop&sat=-100"
                   alt="Before generic app"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA] mb-4"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] mb-4 cursor-pointer"
                 />
                 <div className="text-[18px] font-semibold text-black mb-2">Before</div>
                 <p className="text-[14px] leading-[1.6] text-[#666666]">
                   Generic health app with generic recommendations. No dosha awareness. Users couldn't understand personalization.
                 </p>
               </div>
-              
+
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=450&fit=crop&sat=-100"
                   alt="After personalized"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA] mb-4"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] mb-4 cursor-pointer"
                 />
                 <div className="text-[18px] font-semibold text-black mb-2">After</div>
                 <p className="text-[14px] leading-[1.6] text-[#666666]">

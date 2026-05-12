@@ -81,7 +81,7 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
                 <img
                   src="https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/aiinterviewagents_y8gpbb"
                   alt="AI Interview Agents platform mockup"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
               </div>
             </div>
@@ -230,34 +230,34 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
                 <img
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450&fit=crop&sat=-100"
                   alt="Onboarding flow exploration"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Onboarding  -  Fast entry to first interview</p>
               </div>
-              
+
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=450&fit=crop&sat=-100"
                   alt="Interview interface design"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Interview Screen  -  Question presentation & recording</p>
               </div>
-              
+
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=450&fit=crop&sat=-100"
                   alt="Feedback interface"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Feedback Flow  -  AI analysis & guidance</p>
               </div>
-              
+
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1594627318298-50b3e4dc5ffe?w=600&h=450&fit=crop&sat=-100"
                   alt="Progress dashboard"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />
                 <p className="text-[14px] text-[#666666] mt-4">Dashboard  -  Progress tracking & insights</p>
               </div>
@@ -277,29 +277,29 @@ export default function AIInterviewAgents({ onChatOpen }: { onChatOpen?: () => v
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop&sat=-100"
                 alt="Final product overview"
-                className="w-full aspect-[16/9] object-cover grayscale rounded-[16px] border border-[#EAEAEA]"
+                className="w-full aspect-[16/9] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
               />
             </div>
-            
+
             {/* Before / After Comparison */}
             <div className="grid md:grid-cols-2 gap-8 mt-16">
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=450&fit=crop&sat=-100"
                   alt="Before redesign"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA] mb-4"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] mb-4 cursor-pointer"
                 />
                 <div className="text-[18px] font-semibold text-black mb-2">Before</div>
                 <p className="text-[14px] leading-[1.6] text-[#666666]">
                   Complex setup process. Generic feedback. Limited progress visualization. Users had to search for next steps.
                 </p>
               </div>
-              
+
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&h=450&fit=crop&sat=-100"
                   alt="After redesign"
-                  className="w-full aspect-[4/3] object-cover grayscale rounded-[16px] border border-[#EAEAEA] mb-4"
+                  className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] mb-4 cursor-pointer"
                 />
                 <div className="text-[18px] font-semibold text-black mb-2">After</div>
                 <p className="text-[14px] leading-[1.6] text-[#666666]">

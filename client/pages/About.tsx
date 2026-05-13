@@ -209,7 +209,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                 {
                   title: "Community Building",
                   description: "Organizing events and workshops. Creating spaces for people to learn and connect.",
-                  image: "/images/hobbies/community.jpg",
+                  image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1778702697/1748377467040_jcphws.jpg",
                 }
               ].map((hobby) => (
                 <div key={hobby.title} className="group">

@@ -136,55 +136,58 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
 
                 {/* Trust Signals  -  Premium Cards */}
                 <div className={`space-y-3 transition-all duration-700 delay-500 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                  {trustSignals.map(({ icon: Icon, text, detail }) => (
+                  {trustSignals.map(({ icon: Icon, text, detail }, idx) => (
                     <div
                       key={text}
-                      className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-4 py-4 shadow-sm-card transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md-card"
+                      className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-5 py-4.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gray-400 hover:shadow-lg hover:shadow-black/5 hover:bg-gray-50"
+                      style={{
+                        transitionDelay: `${700 + idx * 100}ms`
+                      }}
                     >
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gray-100 text-gray-900 transition-colors group-hover:bg-black group-hover:text-white">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 text-gray-700 transition-all duration-300 group-hover:from-black group-hover:to-gray-800 group-hover:text-white group-hover:shadow-lg group-hover:shadow-black/10">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm font-semibold text-gray-900">{text}</p>
-                        <p className="text-xs text-gray-400 mt-0.5">{detail}</p>
+                        <p className="text-sm font-semibold text-gray-900 group-hover:text-black transition-colors">{text}</p>
+                        <p className="text-xs text-gray-500 mt-1 group-hover:text-gray-600 transition-colors">{detail}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
                 {/* Direct contact options */}
-                <div className={`mt-8 transition-all duration-700 delay-700 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                  <p className="text-xs uppercase tracking-[0.22em] text-gray-400 font-semibold mb-3">Or reach out directly</p>
+                <div className={`mt-10 transition-all duration-700 delay-700 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500 font-semibold mb-4">Or reach out directly</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <a 
                       href="mailto:cosimckdd@gmail.com"
-                      className="group flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 shadow-sm-card transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-900 hover:text-black hover:shadow-md-card"
+                      className="group flex items-center gap-3 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50/50 px-5 py-4 text-sm text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gray-400 hover:shadow-lg hover:shadow-black/5 hover:to-gray-50"
                     >
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-gray-700 transition-colors group-hover:bg-black group-hover:text-white">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 text-gray-700 transition-all duration-300 group-hover:from-black group-hover:to-gray-800 group-hover:text-white">
                         <Mail className="w-4 h-4" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400">Email</p>
-                        <p className="truncate">cosimckdd@gmail.com</p>
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500 group-hover:text-gray-700 transition-colors">Email</p>
+                        <p className="truncate font-medium text-gray-900 group-hover:text-black transition-colors">cosimckdd@gmail.com</p>
                       </div>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 opacity-0 transition-opacity group-hover:opacity-100" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                     </a>
                     <a 
                       href="https://linkedin.com/in/cosmickdd"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 shadow-sm-card transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-900 hover:text-black hover:shadow-md-card"
+                      className="group flex items-center gap-3 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50/50 px-5 py-4 text-sm text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gray-400 hover:shadow-lg hover:shadow-black/5 hover:to-gray-50"
                     >
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-gray-700 transition-colors group-hover:bg-black group-hover:text-white">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 text-gray-700 transition-all duration-300 group-hover:from-black group-hover:to-gray-800 group-hover:text-white">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
                         </svg>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400">LinkedIn</p>
-                        <p className="truncate">cosmickdd</p>
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500 group-hover:text-gray-700 transition-colors">LinkedIn</p>
+                        <p className="truncate font-medium text-gray-900 group-hover:text-black transition-colors">cosmickdd</p>
                       </div>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 opacity-0 transition-opacity group-hover:opacity-100" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                     </a>
                   </div>
                 </div>
@@ -193,23 +196,23 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
               {/* Right  -  Form */}
               <div className={`transition-all duration-700 delay-400 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
                 {!submitted ? (
-                  <div className="bg-gray-50/80 rounded-xl p-6 sm:p-8 border border-gray-200/80 shadow-sm-card">
-                    <div className="flex items-center gap-2 mb-6">
-                      <Sparkles className="w-4 h-4 text-gray-400" />
-                      <p className="text-sm font-semibold text-gray-700">Send me a message</p>
+                  <div className="bg-gradient-to-br from-gray-50/80 via-white to-gray-50/40 rounded-2xl p-8 sm:p-10 border border-gray-200/80 shadow-lg shadow-black/5 backdrop-blur-sm">
+                    <div className="flex items-center gap-2 mb-8">
+                      <Sparkles className="w-4 h-4 text-gray-600" />
+                      <p className="text-sm font-semibold text-gray-800">Send me a message</p>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                    <form onSubmit={handleSubmit} className="space-y-6">
 
                       {error && (
-                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
-                          <p className="font-semibold">Error</p>
-                          <p>{error}</p>
+                        <div className="p-4 bg-red-50/80 border border-red-200/80 rounded-xl text-red-700 text-sm backdrop-blur-sm">
+                          <p className="font-semibold mb-0.5">Error</p>
+                          <p className="text-sm">{error}</p>
                         </div>
                       )}
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wider">
+                        <label className="block text-xs font-semibold text-gray-700 mb-3 uppercase tracking-wider">
                           Name <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -219,17 +222,17 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                           onChange={handleChange}
                           onFocus={() => setFocusedField("name")}
                           onBlur={() => setFocusedField(null)}
-                          className={`w-full px-4 py-3 border rounded-xl focus:outline-none transition-all bg-white text-sm ${
+                          className={`w-full px-4 py-3.5 border rounded-xl focus:outline-none transition-all bg-white text-sm font-medium ${
                             focusedField === "name"
-                              ? "border-black ring-2 ring-black/5 shadow-sm"
-                              : "border-gray-200 hover:border-gray-300"
+                              ? "border-black shadow-lg shadow-black/10 ring-2 ring-black/5"
+                              : "border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md"
                           }`}
                           placeholder="Your name"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wider">
+                        <label className="block text-xs font-semibold text-gray-700 mb-3 uppercase tracking-wider">
                           Email <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -240,17 +243,17 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                           onChange={handleChange}
                           onFocus={() => setFocusedField("email")}
                           onBlur={() => setFocusedField(null)}
-                          className={`w-full px-4 py-3 border rounded-xl focus:outline-none transition-all bg-white text-sm ${
+                          className={`w-full px-4 py-3.5 border rounded-xl focus:outline-none transition-all bg-white text-sm font-medium ${
                             focusedField === "email"
-                              ? "border-black ring-2 ring-black/5 shadow-sm"
-                              : "border-gray-200 hover:border-gray-300"
+                              ? "border-black shadow-lg shadow-black/10 ring-2 ring-black/5"
+                              : "border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md"
                           }`}
                           placeholder="you@example.com"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wider">
+                        <label className="block text-xs font-semibold text-gray-700 mb-3 uppercase tracking-wider">
                           Project Type <span className="text-red-400">*</span>
                         </label>
                         <select
@@ -260,11 +263,18 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                           onChange={handleChange}
                           onFocus={() => setFocusedField("projectType")}
                           onBlur={() => setFocusedField(null)}
-                          className={`w-full px-4 py-3 border rounded-xl bg-white focus:outline-none transition-all text-sm ${
+                          className={`w-full px-4 py-3.5 border rounded-xl bg-white focus:outline-none transition-all text-sm font-medium appearance-none cursor-pointer ${
                             focusedField === "projectType"
-                              ? "border-black ring-2 ring-black/5 shadow-sm"
-                              : "border-gray-200 hover:border-gray-300"
-                          } ${formData.projectType ? "text-gray-900" : "text-gray-400"}`}
+                              ? "border-black shadow-lg shadow-black/10 ring-2 ring-black/5"
+                              : "border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md"
+                          } ${formData.projectType ? "text-gray-900" : "text-gray-500"}`}
+                          style={{
+                            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e")`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'right 0.75rem center',
+                            backgroundSize: '16px 12px',
+                            paddingRight: '2.5rem'
+                          }}
                         >
                           <option value="">Select a project type</option>
                           <option value="product">Product Design & Engineering</option>
@@ -276,27 +286,27 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wider">
+                        <label className="block text-xs font-semibold text-gray-700 mb-3 uppercase tracking-wider">
                           Message <span className="text-red-400">*</span>
                         </label>
                         <textarea
                           name="message"
                           required
-                          rows={4}
+                          rows={5}
                           value={formData.message}
                           onChange={handleChange}
                           onFocus={() => setFocusedField("message")}
                           onBlur={() => setFocusedField(null)}
-                          className={`w-full px-4 py-3 border rounded-xl resize-none focus:outline-none transition-all bg-white text-sm ${
+                          className={`w-full px-4 py-3.5 border rounded-xl resize-none focus:outline-none transition-all bg-white text-sm font-medium ${
                             focusedField === "message"
-                              ? "border-black ring-2 ring-black/5 shadow-sm"
-                              : "border-gray-200 hover:border-gray-300"
+                              ? "border-black shadow-lg shadow-black/10 ring-2 ring-black/5"
+                              : "border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md"
                           }`}
                           placeholder="Tell me about your idea, goals, or challenges..."
                         />
-                        <div className="flex items-center justify-between mt-1.5">
-                          <p className="text-[10px] text-gray-400">Minimum 20 characters recommended</p>
-                          <p className={`text-[10px] transition-colors ${formData.message.length >= 20 ? "text-green-500" : "text-gray-300"}`}>
+                        <div className="flex items-center justify-between mt-2">
+                          <p className="text-[10px] text-gray-500 font-medium">Minimum 20 characters recommended</p>
+                          <p className={`text-[10px] font-semibold transition-colors ${formData.message.length >= 20 ? "text-green-600" : "text-gray-400"}`}>
                             {formData.message.length} / 20
                           </p>
                         </div>
@@ -305,7 +315,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="group w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.98] shadow-md-card hover:-translate-y-0.5 text-sm"
+                        className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1 text-sm"
                       >
                         {isSubmitting ? (
                           <>
@@ -315,26 +325,26 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                         ) : (
                           <>
                             Send Message
-                            <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
                           </>
                         )}
                       </button>
                     </form>
                   </div>
                 ) : (
-                  <div className="bg-gray-50 rounded-xl p-8 sm:p-12 border border-gray-200 shadow-sm-card text-center">
-                    <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 rounded-2xl p-10 sm:p-16 border border-gray-200 shadow-lg shadow-black/5 text-center backdrop-blur-sm">
+                    <div className="w-16 h-16 bg-gradient-to-br from-black to-gray-900 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-black/20">
                       <CheckCircle2 className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                       Message received! 🎉
                     </h3>
-                    <p className="text-gray-500 text-base max-w-md mx-auto leading-relaxed mb-8 font-light">
-                      Thanks for reaching out. I'll review your message and get back to you within 24 hours.
+                    <p className="text-gray-600 text-base max-w-md mx-auto leading-relaxed mb-8 font-light">
+                      Thanks for reaching out. I'll review your message and get back to you within 24 hours. Looking forward to chatting!
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors border-b border-gray-300 hover:border-gray-900 pb-0.5"
+                      className="inline-flex items-center gap-2 text-gray-700 hover:text-black text-sm font-semibold transition-colors border-b-2 border-gray-300 hover:border-black pb-1"
                     >
                       Send another message
                     </button>

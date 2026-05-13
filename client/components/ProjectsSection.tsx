@@ -70,7 +70,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "quizaki",
       title: "Quizaki",
       description: "Designed an interactive quiz competition platform that brings excitement to learning. Built gamified experiences with real-time leaderboards and celebration moments.",
-      image: "/images/projects/quizaki.png",
+      image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1778701764/thumbnail_flbxrx.png",
       tags: ["Gamification", "UI/UX", "Real-time"],
       link: "https://quizaki.vercel.app",
       links: {

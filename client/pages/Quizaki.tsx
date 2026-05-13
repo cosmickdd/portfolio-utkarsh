@@ -79,7 +79,7 @@ export default function Quizaki({ onChatOpen }: { onChatOpen?: () => void }) {
               {/* Right Column */}
               <div className="lg:col-span-5">
                 <img
-                  src="/images/projects/quizaki.png"
+                  src="https://res.cloudinary.com/dz4h0eagy/image/upload/v1778701764/thumbnail_flbxrx.png"
                   alt="Quizaki platform mockup"
                   className="w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 rounded-[16px] border border-[#EAEAEA] cursor-pointer"
                 />

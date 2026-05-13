@@ -169,8 +169,6 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                 </a>
               </div>
             </div>
-                  <p className="mt-2 text-xs text-gray-500">Please include at least 10 characters so I know what you need.</p>
-                  <p className="mt-2 text-xs text-gray-500">You can also email me directly at cosimckdd@gmail.com.</p>
             {/* Right: large visual (replace /images/contact-portrait.jpg with your image) */}
             <div className="hidden lg:flex justify-end">
               <div className="group w-[390px] xl:w-[430px] h-[420px] xl:h-[470px] rounded-xl overflow-hidden bg-gray-100 shadow-sm border border-gray-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70 hover:border-slate-300">
@@ -211,6 +209,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                 <div>
                   <label className="block text-sm text-gray-700 mb-2">Message</label>
                   <textarea name="message" required rows={8} value={formData.message} onChange={handleChange} className="w-full min-h-[250px] px-4 py-3 border rounded-md text-sm resize-none" placeholder="Write your message here"></textarea>
+                  <p className="mt-2 text-xs text-gray-500">Please include at least 10 characters so I know what you need.</p>
                 </div>
 
                 <div className="flex justify-end">

@@ -103,10 +103,10 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
       <main className="bg-white overflow-hidden">
 
         {/* HERO WITH VISUAL ANCHOR & PERSONALITY */}
-        <section className="px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 lg:pt-24 pb-20 sm:pb-32 lg:pb-40 relative overflow-hidden">
-          {/* Sophisticated background with personality */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-blue-100/40 via-purple-50/30 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
-          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-amber-50/40 via-transparent to-transparent rounded-full blur-3xl opacity-40 pointer-events-none" />
+        <section className="px-4 sm:px-6 lg:px-8 pt-8 lg:pt-12 pb-12 lg:pb-16 relative overflow-hidden min-h-screen">
+          {/* Subtle neutral background accents (muted, professional) */}
+          <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-gradient-to-bl from-slate-100/40 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none" />
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[360px] h-[360px] bg-gradient-to-tr from-slate-50/30 to-transparent rounded-full blur-3xl opacity-20 pointer-events-none" />
 
           <div className="max-w-7xl mx-auto relative">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
@@ -114,17 +114,17 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
               {/* LEFT - Content + Visual Personality */}
               <div className="lg:col-span-2">
                 <div className={`transition-all duration-700 delay-100 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 mb-6">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                    <p className="text-xs uppercase tracking-widest text-green-700 font-bold">
-                      Available for Projects
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 mb-5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-slate-500 animate-pulse" />
+                    <p className="text-xs uppercase tracking-widest text-slate-700 font-semibold">
+                      Available for projects
                     </p>
                   </div>
                 </div>
 
                 <div className={`transition-all duration-700 delay-200 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-                  <h1 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6 text-black leading-tight">
-                    Let's Build<br />Something <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Remarkable</span>
+                  <h1 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4 text-slate-900 leading-tight">
+                    Let's build<br />something <span className="text-slate-700">remarkable</span>
                   </h1>
                 </div>
 
@@ -135,16 +135,16 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                 </div>
 
                 {/* Trust Signals - Enhanced with better visuals */}
-                <div className={`space-y-3 mb-12 transition-all duration-700 delay-400 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+                  <div className={`space-y-3 mb-8 transition-all duration-700 delay-400 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
                   {trustSignals.map(({ icon: Icon, text, detail }, idx) => (
                     <div
                       key={text}
-                      className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-5 py-4.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gray-400 hover:shadow-lg hover:shadow-black/5 hover:bg-gray-50/50"
+                      className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-4 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md"
                       style={{
                         transitionDelay: `${400 + idx * 80}ms`
                       }}
                     >
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 text-gray-700 transition-all duration-300 group-hover:from-black group-hover:to-gray-800 group-hover:text-white group-hover:shadow-lg group-hover:shadow-black/10">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition-all duration-300 group-hover:bg-slate-800 group-hover:text-white">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div className="min-w-0 flex-1">
@@ -167,7 +167,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                     ].map(({ icon: Icon, label, desc }, idx) => (
                       <div
                         key={label}
-                        className="group p-4 rounded-xl border border-gray-200 bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50 hover:to-gray-50 transition-all duration-300 hover:border-gray-300 hover:shadow-md hover:shadow-black/5 cursor-pointer"
+                        className="group p-3 rounded-lg border border-gray-200 bg-white hover:bg-slate-50 transition-all duration-300 hover:border-gray-300 cursor-pointer"
                         style={{
                           transitionDelay: `${600 + idx * 100}ms`
                         }}
@@ -203,7 +203,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
               {/* RIGHT - Form with Personality */}
               <div className={`lg:col-span-3 transition-all duration-700 delay-400 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
                 {!submitted ? (
-                  <div className="sticky top-24 bg-gradient-to-br from-gray-50/90 via-white to-gray-50/50 rounded-3xl p-8 sm:p-12 border border-gray-200/80 shadow-2xl shadow-black/8 backdrop-blur-xl">
+                  <div className="sticky top-20 bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-lg backdrop-blur-sm max-h-[calc(100vh-120px)] overflow-visible">
                     {/* Form Header */}
                     <div className="mb-8">
                       <div className="flex items-start justify-between mb-2">
@@ -215,7 +215,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                       <p className="text-sm text-gray-600 mt-2">Tell me about your idea. I promise I won't spam or sell your data.</p>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-4">
 
                       {error && (
                         <div className="p-4 bg-red-50/80 border border-red-200/80 rounded-xl text-red-700 text-sm backdrop-blur-sm">
@@ -224,51 +224,47 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                         </div>
                       )}
 
-                      <div>
-                        <label className="block text-sm font-bold text-gray-800 mb-3 flex items-center gap-2">
-                          Your name <span className="text-red-400">*</span>
-                        </label>
-                        <input
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          onFocus={() => setFocusedField("name")}
-                          onBlur={() => setFocusedField(null)}
-                          className={`w-full px-5 py-3.5 border-2 rounded-xl focus:outline-none transition-all bg-white text-sm font-medium ${
-                            focusedField === "name"
-                              ? "border-black shadow-lg shadow-black/10"
-                              : "border-gray-200 hover:border-gray-300"
-                          }`}
-                          placeholder="I'm..."
-                        />
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Your name <span className="text-gray-400">*</span></label>
+                          <input
+                            name="name"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            onFocus={() => setFocusedField("name")}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-all bg-white text-sm ${
+                              focusedField === "name"
+                                ? "border-slate-800 shadow"
+                                : "border-gray-200"
+                            }`}
+                            placeholder="Your name"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Email <span className="text-gray-400">*</span></label>
+                          <input
+                            name="email"
+                            type="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            onFocus={() => setFocusedField("email")}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-all bg-white text-sm ${
+                              focusedField === "email"
+                                ? "border-slate-800 shadow"
+                                : "border-gray-200"
+                            }`}
+                            placeholder="hello@company.com"
+                          />
+                        </div>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-bold text-gray-800 mb-3 flex items-center gap-2">
-                          Email <span className="text-red-400">*</span>
-                        </label>
-                        <input
-                          name="email"
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          onFocus={() => setFocusedField("email")}
-                          onBlur={() => setFocusedField(null)}
-                          className={`w-full px-5 py-3.5 border-2 rounded-xl focus:outline-none transition-all bg-white text-sm font-medium ${
-                            focusedField === "email"
-                              ? "border-black shadow-lg shadow-black/10"
-                              : "border-gray-200 hover:border-gray-300"
-                          }`}
-                          placeholder="hello@yourcompany.com"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-bold text-gray-800 mb-3 flex items-center gap-2">
-                          What are we building? <span className="text-red-400">*</span>
-                        </label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Project type <span className="text-gray-400">*</span></label>
                         <select
                           name="projectType"
                           required
@@ -276,25 +272,16 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                           onChange={handleChange}
                           onFocus={() => setFocusedField("projectType")}
                           onBlur={() => setFocusedField(null)}
-                          className={`w-full px-5 py-3.5 border-2 rounded-xl bg-white focus:outline-none transition-all text-sm font-medium appearance-none cursor-pointer ${
-                            focusedField === "projectType"
-                              ? "border-black shadow-lg shadow-black/10"
-                              : "border-gray-200 hover:border-gray-300"
-                          } ${formData.projectType ? "text-gray-900" : "text-gray-500"}`}
-                          style={{
-                            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e")`,
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'right 1rem center',
-                            backgroundSize: '16px 12px',
-                            paddingRight: '2.75rem'
-                          }}
+                          className={`w-full px-4 py-2 border rounded-lg bg-white focus:outline-none text-sm ${
+                            focusedField === "projectType" ? "border-slate-800" : "border-gray-200"
+                          }`}
                         >
                           <option value="">Select a project type...</option>
-                          <option value="product">Building a product</option>
-                          <option value="website">Website/Web app</option>
-                          <option value="consulting">Design/Dev consulting</option>
-                          <option value="ml">AI/ML integration</option>
-                          <option value="other">Something unique</option>
+                          <option value="product">Product</option>
+                          <option value="website">Website / Web app</option>
+                          <option value="consulting">Consulting</option>
+                          <option value="ml">AI / ML</option>
+                          <option value="other">Other</option>
                         </select>
                       </div>
 
@@ -305,17 +292,15 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                         <textarea
                           name="message"
                           required
-                          rows={5}
+                          rows={4}
                           value={formData.message}
                           onChange={handleChange}
                           onFocus={() => setFocusedField("message")}
                           onBlur={() => setFocusedField(null)}
-                          className={`w-full px-5 py-3.5 border-2 rounded-xl resize-none focus:outline-none transition-all bg-white text-sm font-medium ${
-                            focusedField === "message"
-                              ? "border-black shadow-lg shadow-black/10"
-                              : "border-gray-200 hover:border-gray-300"
+                          className={`w-full px-4 py-2 border rounded-lg resize-none focus:outline-none transition-all bg-white text-sm ${
+                            focusedField === "message" ? "border-slate-800 shadow" : "border-gray-200"
                           }`}
-                          placeholder="What's on your mind? No brief too crazy."
+                          placeholder="Briefly describe the project or idea"
                         />
                         <div className="flex items-center justify-between mt-2 px-1">
                           <p className="text-xs text-gray-500 font-medium">Keep it real.</p>
@@ -328,7 +313,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-black to-gray-900 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-black/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 text-base"
+                        className="group w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                       >
                         {isSubmitting ? (
                           <>
@@ -343,9 +328,7 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
                         )}
                       </button>
 
-                      <p className="text-xs text-gray-500 text-center font-medium">
-                        Response guaranteed within 24 hours
-                      </p>
+                      <p className="text-xs text-gray-500 text-center font-medium">I reply within 24 hours</p>
                     </form>
                   </div>
                 ) : (

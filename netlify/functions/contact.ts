@@ -45,6 +45,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     // Check environment variables
     const emailUser = process.env.EMAIL_USER;
     const emailPassword = process.env.EMAIL_PASSWORD;
+    const emailHost = process.env.EMAIL_HOST;
+    const emailPort = Number(process.env.EMAIL_PORT || 587);
+    const emailSecure = process.env.EMAIL_SECURE === "true";
+    const contactToEmail = process.env.CONTACT_TO_EMAIL || "ut054370@gmail.com";
 
     console.log("📧 Email Configuration Check:");
     console.log(`   EMAIL_USER exists: ${!!emailUser}`);
@@ -60,24 +64,38 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     console.log("✅ Creating transporter...");
 
-    // Create transporter using Gmail
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: emailUser,
-        pass: emailPassword,
-      },
-    });
+    const transporter = nodemailer.createTransport(
+      emailHost
+        ? {
+            host: emailHost,
+            port: emailPort,
+            secure: emailSecure,
+            auth: {
+              user: emailUser,
+              pass: emailPassword,
+            },
+          }
+        : {
+            service: "gmail",
+            auth: {
+              user: emailUser,
+              pass: emailPassword,
+            },
+          }
+    );
 
-    // Verify transporter connection
-    console.log("🔐 Verifying transporter connection...");
-    await transporter.verify();
-    console.log("✅ Transporter verified successfully");
+    try {
+      console.log("🔐 Verifying transporter connection...");
+      await transporter.verify();
+      console.log("✅ Transporter verified successfully");
+    } catch (verifyError: any) {
+      console.warn("⚠️  Transporter verification warning:", verifyError?.message || verifyError);
+    }
 
     // Email to admin
     const mailOptions = {
       from: emailUser,
-      to: "ut054370@gmail.com",
+      to: contactToEmail,
       replyTo: email,
       subject: `New Contact Form Submission - ${projectType}`,
       html: `
@@ -98,9 +116,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const info = await transporter.sendMail(mailOptions);
     console.log("✅ Email sent successfully:", info.messageId);
 
-    // Send confirmation email to user
+    // Send confirmation email to user as a best-effort follow-up
     const confirmationEmail = {
-      from: emailUser,
+      from: contactToEmail,
       to: email,
       subject: "We received your message! 🎉",
       html: `
@@ -112,9 +130,13 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       `,
     };
 
-    console.log("📨 Sending confirmation email to user...");
-    await transporter.sendMail(confirmationEmail);
-    console.log("✅ Confirmation email sent to:", email);
+    try {
+      console.log("📨 Sending confirmation email to user...");
+      await transporter.sendMail(confirmationEmail);
+      console.log("✅ Confirmation email sent to:", email);
+    } catch (confirmationError: any) {
+      console.warn("⚠️  Confirmation email failed, but admin email succeeded:", confirmationError?.message || confirmationError);
+    }
 
     console.log("✅ CONTACT FORM SUBMISSION SUCCESS");
     return res.status(200).json({ 

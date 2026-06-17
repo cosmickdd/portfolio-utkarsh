@@ -190,11 +190,17 @@ export default function ChatInterface({ onClose, isModal = true }: ChatInterface
         }
       `}</style>
 
-      {/* Modal Mode: Full screen overlay when opened from Navigation */}
+      {/* Modal Mode: Full screen on mobile, floating bottom-right window on laptop */}
       {isModal && onClose && (
-        <div className="fixed inset-0 z-[99] bg-white flex flex-col">
-          {/* Header */}
-          <div className="h-14 bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-between px-5 border-b border-gray-700 flex-shrink-0">
+        <div 
+          className="fixed inset-0 z-[99] sm:bg-black/40 sm:backdrop-blur-sm flex flex-col sm:items-end sm:justify-end sm:p-6 md:p-8"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) onClose();
+          }}
+        >
+          <div className="bg-white flex flex-col w-full h-full sm:w-[400px] sm:h-[600px] sm:max-h-[85vh] sm:rounded-2xl sm:shadow-2xl overflow-hidden chat-modal sm:border sm:border-gray-200">
+            {/* Header */}
+            <div className="h-14 bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-between px-5 border-b border-gray-700 flex-shrink-0">
             <div className="flex items-center gap-3 flex-1 min-w-0">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center flex-shrink-0">
                 <span className="text-xs font-bold text-white">UK</span>
@@ -285,6 +291,7 @@ export default function ChatInterface({ onClose, isModal = true }: ChatInterface
               </button>
             </div>
             <p className="text-xs text-gray-500 text-center">Powered by AI</p>
+          </div>
           </div>
         </div>
       )}

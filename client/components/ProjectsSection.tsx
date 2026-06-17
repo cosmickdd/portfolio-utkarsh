@@ -9,17 +9,17 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
     {
       id: "aiinterviewagents",
       title: "AI Interview Agents",
-      description: "Designed an interview prep platform that grew incredibly fast - 5,000+ signups in 15 days. The interface made preparation feel effortless and actually enjoyable.",
+      description: "Designed an interview prep platform that grew incredibly fast - 5,000+ signups in its first month. The interface made preparation feel effortless and actually enjoyable.",
       image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/aiinterviewagents_y8gpbb",
       tags: ["AI", "Founding Designer", "Rapid Growth"],
       link: "https://aiinterviewagents.com",
       links: {
         live: "https://aiinterviewagents.com",
         design: "https://www.figma.com/design/7TkMm9XqZPuc3DvvKz6q3r/AIIA?node-id=1839-5796&t=GcddPXSGzeAdnwWh-1",
-        caseStudy: "/aiinterviewagents",
+        caseStudy: "/projects/aiinterviewagents",
       },
       category: "designer",
-      metric: "5,000+ users in 15 days • 90%+ user satisfaction",
+      metric: "5,000+ users in first month • 90%+ user satisfaction",
     },
     {
       id: "prana-ai",
@@ -31,7 +31,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       links: {
         live: "https://prana-ai.vercel.app",
         design: "https://www.figma.com/design/C1XQkWfRoENS4OabryGznK/Prana-Ai-Ranked-5th-at-prometeo-25-devquest--Community-?node-id=0-1&t=OX2ylfhatjwC8DTS-1",
-        caseStudy: "/prana-ai",
+        caseStudy: "/projects/prana-ai",
         isLiveUnavailable: true,
       },
       category: "designer",
@@ -47,7 +47,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       links: {
         live: "https://nadanparinda.vercel.app",
         design: "https://www.figma.com/design/63sXdDeQYgKuOxYCO9rGQW/nadanparinda?node-id=0-1&t=0n0zwE7ZEklMv5bw-1",
-        caseStudy: "/nadanparinda",
+        caseStudy: "/projects/nadanparinda",
       },
       category: "designer",
       metric: "Complete design system • Live production website",
@@ -61,7 +61,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       link: "https://www.figma.com/design/m5AjbA6JtgHvlc5USJQRRg/trek--Community-?node-id=0-1&t=KazAJAxNI7KuBOcJ-1",
       links: {
         design: "https://www.figma.com/design/m5AjbA6JtgHvlc5USJQRRg/trek--Community-?node-id=0-1&t=KazAJAxNI7KuBOcJ-1",
-        caseStudy: "/trek",
+        caseStudy: "/projects/trek",
       },
       category: "designer",
       metric: "Social-driven travel ecosystem",
@@ -76,7 +76,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       links: {
         live: "https://quizaki.vercel.app",
         design: "https://www.figma.com/design/kE8K8mlmQSxq7cir3cHVEL/quizaki--Community-?node-id=91-98&t=u3bpyWuaX5cK3WWm-1",
-        caseStudy: "/quizaki",
+        caseStudy: "/projects/quizaki",
       },
       category: "designer",
       metric: "100+ participants • Engagement-focused design",
@@ -87,9 +87,9 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       description: "Designed a team management dashboard that turns complexity into clarity. Smart AI-powered analytics surface risks and priorities in context, helping managers make better decisions faster.",
       image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/rumi_d5hgao",
       tags: ["AI", "Analytics", "Team Management"],
-      link: "/rumi-ai",
+      link: "/projects/rumi-ai",
       links: {
-        caseStudy: "/rumi-ai",
+        caseStudy: "/projects/rumi-ai",
       },
       category: "designer",
       metric: "50% faster decision making • 40% reduction in context switching",
@@ -104,7 +104,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       tags: ["Python", "Composio", "Automation"],
       link: "/projects/aiocc",
       links: {
-        caseStudy: "/aiocc",
+        caseStudy: "/projects/aiocc",
       },
       category: "developer",
       metric: "Saves 10+ hours/week • 5 tools unified in one platform",
@@ -117,7 +117,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       tags: ["React", "Node.js", "AI/ML"],
       link: "/projects/rapidophilia",
       links: {
-        caseStudy: "/rapidophilia",
+        caseStudy: "/projects/rapidophilia",
       },
       category: "developer",
       metric: "Increased bookings by 45% • Users save 2+ hours per trip",
@@ -130,7 +130,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       tags: ["React", "Firebase", "Real-time"],
       link: "/projects/project-three",
       links: {
-        caseStudy: "/project-three",
+        caseStudy: "/projects/project-three",
       },
       category: "developer",
       metric: "Sub-second load times • 99.9% uptime guarantee",
@@ -143,7 +143,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       tags: ["React", "WebSocket", "CRDT"],
       link: "/projects/collab-platform",
       links: {
-        caseStudy: "/collab-platform",
+        caseStudy: "/projects/collab-platform",
       },
       category: "developer",
       metric: "10k+ daily users • Sub-100ms latency",
@@ -156,7 +156,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       tags: ["TypeScript", "D3.js", "PostgreSQL"],
       link: "/projects/analytics-dashboard",
       links: {
-        caseStudy: "/analytics-dashboard",
+        caseStudy: "/projects/analytics-dashboard",
       },
       category: "developer",
       metric: "100k+ events/day • 50+ concurrent users",
@@ -169,7 +169,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       tags: ["Python", "TensorFlow", "ML Ops"],
       link: "/projects/ml-recommendations",
       links: {
-        caseStudy: "/ml-recommendations",
+        caseStudy: "/projects/ml-recommendations",
       },
       category: "developer",
       metric: "40% increase in discovery • 0.92 accuracy score",

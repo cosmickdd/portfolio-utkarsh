@@ -14,15 +14,6 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
-import Nadanparinda from "./pages/Nadanparinda";
-import AIInterviewAgents from "./pages/AIInterviewAgents";
-import PranaAI from "./pages/PranaAI";
-import RumiAI from "./pages/RumiAI";
-import AIOperationsCommandCenter from "./pages/AIOperationsCommandCenter";
-import Rapidophilia from "./pages/Rapidophilia";
-import ProjectThree from "./pages/ProjectThree";
-import Quizaki from "./pages/Quizaki";
-import Trek from "./pages/Trek";
 
 const queryClient = new QueryClient();
 
@@ -44,15 +35,6 @@ export default function App() {
             <Route path="/contact" element={<Contact onChatOpen={() => setShowChat(true)} />} />
             <Route path="/blog" element={<Blog onChatOpen={() => setShowChat(true)} />} />
             <Route path="/blog/:slug" element={<BlogPost onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/nadanparinda" element={<Nadanparinda onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/aiinterviewagents" element={<AIInterviewAgents onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/prana-ai" element={<PranaAI onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/rumi-ai" element={<RumiAI onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/quizaki" element={<Quizaki onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/trek" element={<Trek onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/aiocc" element={<AIOperationsCommandCenter onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/rapidophilia" element={<Rapidophilia onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/project-three" element={<ProjectThree onChatOpen={() => setShowChat(true)} />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

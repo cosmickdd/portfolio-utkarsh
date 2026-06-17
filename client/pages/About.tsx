@@ -20,7 +20,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
       ([entry]) => {
         if (!entry.isIntersecting) return;
 
-        const targets = [3, 3, 20, 100];
+        const targets = [3, 3, 10, 20];
         const start = performance.now();
         const duration = 1800;
 
@@ -62,19 +62,19 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
             <div className={`transition-all duration-700 delay-200 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl leading-[1.1] text-black mb-6 sm:mb-8">
-                I Design & Build Products<br />People Actually Use
+                I design interfaces &<br />write the code to build them
               </h1>
             </div>
 
             <div className={`transition-all duration-700 delay-300 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed font-light mb-8 sm:mb-10">
-                I'm both a designer and engineer. I don't just design products - I build them myself. No handoff. No lost translation. I focus on clarity, systems, and creating products that genuinely work and feel right.
+                I'm a developer with a background in design. I enjoy being involved in the whole process—from the first wireframe to the final deployment. My goal is to build things that look good and are easy to use.
               </p>
             </div>
 
             <div className={`transition-all duration-700 delay-500 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
               <ul className="flex flex-wrap gap-2 sm:gap-3">
-                {["Product Design", "Frontend Dev", "Design Systems", "AI/Automation"].map(label => (
+                {["UI/UX Design", "Frontend Dev", "Design Systems", "AI Tools"].map(label => (
                   <li
                     key={label}
                     className="px-4 sm:px-5 py-2.5 sm:py-3 border border-gray-200 rounded-lg text-xs sm:text-sm font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 cursor-default"
@@ -114,24 +114,24 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                 <div>
                   <span className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold">Who I Am</span>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mt-3 mb-5 leading-tight">
-                    Designer & Engineer<br />Building Thoughtful Products
+                    Hi, I'm Utkarsh.
                   </h3>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light mb-5">
-                    I'm a full-stack maker. I design in Figma and build in code - without the gap between intention and reality. Over 3 years, I've learned that great products come from mastering both crafts.
+                    Over the last 3 years, I've been exploring the space between design and front-end development. I started out designing interfaces in Figma, but quickly realized I wanted to build the things I was sketching out.
                   </p>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light">
-                    Right now, I'm focused on AI and automation - making products smarter so complexity disappears for users.
+                    Lately, I've been spending a lot of time learning about AI and how we can use it to build more helpful and efficient tools.
                   </p>
                 </div>
 
                 {/* Core Values - Horizontal Cards */}
                 <div>
-                  <h4 className="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-3">What Guides Me</h4>
+                  <h4 className="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-3">My Approach</h4>
                   <div className="space-y-2">
                     {[
-                      "Details matter more than shortcuts",
-                      "Ship to learn, iterate with real feedback",
-                      "Simplicity is the hardest engineering problem"
+                      "Sweat the details, but keep moving forward",
+                      "Launch early and listen to real users",
+                      "Keep things simple and accessible"
                     ].map((value, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-sm text-gray-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
@@ -153,15 +153,15 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
               <span className="flex-1 h-px bg-gray-200 max-w-[100px]" />
             </div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-12 sm:mb-16 leading-tight">
-              How I Work
+              The Process
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
               {[
-                { num: "01", title: "Research", desc: "Understand the problem before designing solutions" },
-                { num: "02", title: "Design", desc: "Create clarity before visual polish" },
-                { num: "03", title: "Build", desc: "Ship systems that scale without rework" },
-                { num: "04", title: "Iterate", desc: "Measure outcomes and refine intentionally" },
+                { num: "01", title: "Understand", desc: "Figure out what needs to be built and why we're doing it." },
+                { num: "02", title: "Design", desc: "Sketch out ideas, wireframe, and create the UI in Figma." },
+                { num: "03", title: "Develop", desc: "Write clean, maintainable code to bring the design to life." },
+                { num: "04", title: "Iterate", desc: "Test everything, gather feedback, and fix the bugs." },
               ].map((step) => (
                 <div key={step.title} className="p-6 sm:p-8 rounded-xl border border-gray-200 bg-white hover:border-gray-300 hover:shadow-md transition-all duration-300">
                   <div className="mb-4">
@@ -197,18 +197,18 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
               {[
                 {
                   title: "Mountain Trekking",
-                  description: "Adventure seeker. Love exploring high altitudes and connecting with nature.",
+                  description: "I love getting away from screens and hiking up mountains whenever I get the chance.",
                   image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/7306cc32-c5ec-4840-965d-0f2ae11c3596_e8wlwj",
                   emoji: "🏔️"
                 },
                 {
                   title: "Guitar",
-                  description: "Playing melodies to unwind. Exploring rhythm, creativity, and expression through music.",
+                  description: "Self-taught guitarist. It's my favorite way to unwind after a long day of coding.",
                   image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/7c0212328f4d4f8f983dd645d6fa6c8b_gpxhod",
                 },
                 {
-                  title: "Community Building",
-                  description: "Organizing events and workshops. Creating spaces for people to learn and connect.",
+                  title: "Community",
+                  description: "I really enjoy bringing people together to share knowledge and build things.",
                   image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1778702697/1748377467040_jcphws.jpg",
                 }
               ].map((hobby) => (
@@ -253,7 +253,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                   {
                     title: "Devquest",
                     date: "2024",
-                    description: "A 3-hour design-to-development contest bringing together designers and developers. Participants had to go from concept to working prototype, showcasing rapid prototyping skills and cross-functional collaboration.",
+                    description: "A hackathon where designers and developers teamed up to turn ideas into working prototypes. It was a fast-paced experiment in collaboration.",
                     image: "/images/events/devquest.jpg",
                     impact: "50+ participants",
                     tag: "Competition"
@@ -261,7 +261,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                   {
                     title: "Nimbus",
                     date: "2024",
-                    description: "A comprehensive workshop for junior developers and designers. I led sessions on Machine Learning and Automation, sharing practical approaches to integrating AI into products and automating workflows for better productivity.",
+                    description: "A workshop for students entering tech. I gave a talk on machine learning and automation, showing how to use AI tools to speed up everyday workflows.",
                     image: "/images/events/nimbus.jpg",
                     impact: "80+ attendees",
                     tag: "Workshop"
@@ -269,7 +269,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                   {
                     title: "Quizaki",
                     date: "2024",
-                    description: "An engaging college-wide quiz competition testing knowledge across tech, design, and general topics. Created an inclusive competitive environment that brought together 100+ participants from different departments.",
+                    description: "A campus-wide trivia night covering tech, design, and pop culture. We managed to get over 100 students to show up and compete.",
                     image: "/images/events/quizaki.jpg",
                     impact: "100+ participants",
                     tag: "Event"
@@ -339,10 +339,10 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
               {[
-                { label: "Years Experience", value: `${stats[0]}+`, color: "from-blue-500/20 to-blue-600/5" },
-                { label: "Products Shipped", value: stats[1], color: "from-emerald-500/20 to-emerald-600/5" },
-                { label: "Systems Built", value: stats[2], color: "from-purple-500/20 to-purple-600/5" },
-                { label: "Quality Bar", value: `${stats[3]}%`, color: "from-amber-500/20 to-amber-600/5" },
+                { label: "Years Coding", value: `${stats[0]}+`, color: "from-blue-500/20 to-blue-600/5" },
+                { label: "Core Projects", value: stats[1], color: "from-emerald-500/20 to-emerald-600/5" },
+                { label: "Events Organized", value: `${stats[2]}+`, color: "from-purple-500/20 to-purple-600/5" },
+                { label: "Tech Stacks", value: `${stats[3]}+`, color: "from-amber-500/20 to-amber-600/5" },
               ].map(({ label, value, color }) => (
                 <div 
                   key={label} 
@@ -374,11 +374,10 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
           
           <div className="max-w-3xl mx-auto relative z-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 sm:mb-6 leading-tight">
-              Let's Build Something Meaningful
+              Let's work together
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-8 sm:mb-10 leading-relaxed font-light max-w-xl mx-auto">
-              If your product needs both design rigor and engineering depth,
-              I'd love to explore whether we're a fit.
+              If you're looking for someone who can bridge the gap between design and development, feel free to reach out. I'm always open to chatting about new projects.
             </p>
             <a
               href="/contact"

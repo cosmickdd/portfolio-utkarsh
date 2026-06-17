@@ -144,11 +144,12 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
   const [sliderPos, setSliderPos] = useState(50);
   const [heroVisible, setHeroVisible] = useState(false);
 
-  const showDesigner = sliderPos < 88;
-  const showDeveloper = sliderPos > 12;
+  // Drag right -> developer fades out. Drag left -> designer fades out.
+  const showDesigner = sliderPos > 12;
+  const showDeveloper = sliderPos < 88;
 
-  const designerAmount = Math.max(0, Math.min(1, (100 - sliderPos) / 60));
-  const developerAmount = Math.max(0, Math.min(1, sliderPos / 60));
+  const designerAmount = Math.max(0, Math.min(1, sliderPos / 60));
+  const developerAmount = Math.max(0, Math.min(1, (100 - sliderPos) / 60));
 
   useEffect(() => {
     const timer = setTimeout(() => setHeroVisible(true), 100);
@@ -158,7 +159,7 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
   return (
     <Layout onChatOpen={onChatOpen}>
       {/* HERO */}
-      <section className="min-h-screen md:h-[calc(100vh-88px)] flex flex-col items-center justify-center px-4 sm:px-6 -mt-24 sm:-mt-32 md:py-0 pb-12 md:pb-0 space-y-4 sm:space-y-4 md:space-y-0 relative overflow-hidden">
+      <section className="min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-88px)] flex flex-col items-center justify-start px-4 sm:px-6 -mt-16 sm:-mt-24 md:-mt-40 pt-20 md:pt-24 pb-12 relative overflow-hidden space-y-6">
 
         <DesignBackground opacity={designerAmount * 0.85} />
         <CodeBackground opacity={developerAmount * 0.6} />

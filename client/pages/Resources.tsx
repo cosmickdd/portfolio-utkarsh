@@ -202,8 +202,8 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
     image: post.mediaUrl,
   }));
 
-  // Show instagram posts at the top for design & learning categories
-  const combinedResources = (category === "design" || category === "learning")
+  // Show instagram posts at the top ONLY for the design category
+  const combinedResources = category === "design"
     ? [...postResources, ...filtered]
     : filtered;
 
@@ -232,20 +232,20 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 mb-5">
                 <Star className="w-3 h-3 text-gray-500" />
                 <p className="text-xs uppercase tracking-widest text-gray-600 font-semibold">
-                  Curated Collection
+                  My Bookmark Folder
                 </p>
               </div>
             </div>
 
             <div className={`transition-all duration-700 delay-200 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 sm:mb-5 text-black leading-tight">
-                Tools & Learning
+                Things I Use & Read
               </h1>
             </div>
 
             <div className={`transition-all duration-700 delay-300 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
               <p className="text-base sm:text-lg text-gray-500 max-w-2xl leading-relaxed font-light">
-                Design resources, development tools, and learning materials that shape my work.
+                A collection of design resources, dev tools, and articles that I find myself going back to.
               </p>
             </div>
           </div>
@@ -283,13 +283,13 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
         <section className="px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
           <div className="max-w-5xl mx-auto mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-[0.24em] text-gray-400 font-semibold">Selected resources</p>
+              <p className="text-xs uppercase tracking-[0.24em] text-gray-400 font-semibold">The Good Stuff</p>
               <h2 className="mt-1 text-2xl sm:text-3xl font-bold text-black leading-tight">
-                {categoryConfig[category].label} picks
+                {categoryConfig[category].label} bookmarks
               </h2>
             </div>
             <p className="text-sm text-gray-500 max-w-md leading-relaxed">
-              Clean, practical references with real examples and fewer filler links.
+              No filler, just the links I actually find useful.
             </p>
           </div>
 
@@ -358,13 +358,13 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
             <div className="mb-10 sm:mb-14">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 mb-5 shadow-sm">
                 <Instagram className="w-4 h-4 text-gray-600" />
-                <span className="text-xs uppercase tracking-widest font-semibold text-gray-500">Daily Inspiration</span>
+                <span className="text-xs uppercase tracking-widest font-semibold text-gray-500">What I'm Sharing</span>
               </div>
               <h2 className="font-catamaran font-bold text-2xl sm:text-3xl md:text-4xl text-black mb-3">
-                Latest from Instagram
+                Over on Instagram
               </h2>
               <p className="text-gray-500 text-sm sm:text-base max-w-xl font-light">
-                Design insights and inspiration on <span className="font-semibold text-black">@utxuiux</span>
+                Bite-sized design tips and things I'm currently working on over at <span className="font-semibold text-black">@utxuiux</span>
               </p>
             </div>
 
@@ -431,16 +431,16 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
         <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center bg-gray-900 border-t border-gray-800">
           <div className="max-w-2xl mx-auto">
             <h2 className="font-semibold text-2xl sm:text-3xl md:text-4xl text-white mb-4">
-              Found something valuable?
+              Got a good link?
             </h2>
             <p className="text-gray-400 text-sm sm:text-base mb-8 font-light leading-relaxed">
-              Know a resource, tool, or design that belongs here? I'd love to hear recommendations.
+              I'm always looking for new tools and good reads. If you have something that belongs here, let me know.
             </p>
             <a
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200 text-sm"
             >
-              Share a Resource
+              Send me a link
               <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>

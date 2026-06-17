@@ -23,29 +23,29 @@ interface ProjectContent {
 const PROJECT_DATA: Record<string, ProjectContent> = {
   "aiinterviewagents": {
     title: "AI Interview Agents",
-    headline: "Intelligent interview preparation platform that scaled to 5,000+ signups in just 15 days through intuitive UX design and rapid iteration.",
+    headline: "Intelligent interview preparation platform that scaled to 5,000+ signups in its first month through intuitive UX design and rapid iteration.",
     roleScope: "Founding Designer · Product Design · UX Research · Growth Design",
     tags: ["AI", "Founding Designer", "Rapid Growth"],
     category: "designer",
-    heroImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop",
+    heroImage: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1781732525/UI_case_study_template_that_lands_you_the_job_e9qrzg.jpg",
     galleryImages: [
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop",
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop",
     ],
     metrics: [
-      { label: "Signups in 15 Days", value: "5,000+" },
+      { label: "Signups in First Month", value: "5,000+" },
       { label: "Daily Growth Rate", value: "+333%" },
       { label: "Conversion Rate", value: "24.3%" },
       { label: "User Retention (Day 7)", value: "67%" },
     ],
     overview:
-      "AI Interview Agents is an intelligent interview preparation platform powered by conversational AI agents that simulate real interviews. As founding designer, I led the product design from conception through rapid scaling, achieving 5,000+ signups in the first 15 days - an extraordinary growth achievement driven by intuitive UX and product-market fit validation.",
+      "AI Interview Agents is an intelligent interview preparation platform powered by conversational AI agents that simulate real interviews. As founding designer, I led the product design from conception through rapid scaling, achieving 5,000+ signups in the first month - an extraordinary growth achievement driven by intuitive UX and product-market fit validation.",
     challenge:
-      "Interview anxiety is real, but most prep platforms are outdated and static. We needed to create an experience where users felt like they were having real conversations with expert interviewers, not practicing against rigid templates. The platform had to be intuitive enough for non-technical users while leveraging cutting-edge AI. Time was critical - we had 15 days to validate product-market fit.",
+      "Interview anxiety is real, but most prep platforms are outdated and static. We needed to create an experience where users felt like they were having real conversations with expert interviewers, not practicing against rigid templates. The platform had to be intuitive enough for non-technical users while leveraging cutting-edge AI. Time was critical - we had a very short timeframe to validate product-market fit.",
     solution:
       "I designed a conversation-first interface that stripped away unnecessary UI chrome. Users jump directly into interviews with zero friction. Each interview agent has a distinct personality (encouraging, rigorous, technical) that users can choose. Real-time feedback appears naturally in conversation flow. Progress tracking is implicit, not forced. The design language emphasizes confidence - warm colors, encouraging copy, and celebratory micro-interactions for milestone completions. I also designed the onboarding to feel like starting a conversation with a coach, not a form-filling experience.",
     outcome:
-      "5,000+ signups in 15 days with 24.3% conversion rate (industry average: 3-5%). Day 7 retention of 67%. User interviews revealed 91% of users described the experience as 'natural' and 'less intimidating than traditional prep.' The product achieved strong product-market fit signals, validating the AI-first interview prep category. Word-of-mouth and organic growth drove 40% of new users.",
+      "5,000+ signups in the first month with 24.3% conversion rate (industry average: 3-5%). Day 7 retention of 67%. User interviews revealed 91% of users described the experience as 'natural' and 'less intimidating than traditional prep.' The product achieved strong product-market fit signals, validating the AI-first interview prep category. Word-of-mouth and organic growth drove 40% of new users.",
     keyInsights: [
       "Conversation interfaces must feel natural, not robotic - UI disappears when interaction is genuinely dialog-like",
       "Rapid growth is possible when product design directly addresses core user anxiety, not just features",
@@ -314,242 +314,239 @@ export default function ProjectDetail({ onChatOpen }: { onChatOpen?: () => void 
 
   return (
     <Layout onChatOpen={onChatOpen}>
-      <main className="flex-1 bg-white">
-        {/* HERO SECTION */}
-        <section className="relative w-full h-96 sm:h-[500px] lg:h-[600px] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50">
-          <img
-            src={project.heroImage}
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
-        </section>
-
-        {/* CONTENT */}
-        <section className="w-full px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-20">
-          <div className="max-w-4xl mx-auto">
-            {/* Back Button */}
-            <button
-              onClick={() => navigate("/projects")}
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-8 text-sm"
-            >
+      <main className="flex-1 bg-white pb-24">
+        {/* TOP HEADER SECTION */}
+        <section className="w-full px-6 sm:px-8 lg:px-12 pt-0 pb-12 sm:pb-16 max-w-[1200px] mx-auto">
+          {/* Back Button */}
+          <button
+            onClick={() => navigate("/projects")}
+            className="group inline-flex items-center gap-2 text-gray-500 hover:text-black transition-colors mb-12 sm:mb-16 text-sm font-medium"
+          >
+            <div className="p-2 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-colors">
               <ArrowLeft size={16} />
-              Back to projects
-            </button>
+            </div>
+            Back to projects
+          </button>
 
-            {/* Header Section */}
-            <div className="mb-12 sm:mb-16">
-              <h1 className="font-catamaran font-bold text-4xl sm:text-5xl lg:text-6xl tracking-[0.08em] mb-4 text-black">
-                {project.title}
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8">
-                {project.headline}
+          <div className="max-w-[800px]">
+            {/* Title & Headline */}
+            <h1 className="font-catamaran font-black text-5xl sm:text-6xl lg:text-7xl tracking-[-0.02em] leading-[1.1] mb-6 text-black">
+              {project.title}
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed font-light mb-12 sm:mb-16">
+              {project.headline}
+            </p>
+          </div>
+
+          {/* Meta Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12 border-t border-b border-gray-100 py-10">
+            {/* Role & Scope */}
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">
+                Role & Scope
               </p>
-
-              {/* Meta Grid - Responsive for Designer vs Developer */}
-              <div
-                className={`grid gap-6 sm:gap-8 mb-10 ${
-                  isDesigner ? "sm:grid-cols-2" : "sm:grid-cols-3"
-                }`}
-              >
-                {/* Role & Scope */}
-                <div className="pb-6 sm:pb-8 border-b sm:border-b-0 sm:border-r border-gray-200">
-                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">
-                    Role & Scope
-                  </p>
-                  <p className="text-sm sm:text-base text-gray-900 font-medium leading-relaxed">
-                    {project.roleScope}
-                  </p>
-                </div>
-
-                {/* Tags */}
-                <div className="pb-6 sm:pb-0">
-                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-3">
-                    Skills
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 text-xs font-medium border border-gray-200"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Tech Stack (Developer) */}
-                {project.techStack && (
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-gray-500 mb-3">
-                      Tech Stack
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.techStack.slice(0, 4).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 rounded-full bg-gray-900 text-white text-xs font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.techStack.length > 4 && (
-                        <span className="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-xs font-medium">
-                          +{project.techStack.length - 4}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <p className="text-sm sm:text-base text-black font-medium leading-relaxed">
+                {project.roleScope}
+              </p>
             </div>
 
-            {/* Metrics Cards - More visual for Designer projects */}
-            {project.metrics && (
-              <div
-                className={`grid gap-4 sm:gap-6 mb-16 sm:mb-20 ${
-                  isDesigner
-                    ? "grid-cols-1 sm:grid-cols-3"
-                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                }`}
-              >
-                {project.metrics.map((metric, i) => (
-                  <div
-                    key={i}
-                    className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 hover:shadow-lg ${
-                      isDesigner
-                        ? "bg-gradient-to-br from-gray-50 to-white border-gray-200"
-                        : "bg-white border-gray-200 hover:border-gray-300"
-                    }`}
+            {/* Skills */}
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">
+                Skills
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1.5 rounded-full bg-gray-50 text-gray-700 text-xs font-medium border border-gray-200/60"
                   >
-                    <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-600 mb-2">
-                      {metric.label}
-                    </p>
-                    <p className="text-3xl sm:text-4xl font-bold text-black">
-                      {metric.value}
-                    </p>
-                  </div>
+                    {tag}
+                  </span>
                 ))}
               </div>
-            )}
-
-            {/* Content Sections */}
-            <div className="space-y-12 sm:space-y-16 mb-16 sm:mb-20">
-              {/* Overview */}
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">
-                  Overview
-                </h2>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  {project.overview}
-                </p>
-              </div>
-
-              {/* Challenge */}
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">
-                  {isDesigner ? "The Challenge" : "Challenge & Requirements"}
-                </h2>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  {project.challenge}
-                </p>
-              </div>
-
-              {/* Solution */}
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">
-                  {isDesigner
-                    ? "Solution & Design Approach"
-                    : "Technical Solution"}
-                </h2>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  {project.solution}
-                </p>
-              </div>
-
-              {/* Outcome */}
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">
-                  {isDesigner ? "Outcome & Impact" : "Results & Impact"}
-                </h2>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  {project.outcome}
-                </p>
-              </div>
-
-              {/* Key Insights */}
-              {project.keyInsights && (
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6">
-                    {isDesigner ? "Key Insights" : "Learnings & Takeaways"}
-                  </h2>
-                  <ul className="space-y-4">
-                    {project.keyInsights.map((insight, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-4 text-base sm:text-lg text-gray-700"
-                      >
-                        <span className="text-black font-bold flex-shrink-0">
-                          {isDesigner ? "→" : "•"}
-                        </span>
-                        <span>{insight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
 
-            {/* Gallery Section - For Designer Projects */}
-            {isDesigner && project.galleryImages && project.galleryImages.length > 0 && (
-              <div className="mb-16 sm:mb-20">
-                <h2 className="text-2xl sm:text-3xl font-bold text-black mb-8">
-                  Design Showcase
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-                  {project.galleryImages.map((image, i) => (
-                    <div
-                      key={i}
-                      className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden bg-gray-100 hover:shadow-lg transition-shadow duration-300"
+            {/* Tech Stack (if developer) */}
+            {project.techStack && (
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">
+                  Tech Stack
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1.5 rounded-full bg-black text-white text-xs font-medium"
                     >
-                      <img
-                        src={image}
-                        alt={`${project.title} design ${i + 1}`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
+                      {tech}
+                    </span>
                   ))}
                 </div>
               </div>
             )}
+          </div>
+        </section>
 
-            {/* CTA Section */}
-            <div className="pt-12 sm:pt-16 border-t border-gray-200">
-              <p className="text-gray-600 mb-6 text-sm sm:text-base">
-                {isDesigner
-                  ? "Interested in discussing design challenges or collaboration opportunities?"
-                  : "Want to discuss architecture, technical decisions, or work together?"}
-              </p>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-lg font-medium text-sm hover:bg-gray-900 transition-all duration-300 hover:shadow-lg"
-              >
-                Get In Touch
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+        {/* HERO IMAGE */}
+        <section className="w-full px-6 sm:px-8 lg:px-12 max-w-[1400px] mx-auto mb-16 sm:mb-24">
+          <div className="w-full relative">
+            <img
+              src={project.heroImage}
+              alt={`${project.title} Hero`}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </section>
+
+        {/* METRICS ROW */}
+        {project.metrics && (
+          <section className="w-full px-6 sm:px-8 lg:px-12 max-w-[1200px] mx-auto mb-24 sm:mb-32">
+            <div className={`grid grid-cols-1 sm:grid-cols-2 ${project.metrics.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-6 sm:gap-8`}>
+              {project.metrics.map((metric, i) => (
+                <div
+                  key={i}
+                  className="p-8 sm:p-10 rounded-3xl bg-gray-50 border border-gray-100/50 flex flex-col justify-center items-center text-center transition-all duration-300 hover:shadow-lg hover:bg-white"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </a>
+                  <p className="text-4xl sm:text-5xl font-black font-catamaran tracking-tight text-black mb-2">
+                    {metric.value}
+                  </p>
+                  <p className="text-[13px] font-semibold uppercase tracking-widest text-gray-500">
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
             </div>
+          </section>
+        )}
+
+        {/* MAIN CONTENT - TWO COLUMN LAYOUT */}
+        <section className="w-full px-6 sm:px-8 lg:px-12 max-w-[1000px] mx-auto space-y-20 sm:space-y-32">
+          
+          {/* Overview */}
+          <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] lg:grid-cols-[280px_1fr] gap-8 md:gap-16">
+            <div className="md:sticky md:top-32 h-fit">
+              <h2 className="text-2xl font-bold font-catamaran text-black tracking-tight">Overview</h2>
+              <div className="w-8 h-1 bg-black mt-4 rounded-full"></div>
+            </div>
+            <div className="prose prose-lg prose-gray text-gray-600 leading-relaxed font-light">
+              <p>{project.overview}</p>
+            </div>
+          </div>
+
+          {/* Challenge */}
+          <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] lg:grid-cols-[280px_1fr] gap-8 md:gap-16">
+            <div className="md:sticky md:top-32 h-fit">
+              <h2 className="text-2xl font-bold font-catamaran text-black tracking-tight">
+                {isDesigner ? "The Challenge" : "Challenge & Requirements"}
+              </h2>
+              <div className="w-8 h-1 bg-black mt-4 rounded-full"></div>
+            </div>
+            <div className="prose prose-lg prose-gray text-gray-600 leading-relaxed font-light">
+              <p>{project.challenge}</p>
+            </div>
+          </div>
+
+          {/* Solution */}
+          <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] lg:grid-cols-[280px_1fr] gap-8 md:gap-16">
+            <div className="md:sticky md:top-32 h-fit">
+              <h2 className="text-2xl font-bold font-catamaran text-black tracking-tight">
+                {isDesigner ? "Solution & Approach" : "Technical Solution"}
+              </h2>
+              <div className="w-8 h-1 bg-black mt-4 rounded-full"></div>
+            </div>
+            <div className="prose prose-lg prose-gray text-gray-600 leading-relaxed font-light">
+              <p>{project.solution}</p>
+            </div>
+          </div>
+
+          {/* Outcome */}
+          <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] lg:grid-cols-[280px_1fr] gap-8 md:gap-16">
+            <div className="md:sticky md:top-32 h-fit">
+              <h2 className="text-2xl font-bold font-catamaran text-black tracking-tight">
+                {isDesigner ? "Outcome & Impact" : "Results & Impact"}
+              </h2>
+              <div className="w-8 h-1 bg-black mt-4 rounded-full"></div>
+            </div>
+            <div className="prose prose-lg prose-gray text-gray-600 leading-relaxed font-light">
+              <p>{project.outcome}</p>
+            </div>
+          </div>
+
+          {/* Key Insights */}
+          {project.keyInsights && (
+            <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] lg:grid-cols-[280px_1fr] gap-8 md:gap-16">
+              <div className="md:sticky md:top-32 h-fit">
+                <h2 className="text-2xl font-bold font-catamaran text-black tracking-tight">
+                  {isDesigner ? "Key Insights" : "Learnings & Takeaways"}
+                </h2>
+                <div className="w-8 h-1 bg-black mt-4 rounded-full"></div>
+              </div>
+              <ul className="space-y-6">
+                {project.keyInsights.map((insight, i) => (
+                  <li key={i} className="flex gap-4 sm:gap-6 items-start">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-black mt-0.5">
+                      {isDesigner ? (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                      ) : (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      )}
+                    </div>
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light pt-1">
+                      {insight}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
+
+        {/* GALLERY SECTION */}
+        {isDesigner && project.galleryImages && project.galleryImages.length > 0 && (
+          <section className="w-full px-6 sm:px-8 lg:px-12 max-w-[1200px] mx-auto mt-24 sm:mt-32">
+            <h2 className="text-2xl sm:text-3xl font-bold font-catamaran text-black tracking-tight mb-10 text-center">
+              Design Showcase
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              {project.galleryImages.map((image, i) => (
+                <div
+                  key={i}
+                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group"
+                >
+                  <img
+                    src={image}
+                    alt={`${project.title} design ${i + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* BOTTOM CTA */}
+        <section className="w-full px-6 sm:px-8 lg:px-12 max-w-[800px] mx-auto mt-32 sm:mt-40 text-center">
+          <div className="p-10 sm:p-14 rounded-[32px] bg-gradient-to-b from-gray-50 to-white border border-gray-100 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 opacity-50"></div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-catamaran text-black tracking-tight mb-4">
+              Let's build something great.
+            </h2>
+            <p className="text-gray-500 mb-8 text-base sm:text-lg font-light max-w-lg mx-auto">
+              {isDesigner
+                ? "Interested in discussing design challenges or collaboration opportunities?"
+                : "Want to discuss architecture, technical decisions, or work together?"}
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-xl font-semibold text-sm hover:bg-gray-800 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:translate-y-0"
+            >
+              Get In Touch
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
           </div>
         </section>
       </main>

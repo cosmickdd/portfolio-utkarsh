@@ -9,14 +9,10 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "aiinterviewagents",
       title: "AI Interview Agents",
       description: "Designed an interview prep platform that grew incredibly fast - 5,000+ signups in its first month. The interface made preparation feel effortless and actually enjoyable.",
-      image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/aiinterviewagents_y8gpbb",
+      image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1785255402/ChatGPT_Image_Jul_28_2026_09_45_49_PM_wtp2fw.png",
       tags: ["AI", "Founding Designer", "Rapid Growth"],
-      link: "https://aiinterviewagents.com",
-      links: {
-        live: "https://aiinterviewagents.com",
-        design: "https://www.figma.com/design/7TkMm9XqZPuc3DvvKz6q3r/AIIA?node-id=1839-5796&t=GcddPXSGzeAdnwWh-1",
-        caseStudy: "/projects/aiinterviewagents",
-      },
+      link: "https://www.behance.net/gallery/252481637/AI-Interview-Agents",
+      directLink: true,
       category: "designer",
       metric: "5,000+ users in first month • 90%+ user satisfaction",
     },
@@ -24,13 +20,10 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "animall-bhai",
       title: "Animall Bhai",
       description: "A UX case study focusing on improving the 1-trial start experience for Animall Bhai, increasing user engagement and adoption.",
-      image: "/images/projects/animall_bhai.png",
+      image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1785255947/ChatGPT_Image_Jul_28_2026_09_55_27_PM_vmj7sk.png",
       tags: ["UX Research", "Case Study", "Product Design"],
       link: "https://www.behance.net/gallery/253168309/Improving-1-Trial-Starts-Animall-Bhai",
-      links: {
-        design: "https://www.behance.net/gallery/253168309/Improving-1-Trial-Starts-Animall-Bhai",
-        caseStudy: "https://www.behance.net/gallery/253168309/Improving-1-Trial-Starts-Animall-Bhai",
-      },
+      directLink: true,
       category: "designer",
       metric: "Enhanced trial start conversion",
     },
@@ -38,15 +31,10 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "aranya-ai",
       title: "Aranya AI",
       description: "Designed an AI health assistant that brings Ayurveda to life. Built clean, intuitive interfaces across web and mobile so users get personalized wellness advice easily.",
-      image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/prana-ai_husjzd",
+      image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1785256454/ChatGPT_Image_Jul_28_2026_10_03_59_PM_m4puzj.png",
       tags: ["AI", "Healthcare", "UX Systems"],
-      link: "https://pranaai.vercel.app",
-      links: {
-        live: "https://prana-ai.vercel.app",
-        design: "https://www.figma.com/design/C1XQkWfRoENS4OabryGznK/Prana-Ai-Ranked-5th-at-prometeo-25-devquest--Community-?node-id=0-1&t=OX2ylfhatjwC8DTS-1",
-        caseStudy: "/projects/prana-ai",
-        isLiveUnavailable: true,
-      },
+      link: "https://www.behance.net/gallery/252462795/Aranya-AI-AI-Powered-Farming-Plant-Care-App",
+      directLink: true,
       category: "designer",
       metric: "Launched across iOS & Android • Personalized user experience",
     },
@@ -54,14 +42,10 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       id: "nadanparinda",
       title: "Nadan Parinda Trek",
       description: "Complete end-to-end design for a tour, travel and mountaineering website. Created an immersive experience that captures the spirit of adventure and makes trip planning seamless.",
-      image: "/images/projects/nadanparinda.png",
+      image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1785257019/ChatGPT_Image_Jul_28_2026_10_12_06_PM_xkgwux.png",
       tags: ["UI/UX Design", "Travel", "Figma"],
-      link: "https://nadanparinda.vercel.app",
-      links: {
-        live: "https://nadanparinda.vercel.app",
-        design: "https://www.figma.com/design/63sXdDeQYgKuOxYCO9rGQW/nadanparinda?node-id=0-1&t=0n0zwE7ZEklMv5bw-1",
-        caseStudy: "/projects/nadanparinda",
-      },
+      link: "https://nadanparinda.vercel.app/",
+      directLink: true,
       category: "designer",
       metric: "Complete design system • Live production website",
     }
@@ -149,7 +133,7 @@ export default function ProjectsSection() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`
-                  relative z-10 cursor-target px-6 sm:px-9 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-500 uppercase tracking-wide
+                  relative z-10 cursor-target px-6 sm:px-9 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-500 uppercase tracking-wide outline-none focus:outline-none
                   ${activeTab === tab
                     ? "text-white"
                     : "text-gray-600 hover:text-gray-900"}

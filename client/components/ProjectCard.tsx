@@ -1,14 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+
 import { ArrowUpRight, ExternalLink, Palette, FileCode } from "lucide-react";
 import { toast } from "sonner";
 
@@ -28,6 +21,7 @@ export interface Project {
   category: "designer" | "developer";
   impact?: string;
   metric?: string;
+  directLink?: boolean;
 }
 
 export default function ProjectCard({
@@ -52,16 +46,16 @@ export default function ProjectCard({
   };
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <button
-          type="button"
-          aria-label={`Open links for ${project.title}`}
-          className={`
-            group cursor-pointer relative flex flex-col h-full bg-white rounded-xl overflow-hidden
-            border border-gray-200 hover:border-gray-300
-            hover:shadow-lg transition-all duration-300 text-left
-            focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open project ${project.title}`}
+      className={`
+            group cursor-pointer relative flex flex-col h-full bg-white rounded-2xl overflow-hidden
+            border border-gray-100 hover:border-gray-200
+            shadow-sm hover:shadow-2xl transition-all duration-400 ease-out hover:-translate-y-1.5 active:scale-[0.98]
+            focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 text-left
           `}
         >
           {/* IMAGE CONTAINER - Fixed aspect ratio for uniform card sizes */}
@@ -105,75 +99,6 @@ export default function ProjectCard({
               </p>
             </div>
           </div>
-        </button>
-      </DialogTrigger>
-
-      <DialogContent className="sm:max-w-md w-[95vw] h-auto max-h-[90vh] border border-gray-200 bg-white rounded-2xl shadow-xl p-0 overflow-hidden">
-        {/* Header with gradient background */}
-        <div className="bg-gradient-to-br from-gray-50 to-gray-100 px-5 sm:px-6 py-6 sm:py-8 border-b border-gray-200">
-          <DialogHeader className="space-y-3">
-            <DialogTitle className="text-xl sm:text-2xl text-gray-900 font-bold break-words">
-              {project.title}
-            </DialogTitle>
-            <DialogDescription className="text-gray-600 text-sm sm:text-sm leading-relaxed line-clamp-4">
-              {project.description}
-            </DialogDescription>
-            {project.tags && project.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 pt-2">
-                {project.tags.slice(0, 3).map((tag) => (
-                  <span key={tag} className="px-2 sm:px-2.5 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-gray-600">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </DialogHeader>
-        </div>
-
-        {/* Links section */}
-        <div className="px-5 sm:px-6 py-5 sm:py-6">
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">Access Project</p>
-          <div className="space-y-2.5 sm:space-y-3">
-            <a
-              href={linkSet.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleLiveClick}
-              className="group w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg border border-gray-200 hover:border-gray-900 bg-white hover:bg-gray-900 text-gray-900 hover:text-white font-medium transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 sm:active:scale-100 touch-target"
-            >
-              <div className="flex items-center gap-3 min-w-0">
-                <ExternalLink className="w-4 h-4 flex-shrink-0" />
-                <span className="truncate">Live Project</span>
-              </div>
-              <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-            </a>
-            <a
-              href={linkSet.design}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg border border-gray-200 hover:border-blue-500 bg-white hover:bg-blue-50 text-gray-900 hover:text-blue-900 font-medium transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 sm:active:scale-100 touch-target"
-            >
-              <div className="flex items-center gap-3 min-w-0">
-                <Palette className="w-4 h-4 flex-shrink-0" />
-                <span className="truncate">View Design</span>
-              </div>
-              <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-            </a>
-            <a
-              href={linkSet.caseStudy}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg border border-gray-200 hover:border-purple-500 bg-white hover:bg-purple-50 text-gray-900 hover:text-purple-900 font-medium transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 sm:active:scale-100 touch-target"
-            >
-              <div className="flex items-center gap-3 min-w-0">
-                <FileCode className="w-4 h-4 flex-shrink-0" />
-                <span className="truncate">Read Case Study</span>
-              </div>
-              <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-            </a>
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
+    </a>
   );
 }

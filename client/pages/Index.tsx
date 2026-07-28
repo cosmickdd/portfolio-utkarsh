@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import SplitImage from "@/components/SplitImage";
 import ProjectsSection from "@/components/ProjectsSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import ContactSection from "@/components/ContactSection";
 
 export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
   const [sliderPos, setSliderPos] = useState(50);
@@ -198,6 +200,12 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
       <div style={{ background: "#f9f9f9", borderTop: "1px solid #eaeaea", paddingTop: 80 }}>
         <ProjectsSection />
       </div>
+
+      {/* Experience Section */}
+      <ExperienceSection />
+
+      {/* CTA Footer Section */}
+      <ContactSection />
     </Layout>
   );
 }

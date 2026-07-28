@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export default function Layout({ children, onChatOpen }: LayoutProps) {
   return (
-    <div className="bg-white">
+    <div className="min-h-screen flex flex-col relative w-full">
 
       {/* Fixed Header */}
       <Header />

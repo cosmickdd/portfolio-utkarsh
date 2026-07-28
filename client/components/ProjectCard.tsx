@@ -30,15 +30,9 @@ export interface Project {
   metric?: string;
 }
 
-interface ProjectCardProps {
-  project: Project;
-  isVisible: boolean;
-}
-
 export default function ProjectCard({
   project,
-  isVisible,
-}: ProjectCardProps) {
+}: { project: Project }) {
   const [imgError, setImgError] = useState(false);
 
   const linkSet = {
@@ -68,15 +62,10 @@ export default function ProjectCard({
             border border-gray-200 hover:border-gray-300
             hover:shadow-lg transition-all duration-300 text-left
             focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2
-            ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4 pointer-events-none"
-            }
           `}
         >
-          {/* IMAGE CONTAINER - Takes up most of the card */}
-          <div className="relative w-full flex-grow overflow-hidden bg-gray-100 min-h-[200px]">
+          {/* IMAGE CONTAINER - Fixed aspect ratio for uniform card sizes */}
+          <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100 flex-shrink-0">
             {!imgError ? (
               <img
                 src={project.image}
@@ -103,16 +92,18 @@ export default function ProjectCard({
           </div>
 
           {/* CONTENT - Minimal at bottom */}
-          <div className="flex flex-col p-4 sm:p-5 flex-shrink-0">
-            {/* Title */}
-            <h3 className="font-semibold text-base text-gray-900 mb-1 line-clamp-2">
-              {project.title}
-            </h3>
+          <div className="flex flex-col p-4 sm:p-5 flex-grow justify-between">
+            <div>
+              {/* Title */}
+              <h3 className="font-semibold text-base text-gray-900 mb-1 line-clamp-1">
+                {project.title}
+              </h3>
 
-            {/* Description */}
-            <p className="text-xs text-gray-500 leading-relaxed line-clamp-1">
-              {project.description}
-            </p>
+              {/* Description */}
+              <p className="text-xs text-gray-500 leading-relaxed line-clamp-1">
+                {project.description}
+              </p>
+            </div>
           </div>
         </button>
       </DialogTrigger>

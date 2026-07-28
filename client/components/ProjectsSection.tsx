@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import ProjectCard, { Project } from "./ProjectCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const PROJECTS: Record<"designer" | "developer", Project[]> = {
   designer: [
@@ -22,8 +21,22 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       metric: "5,000+ users in first month • 90%+ user satisfaction",
     },
     {
-      id: "prana-ai",
-      title: "Prana AI",
+      id: "animall-bhai",
+      title: "Animall Bhai",
+      description: "A UX case study focusing on improving the 1-trial start experience for Animall Bhai, increasing user engagement and adoption.",
+      image: "/images/projects/animall_bhai.png",
+      tags: ["UX Research", "Case Study", "Product Design"],
+      link: "https://www.behance.net/gallery/253168309/Improving-1-Trial-Starts-Animall-Bhai",
+      links: {
+        design: "https://www.behance.net/gallery/253168309/Improving-1-Trial-Starts-Animall-Bhai",
+        caseStudy: "https://www.behance.net/gallery/253168309/Improving-1-Trial-Starts-Animall-Bhai",
+      },
+      category: "designer",
+      metric: "Enhanced trial start conversion",
+    },
+    {
+      id: "aranya-ai",
+      title: "Aranya AI",
       description: "Designed an AI health assistant that brings Ayurveda to life. Built clean, intuitive interfaces across web and mobile so users get personalized wellness advice easily.",
       image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/prana-ai_husjzd",
       tags: ["AI", "Healthcare", "UX Systems"],
@@ -39,7 +52,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
     },
     {
       id: "nadanparinda",
-      title: "Nadanparinda Treks",
+      title: "Nadan Parinda Trek",
       description: "Complete end-to-end design for a tour, travel and mountaineering website. Created an immersive experience that captures the spirit of adventure and makes trip planning seamless.",
       image: "/images/projects/nadanparinda.png",
       tags: ["UI/UX Design", "Travel", "Figma"],
@@ -51,49 +64,7 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       },
       category: "designer",
       metric: "Complete design system • Live production website",
-    },
-    {
-      id: "trek",
-      title: "Trek",
-      description: "A comprehensive trip and travel social and booking app. Designed to foster community engagement while providing a seamless booking experience for travelers.",
-      image: "/images/projects/trek.png",
-      tags: ["UI/UX Design", "Travel", "Social App"],
-      link: "https://www.figma.com/design/m5AjbA6JtgHvlc5USJQRRg/trek--Community-?node-id=0-1&t=KazAJAxNI7KuBOcJ-1",
-      links: {
-        design: "https://www.figma.com/design/m5AjbA6JtgHvlc5USJQRRg/trek--Community-?node-id=0-1&t=KazAJAxNI7KuBOcJ-1",
-        caseStudy: "/projects/trek",
-      },
-      category: "designer",
-      metric: "Social-driven travel ecosystem",
-    },
-    {
-      id: "quizaki",
-      title: "Quizaki",
-      description: "Designed an interactive quiz competition platform that brings excitement to learning. Built gamified experiences with real-time leaderboards and celebration moments.",
-      image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1778701764/thumbnail_flbxrx.png",
-      tags: ["Gamification", "UI/UX", "Real-time"],
-      link: "https://quizaki.vercel.app",
-      links: {
-        live: "https://quizaki.vercel.app",
-        design: "https://www.figma.com/design/kE8K8mlmQSxq7cir3cHVEL/quizaki--Community-?node-id=91-98&t=u3bpyWuaX5cK3WWm-1",
-        caseStudy: "/projects/quizaki",
-      },
-      category: "designer",
-      metric: "100+ participants • Engagement-focused design",
-    },
-    {
-      id: "rumi-ai",
-      title: "RUMI AI",
-      description: "Designed a team management dashboard that turns complexity into clarity. Smart AI-powered analytics surface risks and priorities in context, helping managers make better decisions faster.",
-      image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/rumi_d5hgao",
-      tags: ["AI", "Analytics", "Team Management"],
-      link: "/projects/rumi-ai",
-      links: {
-        caseStudy: "/projects/rumi-ai",
-      },
-      category: "designer",
-      metric: "50% faster decision making • 40% reduction in context switching",
-    },
+    }
   ],
   developer: [
     {
@@ -147,81 +118,25 @@ const PROJECTS: Record<"designer" | "developer", Project[]> = {
       },
       category: "developer",
       metric: "10k+ daily users • Sub-100ms latency",
-    },
-    {
-      id: "data-analytics-dashboard",
-      title: "Data Analytics Dashboard",
-      description: "Built a real-time analytics dashboard that processes 100k+ events per day. Visualizes complex metrics with interactive charts and custom queries.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      tags: ["TypeScript", "D3.js", "PostgreSQL"],
-      link: "/projects/analytics-dashboard",
-      links: {
-        caseStudy: "/projects/analytics-dashboard",
-      },
-      category: "developer",
-      metric: "100k+ events/day • 50+ concurrent users",
-    },
-    {
-      id: "ml-recommendation-engine",
-      title: "ML-Powered Recommendation Engine",
-      description: "Developed machine learning recommendation system that increased product discovery by 40%. Trained models on user behavior and content similarity.",
-      image: "https://images.unsplash.com/photo-1555949519-1a70d38e5e5d?w=800&h=600&fit=crop",
-      tags: ["Python", "TensorFlow", "ML Ops"],
-      link: "/projects/ml-recommendations",
-      links: {
-        caseStudy: "/projects/ml-recommendations",
-      },
-      category: "developer",
-      metric: "40% increase in discovery • 0.92 accuracy score",
-    },
-  ],
+    }
+  ]
 };
 
 export default function ProjectsSection() {
   const [activeTab, setActiveTab] = useState<"designer" | "developer">("designer");
-  const [currentPage, setCurrentPage] = useState(0);
-  const [visible, setVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
   const ITEMS_PER_PAGE = 6;
   const projects = PROJECTS[activeTab];
-  const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
-  const startIndex = currentPage * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const visibleProjects = projects.slice(startIndex, endIndex);
 
-  // Reset page when tab changes
-  useEffect(() => {
-    setCurrentPage(0);
-  }, [activeTab]);
 
-  // Section reveal only once
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setVisible(true),
-      { threshold: 0.25 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const goToPage = (page: number) => {
-    if (page >= 0 && page < totalPages) {
-      setCurrentPage(page);
-    }
-  };
 
   return (
     <>
       <section
-        ref={sectionRef}
         className={`
           w-full bg-white
           px-4 sm:px-6 lg:px-10
           py-16 sm:py-20 lg:py-24
-          transition-all duration-700
-          ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
         `}
       >
         <div className="max-w-7xl mx-auto">
@@ -240,7 +155,7 @@ export default function ProjectsSection() {
                     : "text-gray-600 hover:text-gray-900"}
                 `}
               >
-                <span className="relative z-10">{tab === "designer" ? "Design" : "Engineering"}</span>
+                <span className="relative z-10">{tab === "designer" ? "Design" : "Code"}</span>
                 {activeTab === tab && (
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 rounded-xl shadow-xl shadow-black/30 -z-10 animate-in fade-in slide-in-from-top-1 duration-500" />
                 )}
@@ -267,77 +182,19 @@ export default function ProjectsSection() {
         <div className="relative mb-12 sm:mb-14 lg:mb-16">
           <div
             className="
-              grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-              gap-6 sm:gap-7 lg:gap-8
+              grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2
+              gap-6 sm:gap-8 lg:gap-10
               transition-all duration-500
             "
           >
-            {visibleProjects.map((project, i) => (
-              <div
-                key={project.id}
-                style={{ 
-                  transitionDelay: `${i * 100}ms`,
-                  opacity: 1,
-                  transform: "translateY(0)"
-                }}
-                className="transition-all duration-500"
-              >
-                <ProjectCard project={project} isVisible={visible} />
+            {projects.map((project) => (
+              <div key={project.id}>
+                <ProjectCard project={project} />
               </div>
             ))}
           </div>
 
-          {/* PAGINATION CONTROLS */}
-          {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-4 mt-12 sm:mt-14">
-              {/* Left Arrow */}
-              <button
-                onClick={() => goToPage(currentPage - 1)}
-                disabled={currentPage === 0}
-                className={`
-                  cursor-target p-2.5 sm:p-3 rounded-full transition-all duration-300
-                  ${currentPage === 0
-                    ? "bg-gray-100 text-gray-300 cursor-not-allowed"
-                    : "bg-gray-100 hover:bg-black text-gray-700 hover:text-white active:scale-95"}
-                `}
-                aria-label="Previous projects"
-              >
-                <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
-              </button>
 
-              {/* Dots */}
-              <div className="flex items-center gap-2 sm:gap-3">
-                {Array.from({ length: totalPages }).map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goToPage(i)}
-                    className={`
-                      cursor-target transition-all duration-300 rounded-full
-                      ${currentPage === i
-                        ? "w-3 h-3 sm:w-3.5 sm:h-3.5 bg-black"
-                        : "w-2 h-2 sm:w-2.5 sm:h-2.5 bg-gray-300 hover:bg-gray-400"}
-                    `}
-                    aria-label={`Go to page ${i + 1}`}
-                  />
-                ))}
-              </div>
-
-              {/* Right Arrow */}
-              <button
-                onClick={() => goToPage(currentPage + 1)}
-                disabled={currentPage === totalPages - 1}
-                className={`
-                  cursor-target p-2.5 sm:p-3 rounded-full transition-all duration-300
-                  ${currentPage === totalPages - 1
-                    ? "bg-gray-100 text-gray-300 cursor-not-allowed"
-                    : "bg-gray-100 hover:bg-black text-gray-700 hover:text-white active:scale-95"}
-                `}
-                aria-label="Next projects"
-              >
-                <ChevronRight size={20} className="sm:w-6 sm:h-6" />
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </section>

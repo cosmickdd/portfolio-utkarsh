@@ -60,58 +60,40 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`
-        fixed top-0 left-0 w-full z-50
-        transition-all duration-500
-        ${isScrolled 
-          ? "bg-black/95 backdrop-blur-xl shadow-lg shadow-black/10" 
-          : "bg-black backdrop-blur-md"}
-      `}
-    >
-      <div className="max-w-[1900px] mx-auto flex items-center justify-between px-3 sm:px-5 md:px-10 py-3 sm:py-4 md:py-5">
+    <header className="w-full bg-[#111] z-50 fixed top-0 left-0 border-b border-[#222]">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 sm:gap-3 group">
-          <img src="/logo.svg" alt="COSMICKDD" className="h-5 sm:h-6 md:h-7 lg:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
+        <a href="/" className="flex items-center group">
+          <img
+            src="/logo.svg"
+            alt="COSMICKDD"
+            className="h-7 w-auto transition-all duration-300 group-hover:opacity-80"
+          />
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1">
+        {/* Desktop Navigation - Center Aligned */}
+        <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={`
-                cursor-target relative text-sm font-medium transition-all duration-300
-                px-4 py-2 rounded-lg
+                text-[13px] font-normal transition-colors duration-300 tracking-wide
                 ${
                   isActive(link.href)
-                    ? "text-white bg-white/10"
-                    : "text-white/50 hover:text-white hover:bg-white/5"
+                    ? "text-white"
+                    : "text-[#888] hover:text-white"
                 }
               `}
             >
-              {link.label}
-
-              {isActive(link.href) && (
-                <span
-                  className="
-                    absolute left-1/2 -bottom-0.5
-                    w-4 h-[2px]
-                    bg-white
-                    -translate-x-1/2
-                    rounded-full
-                    transition-all duration-300
-                  "
-                />
-              )}
+              {link.label.toLowerCase()}
             </a>
           ))}
         </nav>
 
-        {/* Social Icons */}
-        <div className="flex items-center gap-1 sm:gap-1.5">
+        {/* Social Icons - Right Aligned */}
+        <div className="flex items-center gap-5">
           {socialLinks.map(({ Icon, href, label }) => (
             <a
               key={label}
@@ -119,9 +101,9 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               title={label}
-              className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg text-white/50 hover:text-white hover:bg-white/10 transition-all duration-300"
+              className="text-[#888] hover:text-white transition-colors duration-300 block"
             >
-              <div className="w-3.5 h-3.5 sm:w-4 sm:h-4">
+              <div className="w-4 h-4">
                 <Icon />
               </div>
             </a>

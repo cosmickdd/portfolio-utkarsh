@@ -2,14 +2,20 @@ import React from "react";
 
 export default function ContactSection() {
   return (
-    <section className="w-full bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-white relative overflow-hidden">
-      {/* Background Decoration */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+    <section className="w-full text-white relative overflow-hidden bg-slate-950">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/images/contact_bg.png" 
+          alt="Abstract Background" 
+          className="w-full h-full object-cover object-center opacity-70"
+        />
+        {/* Subtle overlay to guarantee text readability */}
+        <div className="absolute inset-0 bg-slate-950/60 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
       </div>
       
-      <div className="px-6 sm:px-8 md:px-16 lg:px-20 relative">
+      <div className="px-6 sm:px-8 md:px-16 lg:px-20 relative z-10">
         <div className="max-w-7xl mx-auto py-16 sm:py-20 md:py-28">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 lg:gap-24 items-start">
             {/* LEFT SIDE - HEADING */}

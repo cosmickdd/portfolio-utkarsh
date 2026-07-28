@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import SplitImage from "@/components/SplitImage";
 import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import SideProjectsSection from "@/components/SideProjectsSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
@@ -203,6 +204,9 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
 
       {/* Experience Section */}
       <ExperienceSection />
+
+      {/* Side Projects Section */}
+      <SideProjectsSection />
 
       {/* CTA Footer Section */}
       <ContactSection />

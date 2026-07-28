@@ -49,7 +49,7 @@ export default function ExperienceSection() {
     <section className="py-20 sm:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12">
-          
+
           {/* Left Column: Timeline */}
           <div className="relative pt-8">
             {/* Stick to the very top, using padding to push the text down. This naturally creates a solid white block that covers the entire gap! */}
@@ -57,17 +57,17 @@ export default function ExperienceSection() {
               <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
                 Work Experience
               </h2>
-              
+
               {/* Fade out gradient to smoothly mask timeline items below */}
               <div className="absolute top-full left-0 right-0 h-20 bg-gradient-to-b from-white to-transparent pointer-events-none" />
             </div>
-            
+
             <div className="relative border-l border-gray-200 ml-3">
               {experiences.map((exp, index) => (
                 <div key={exp.id} className={`relative pl-8 sm:pl-10 ${index !== experiences.length - 1 ? 'pb-16' : ''}`}>
                   {/* Timeline Dot */}
                   <div className="absolute w-3.5 h-3.5 bg-gray-400 rounded-full -left-[7.5px] top-1.5 ring-4 ring-white" />
-                  
+
                   {/* Date & Line */}
                   <div className="flex items-center gap-4 mb-3">
                     <span className="text-sm font-semibold tracking-widest text-gray-500 uppercase">
@@ -127,21 +127,21 @@ export default function ExperienceSection() {
 
           {/* Right Column: Photo Collage (Sticky) */}
           <div className="hidden lg:flex sticky top-32 self-start items-center justify-center h-[700px] w-full">
-            
+
             {/* Top Polaroid */}
             <div className="absolute top-16 left-12 w-[340px] transform -rotate-[5deg] z-10 transition-transform hover:scale-105 duration-500 hover:z-30">
               <div className="bg-white p-4 pb-16 rounded-sm shadow-2xl relative border border-gray-100">
-                <img 
-                  src="https://res.cloudinary.com/dz4h0eagy/image/upload/v1785265840/2b7b7bff-77bb-48f2-a3ea-e23399d9ee09_uyfd3t.png" 
-                  alt="Team" 
+                <img
+                  src="https://res.cloudinary.com/dz4h0eagy/image/upload/v1785265840/2b7b7bff-77bb-48f2-a3ea-e23399d9ee09_uyfd3t.png"
+                  alt="Team"
                   className="w-full h-auto rounded-sm object-cover aspect-[4/3]"
                 />
-                
+
                 {/* Decoration: User's unified Safety Pin + Starburst PNG */}
                 <div className="absolute -top-16 -right-16 w-56 h-40 z-30 pointer-events-none drop-shadow-xl transform rotate-12">
-                  <img 
-                    src="/images/projects/safetypin.png" 
-                    alt="Safety Pin and Star" 
+                  <img
+                    src="/images/projects/safetypin.png"
+                    alt="Safety Pin and Star"
                     className="w-full h-full object-contain"
                   />
                 </div>
@@ -151,9 +151,9 @@ export default function ExperienceSection() {
             {/* Bottom Polaroid */}
             <div className="absolute top-64 right-12 w-[340px] transform rotate-[4deg] z-20 transition-transform hover:scale-105 duration-500 hover:z-30">
               <div className="bg-white p-4 pb-16 rounded-sm shadow-2xl relative border border-gray-100">
-                <img 
-                  src="https://res.cloudinary.com/dz4h0eagy/image/upload/v1785260138/z_vd6gyq.jpg" 
-                  alt="Desk setup" 
+                <img
+                  src="https://res.cloudinary.com/dz4h0eagy/image/upload/v1785260138/z_vd6gyq.jpg"
+                  alt="Desk setup"
                   className="w-full h-auto rounded-sm object-cover aspect-[4/3]"
                 />
               </div>

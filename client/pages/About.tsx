@@ -47,6 +47,22 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
       <Helmet>
         <title>Who is Cosmickdd? | Utkarsh Tiwari</title>
         <meta name="description" content="Discover who Cosmickdd is. Utkarsh Tiwari is a Product Designer and Frontend Developer specializing in AI products, SaaS, and Enterprise Software." />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [{
+                "@type": "Question",
+                "name": "Who is Cosmickdd?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cosmickdd is the personal brand of Utkarsh Tiwari, a Product Designer and Frontend Developer who specializes in crafting modern websites, SaaS platforms, and AI products."
+                }
+              }]
+            }
+          `}
+        </script>
       </Helmet>
       <main className="bg-white">
 

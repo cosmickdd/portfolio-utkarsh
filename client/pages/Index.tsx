@@ -27,6 +27,27 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
       <Helmet>
         <title>Cosmickdd | Utkarsh Tiwari - Product Designer</title>
         <meta name="description" content="Cosmickdd is Utkarsh Tiwari, a Product Designer and Frontend Developer specializing in AI tools, enterprise software, and seamless user experiences." />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Utkarsh Tiwari",
+              "alternateName": "Cosmickdd",
+              "url": "https://cosmickdd.me/",
+              "jobTitle": "Product Designer & Frontend Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Cosmickdd"
+              },
+              "sameAs": [
+                "https://github.com/cosmickdd",
+                "https://linkedin.com/in/cosmickdd",
+                "https://twitter.com/cosmickdd"
+              ]
+            }
+          `}
+        </script>
       </Helmet>
       {/* 
         ══════════════════════════════════════════════════════════

@@ -58,13 +58,13 @@ export default function ProjectCard({
             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 text-left
           `}
         >
-          {/* IMAGE CONTAINER - Fixed aspect ratio for uniform card sizes */}
-          <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100 flex-shrink-0">
+          {/* IMAGE CONTAINER */}
+          <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-gray-900">
             {!imgError ? (
               <img
                 src={project.image}
                 alt={`${project.title}`}
-                className="w-full h-full object-cover group-hover:opacity-95 transition-opacity duration-300"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
                 style={{ objectPosition: project.category === "developer" ? "50% 38%" : "50% 50%" }}
                 onError={() => setImgError(true)}
               />
@@ -83,20 +83,44 @@ export default function ProjectCard({
                 </div>
               </div>
             )}
-          </div>
 
-          {/* CONTENT - Minimal at bottom */}
-          <div className="flex flex-col p-4 sm:p-5 flex-grow justify-between">
-            <div>
-              {/* Title */}
-              <h3 className="font-semibold text-base text-gray-900 mb-1 line-clamp-1">
-                {project.title}
-              </h3>
+            {/* SUBTLE OVERLAY FOR BETTER CONTRAST */}
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/40 transition-colors duration-500" />
 
-              {/* Description */}
-              <p className="text-xs text-gray-500 leading-relaxed line-clamp-1">
-                {project.description}
-              </p>
+            {/* GLASSMORPHIC CONTENT CARD */}
+            <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4 z-10 flex flex-col justify-end">
+              <div className="p-3 sm:p-4 rounded-2xl bg-black/30 group-hover:bg-black/60 backdrop-blur-md border border-white/10 shadow-lg transition-all duration-500 ease-out">
+                <div className="flex justify-between items-center">
+                  <h3 className="font-bold text-base sm:text-lg text-white tracking-tight drop-shadow-sm">
+                    {project.title}
+                  </h3>
+                  <div className="bg-white/20 p-1.5 rounded-full transition-transform duration-500 group-hover:rotate-45 group-hover:bg-white/30 ml-2 flex-shrink-0">
+                    <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+                  </div>
+                </div>
+                
+                {/* EXPANDABLE CONTENT */}
+                <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                  <div className="overflow-hidden">
+                    <div className="pt-3">
+                      <p className="text-xs sm:text-sm text-gray-200 leading-relaxed line-clamp-2">
+                        {project.description}
+                      </p>
+                      
+                      {/* TAGS */}
+                      {project.tags && project.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-3">
+                          {project.tags.slice(0, 3).map((tag, idx) => (
+                            <span key={idx} className="text-[9px] sm:text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded-full bg-white/10 text-white border border-white/10">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
     </a>

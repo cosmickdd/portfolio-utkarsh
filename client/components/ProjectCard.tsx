@@ -26,7 +26,8 @@ export interface Project {
 
 export default function ProjectCard({
   project,
-}: { project: Project }) {
+  priority = false
+}: { project: Project; priority?: boolean }) {
   const [imgError, setImgError] = useState(false);
 
   const linkSet = {
@@ -64,6 +65,8 @@ export default function ProjectCard({
               <img
                 src={project.image}
                 alt={`${project.title}`}
+                loading={priority ? "eager" : "lazy"}
+                fetchPriority={priority ? "high" : "auto"}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
                 style={{ objectPosition: project.category === "developer" ? "50% 38%" : "50% 50%" }}
                 onError={() => setImgError(true)}

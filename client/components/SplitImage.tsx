@@ -65,6 +65,8 @@ export default function SplitImage({
           alt="Designer"
           className="w-full h-auto block"
           draggable={false}
+          loading="eager"
+          fetchPriority="high"
         />
 
         {/* OVERLAY IMAGE  -  developer side, pinned to exact same dimensions */}
@@ -80,6 +82,8 @@ export default function SplitImage({
             alt="Developer"
             className="absolute inset-0 w-full h-full object-cover object-top"
             draggable={false}
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
 

@@ -163,9 +163,9 @@ export default function ProjectsSection() {
               transition-all duration-500
             "
           >
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <div key={project.id}>
-                <ProjectCard project={project} />
+                <ProjectCard project={project} priority={index < 2} />
               </div>
             ))}
           </div>

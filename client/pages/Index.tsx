@@ -72,7 +72,7 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
           mixBlendMode: "multiply",
           zIndex: 0
         }}>
-          <img src="/images/designer_bg.png" alt="" style={{ width: "100%", height: "100%", objectFit: "contain", filter: "contrast(1.2)" }} />
+          <img src="/images/designer_bg.png" alt="" style={{ width: "100%", height: "100%", objectFit: "contain", filter: "contrast(1.2)" }} loading="eager" fetchPriority="high" />
         </div>
 
         <div style={{
@@ -89,7 +89,7 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
           mixBlendMode: "multiply",
           zIndex: 0
         }}>
-          <img src="/images/developer_bg.png" alt="" style={{ width: "100%", height: "100%", objectFit: "contain", filter: "contrast(1.2)" }} />
+          <img src="/images/developer_bg.png" alt="" style={{ width: "100%", height: "100%", objectFit: "contain", filter: "contrast(1.2)" }} loading="eager" fetchPriority="high" />
         </div>
 
         {/* ── Main Hero Content ───────────────────────── */}

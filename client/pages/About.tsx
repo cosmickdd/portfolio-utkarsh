@@ -62,13 +62,13 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
             <div className={`transition-all duration-700 delay-200 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1 className="font-catamaran font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl leading-[1.1] text-black mb-6 sm:mb-8">
-                I design interfaces &<br />write the code to build them
+                I engineer AI products &<br />design interfaces for them
               </h1>
             </div>
 
             <div className={`transition-all duration-700 delay-300 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed font-light mb-8 sm:mb-10">
-                I'm a developer with a background in design. I enjoy being involved in the whole process—from the first wireframe to the final deployment. My goal is to build things that look good and are easy to use.
+                I'm Utkarsh Tiwari, the Product Designer and Frontend Developer behind Cosmickdd. I specialize in building SaaS, Enterprise Software, and Developer Tools that merge premium aesthetics with seamless interaction design.
               </p>
             </div>
 
@@ -105,22 +105,22 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                 </div>
                 <p className="mt-4 text-xs text-gray-400 font-light text-center">
-                  Building at the intersection of design and development.
+                  Utkarsh Tiwari — Crafting modern websites and AI products.
                 </p>
               </div>
 
               {/* Content */}
               <div className="space-y-8 lg:pt-4">
                 <div>
-                  <span className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold">Who I Am</span>
+                  <span className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold">Who is Cosmickdd</span>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mt-3 mb-5 leading-tight">
-                    Hi, I'm Utkarsh.
+                    Hi, I'm Utkarsh Tiwari.
                   </h3>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light mb-5">
-                    Over the last 3 years, I've been exploring the space between design and front-end development. I started out designing interfaces in Figma, but quickly realized I wanted to build the things I was sketching out.
+                    Cosmickdd is my personal brand where I operate as a UI/UX Designer and Frontend Developer. Over the last 3 years, I've crafted design systems and mobile apps for projects like Animall, SafeEnv, TryMyProject, and AKGEC T&P Portal.
                   </p>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light">
-                    Lately, I've been spending a lot of time learning about AI and how we can use it to build more helpful and efficient tools.
+                    Recently, my focus has shifted toward building AI products, such as Aranya and an AI Interview Agent, drawing deep inspiration from the polished aesthetics of Apple, Linear, and Vercel.
                   </p>
                 </div>
 
@@ -129,9 +129,9 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                   <h4 className="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-3">My Approach</h4>
                   <div className="space-y-2">
                     {[
-                      "Sweat the details, but keep moving forward",
-                      "Launch early and listen to real users",
-                      "Keep things simple and accessible"
+                      "Design systems inspired by Stripe and Arc Browser",
+                      "Build SaaS tools that users actually want to use",
+                      "Deliver pixel-perfect frontend development"
                     ].map((value, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-sm text-gray-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
@@ -158,10 +158,10 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
               {[
-                { num: "01", title: "Understand", desc: "Figure out what needs to be built and why we're doing it." },
-                { num: "02", title: "Design", desc: "Sketch out ideas, wireframe, and create the UI in Figma." },
-                { num: "03", title: "Develop", desc: "Write clean, maintainable code to bring the design to life." },
-                { num: "04", title: "Iterate", desc: "Test everything, gather feedback, and fix the bugs." },
+                { num: "01", title: "Strategy", desc: "Define the architecture for complex Enterprise Software." },
+                { num: "02", title: "UI/UX", desc: "Design interfaces with Notion-like simplicity in Figma." },
+                { num: "03", title: "Frontend", desc: "Develop the Cosmickdd portfolio using modern frameworks." },
+                { num: "04", title: "Ship", desc: "Launch NadanParinda and other high-performance products." },
               ].map((step) => (
                 <div key={step.title} className="p-6 sm:p-8 rounded-xl border border-gray-200 bg-white hover:border-gray-300 hover:shadow-md transition-all duration-300">
                   <div className="mb-4">
@@ -196,19 +196,19 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-16 sm:mb-24">
               {[
                 {
-                  title: "Mountain Trekking",
-                  description: "I love getting away from screens and hiking up mountains whenever I get the chance.",
+                  title: "Design Research",
+                  description: "I love dissecting the interaction design of top-tier mobile apps and developer tools.",
                   image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/7306cc32-c5ec-4840-965d-0f2ae11c3596_e8wlwj",
                   emoji: "🏔️"
                 },
                 {
                   title: "Guitar",
-                  description: "Self-taught guitarist. It's my favorite way to unwind after a long day of coding.",
+                  description: "Self-taught guitarist. It's my favorite way to unwind after shipping a new SaaS feature.",
                   image: "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/7c0212328f4d4f8f983dd645d6fa6c8b_gpxhod",
                 },
                 {
-                  title: "Community",
-                  description: "I really enjoy bringing people together to share knowledge and build things.",
+                  title: "Cosmickdd Vision",
+                  description: "I enjoy engaging with the tech community to share knowledge about AI Product design.",
                   image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1778702697/1748377467040_jcphws.jpg",
                 }
               ].map((hobby) => (
@@ -374,10 +374,10 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
           
           <div className="max-w-3xl mx-auto relative z-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 sm:mb-6 leading-tight">
-              Let's work together
+              Let's build together
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-8 sm:mb-10 leading-relaxed font-light max-w-xl mx-auto">
-              If you're looking for someone who can bridge the gap between design and development, feel free to reach out. I'm always open to chatting about new projects.
+              If you're looking for a Product Designer who can engineer AI products and deliver premium frontend development under the Cosmickdd brand, let's talk.
             </p>
             <a
               href="/contact"

@@ -1,4 +1,5 @@
 import { Mail, Instagram, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -14,9 +15,9 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wide mb-4">Links</h4>
             <ul className="space-y-2">
-              <li><a href="/projects" className="text-gray-400 hover:text-white text-sm transition-colors">Projects</a></li>
-              <li><a href="/about" className="text-gray-400 hover:text-white text-sm transition-colors">About</a></li>
-              <li><a href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
+              <li><Link to="/projects" className="text-gray-400 hover:text-white text-sm transition-colors">Projects</Link></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white text-sm transition-colors">About</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</Link></li>
             </ul>
           </div>
           <div>

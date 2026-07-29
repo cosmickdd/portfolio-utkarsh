@@ -251,10 +251,10 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
               <div className="space-y-5 sm:space-y-6">
                 {[
                   {
-                    title: "Devquest",
+                    title: "Devclash",
                     date: "2024",
                     description: "A hackathon where designers and developers teamed up to turn ideas into working prototypes. It was a fast-paced experiment in collaboration.",
-                    image: "/images/events/devquest.jpg",
+                    image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1785348555/1733929725237_bqfiq6.jpg",
                     impact: "50+ participants",
                     tag: "Competition"
                   },
@@ -262,7 +262,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                     title: "Nimbus",
                     date: "2024",
                     description: "A workshop for students entering tech. I gave a talk on machine learning and automation, showing how to use AI tools to speed up everyday workflows.",
-                    image: "/images/events/nimbus.jpg",
+                    image: "https://res.cloudinary.com/dz4h0eagy/image/upload/v1785348524/1748377484594_n2cuij.jpg",
                     impact: "80+ attendees",
                     tag: "Workshop"
                   },
@@ -278,7 +278,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                   <div key={idx} className="group border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 hover:shadow-lg hover:shadow-black/5 transition-all duration-500 bg-white">
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-0">
                       {/* Image */}
-                      <div className="relative h-56 sm:h-64 md:h-full min-h-[200px] overflow-hidden bg-gray-100">
+                      <div className="relative h-56 sm:h-64 md:h-[280px] overflow-hidden bg-gray-100">
                         <img
                           src={event.image}
                           alt={event.title}

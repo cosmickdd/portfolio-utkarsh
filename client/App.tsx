@@ -5,6 +5,7 @@ import ChatInterface from "@/components/ChatInterface";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Preloader from "./components/Preloader";
 import Index from "./pages/Index";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -22,6 +23,7 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Preloader />
       <TooltipProvider>
         <Toaster />
         <Sonner />

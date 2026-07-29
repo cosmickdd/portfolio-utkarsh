@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function SEOBlog() {
   return (
@@ -163,12 +164,12 @@ export default function SEOBlog() {
               <p className="text-gray-700 mb-6">
                 Explore my portfolio to see real examples of UI/UX design projects, case studies from AKGEC initiatives, and product design work created within the Cloud Computing Cell community.
               </p>
-              <a
-                href="/portfolio"
+              <Link
+                to="/"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-900 transition"
               >
                 View Portfolio <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
 
             {/* FOOTER KEYWORDS */}
@@ -188,22 +189,22 @@ export default function SEOBlog() {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-black mb-8">More Resources</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <a href="/projects" className="p-4 bg-white border border-gray-200 rounded-lg hover:border-black transition">
+              <Link to="/projects" className="p-4 bg-white border border-gray-200 rounded-lg hover:border-black transition">
                 <p className="font-semibold text-black mb-2">View Projects</p>
                 <p className="text-sm text-gray-600">See live design projects and case studies</p>
-              </a>
-              <a href="/resources" className="p-4 bg-white border border-gray-200 rounded-lg hover:border-black transition">
+              </Link>
+              <Link to="/resources" className="p-4 bg-white border border-gray-200 rounded-lg hover:border-black transition">
                 <p className="font-semibold text-black mb-2">Design Resources</p>
                 <p className="text-sm text-gray-600">Tools, frameworks, and design systems</p>
-              </a>
-              <a href="/about" className="p-4 bg-white border border-gray-200 rounded-lg hover:border-black transition">
+              </Link>
+              <Link to="/about" className="p-4 bg-white border border-gray-200 rounded-lg hover:border-black transition">
                 <p className="font-semibold text-black mb-2">About Me</p>
                 <p className="text-sm text-gray-600">Learn about my design philosophy</p>
-              </a>
-              <a href="/contact" className="p-4 bg-white border border-gray-200 rounded-lg hover:border-black transition">
+              </Link>
+              <Link to="/contact" className="p-4 bg-white border border-gray-200 rounded-lg hover:border-black transition">
                 <p className="font-semibold text-black mb-2">Get in Touch</p>
                 <p className="text-sm text-gray-600">Collaborate or discuss design ideas</p>
-              </a>
+              </Link>
             </div>
           </div>
         </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 /* ICONS */
 const TwitterIcon = () => (
@@ -64,20 +64,20 @@ export default function Header() {
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
-        <a href="/" className="flex items-center group">
+        <Link to="/" className="flex items-center group">
           <img
             src="/logo.svg"
             alt="COSMICKDD"
             className="h-7 w-auto transition-all duration-300 group-hover:opacity-80"
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation - Center Aligned */}
         <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className={`
                 text-[13px] font-normal transition-colors duration-300 tracking-wide
                 ${
@@ -88,7 +88,7 @@ export default function Header() {
               `}
             >
               {link.label.toLowerCase()}
-            </a>
+            </Link>
           ))}
         </nav>
 

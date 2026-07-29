@@ -43,7 +43,9 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
               "sameAs": [
                 "https://github.com/cosmickdd",
                 "https://linkedin.com/in/cosmickdd",
-                "https://twitter.com/cosmickdd"
+                "https://twitter.com/cosmickdd",
+                "https://www.figma.com/@cosmickdd",
+                "https://instagram.com/cosmickdd"
               ]
             }
           `}

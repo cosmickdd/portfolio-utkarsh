@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Mail, Clock3, Globe2, Handshake, Send, CheckCircle2, Sparkles } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 
 export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
@@ -136,6 +137,10 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
 
   return (
     <Layout onChatOpen={onChatOpen}>
+      <Helmet>
+        <title>Contact | Cosmickdd</title>
+        <meta name="description" content="Get in touch with Utkarsh Tiwari (Cosmickdd) for product design, frontend development, and AI engineering collaborations." />
+      </Helmet>
       <main className="bg-white overflow-hidden">
 
         {/* HERO & TWO-COLUMN LAYOUT (reference style) */}

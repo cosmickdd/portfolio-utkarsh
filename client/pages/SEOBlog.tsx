@@ -1,10 +1,15 @@
 import Layout from "@/components/Layout";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function SEOBlog() {
   return (
     <Layout>
+      <Helmet>
+        <title>Design Education at AKGEC | Cosmickdd</title>
+        <meta name="description" content="Exploring UI/UX design practices, student-led innovation, and product design contributions at AKGEC's Cloud Computing Cell by Utkarsh Tiwari (Cosmickdd)." />
+      </Helmet>
       <main className="bg-white">
         {/* HERO */}
         <section className="px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-32 pb-16 sm:pb-24">

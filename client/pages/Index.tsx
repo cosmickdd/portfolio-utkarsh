@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import SplitImage from "@/components/SplitImage";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -23,6 +24,10 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
 
   return (
     <Layout onChatOpen={onChatOpen}>
+      <Helmet>
+        <title>Cosmickdd | Utkarsh Tiwari - Product Designer</title>
+        <meta name="description" content="Cosmickdd is Utkarsh Tiwari, a Product Designer and Frontend Developer specializing in AI tools, enterprise software, and seamless user experiences." />
+      </Helmet>
       {/* 
         ══════════════════════════════════════════════════════════
         HERO — Match Adham Dannaway style (black header + huge white hero)

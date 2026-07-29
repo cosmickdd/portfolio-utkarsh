@@ -16,37 +16,41 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
+import { HelmetProvider } from "react-helmet-async";
+
 const queryClient = new QueryClient();
 
 export default function App() {
   const [showChat, setShowChat] = useState(false);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Preloader />
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/projects" element={<Projects onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/projects/:slug" element={<ProjectDetail onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/about" element={<About onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/resources" element={<Resources onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/contact" element={<Contact onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/blog" element={<Blog onChatOpen={() => setShowChat(true)} />} />
-            <Route path="/blog/:slug" element={<BlogPost onChatOpen={() => setShowChat(true)} />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-        
-        {/* Chat Modal - Rendered at root level to break free from Layout */}
-        {showChat && (
-          <ChatInterface onClose={() => setShowChat(false)} />
-        )}
-      </TooltipProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <Preloader />
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index onChatOpen={() => setShowChat(true)} />} />
+              <Route path="/projects" element={<Projects onChatOpen={() => setShowChat(true)} />} />
+              <Route path="/projects/:slug" element={<ProjectDetail onChatOpen={() => setShowChat(true)} />} />
+              <Route path="/about" element={<About onChatOpen={() => setShowChat(true)} />} />
+              <Route path="/resources" element={<Resources onChatOpen={() => setShowChat(true)} />} />
+              <Route path="/contact" element={<Contact onChatOpen={() => setShowChat(true)} />} />
+              <Route path="/blog" element={<Blog onChatOpen={() => setShowChat(true)} />} />
+              <Route path="/blog/:slug" element={<BlogPost onChatOpen={() => setShowChat(true)} />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+          
+          {/* Chat Modal - Rendered at root level to break free from Layout */}
+          {showChat && (
+            <ChatInterface onClose={() => setShowChat(false)} />
+          )}
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }

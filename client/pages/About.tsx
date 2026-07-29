@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Layout from "@/components/Layout";
 
+import { Helmet } from "react-helmet-async";
+
 export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
   const [stats, setStats] = useState([0, 0, 0, 0]);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -42,6 +44,10 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
   return (
     <Layout onChatOpen={onChatOpen}>
+      <Helmet>
+        <title>Who is Cosmickdd? | Utkarsh Tiwari</title>
+        <meta name="description" content="Discover who Cosmickdd is. Utkarsh Tiwari is a Product Designer and Frontend Developer specializing in AI products, SaaS, and Enterprise Software." />
+      </Helmet>
       <main className="bg-white">
 
         {/* HERO  -  Refined with entrance animation */}

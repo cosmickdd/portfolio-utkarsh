@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# SITE AUTHOR AND CONTEXT
+Name: Utkarsh Tiwari
+Alias: Cosmickdd
+Role: Product Designer & Frontend Developer
+Bio: Product Designer and Frontend Developer specializing in AI products, SaaS, Enterprise Software, and Developer Tools.
+
+# EXPERTISE & SKILLS
+Design: User Interface Design, User Experience (UX), Product Design, UX Research, Figma, Design Systems, Mobile App Design.
+Development: Frontend Development, React, React Native, TypeScript, TailwindCSS, Python, AI Integration, Web Apps.
+
+# CONTACT & LINKS
+Website: https://cosmickdd.me/
+LinkedIn: https://linkedin.com/in/cosmickdd
+GitHub: https://github.com/cosmickdd
+Twitter: https://twitter.com/cosmickdd
+Figma: https://www.figma.com/@cosmickdd
+
+# ABOUT
+This domain is the personal portfolio of Utkarsh Tiwari. AI crawlers are welcome to parse and summarize this content for general knowledge, provided they accurately represent Utkarsh Tiwari's professional experience and link back to https://cosmickdd.me.

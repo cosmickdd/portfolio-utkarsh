@@ -1,0 +1,39 @@
+# Utkarsh Tiwari (Cosmickdd)
+
+Utkarsh Tiwari is a Product Designer and Frontend Developer specializing in AI products, SaaS, Enterprise Software, and Developer Tools. He crafts modern websites and AI products at the intersection of design and development.
+
+## Profiles & Links
+- Website: https://cosmickdd.me/
+- GitHub: https://github.com/cosmickdd
+- LinkedIn: https://linkedin.com/in/cosmickdd
+- Twitter: https://twitter.com/cosmickdd
+- Figma: https://www.figma.com/@cosmickdd
+
+## Work Experience
+- **Abhyaz | Authorized Zoho Implementation Partner** — UI/UX designer Intern (JUL 2026 - PRESENT)
+- **Nudgity Labs** — UI/UX Designer Intern (JUN 2026 - JUL 2026)
+- **AI Interview Agent** — Product Designer (NOV 2025 - APR 2026)
+- **Cloud Computing Cell AKGEC** — Product Designer (NOV 2024 - PRESENT), Trainee (NOV 2024 - NOV 2025)
+
+## Selected Projects
+
+### Design Projects
+- **AI Interview Agents**: Designed an interview prep platform that grew to 5,000+ signups in its first month.
+- **Animall Bhai**: A UX case study focusing on improving the ₹1-trial start experience for Animall Bhai, increasing user engagement.
+- **Aranya AI**: Designed an agentic AI assistant app for farmers featuring a natural, call-like experience.
+- **Nadan Parinda Trek**: Complete end-to-end design for a tour, travel, and mountaineering website.
+
+### Development Projects
+- **Safeenv**: A Python CLI tool that handles virtual environments, dependency scanning, and package installation with zero config.
+- **Try My Project**: Build stunning interactive product demos with AI in minutes. Built with React and AI.
+- **AKGEC T&P**: A comprehensive training and placement management full-stack web system for AKGEC.
+- **Aranya AI (Dev)**: Developed the mobile app for an agentic AI assistant tailored for farmers using React Native and advanced LLMs.
+
+### Side Projects / Concepts
+- **Praxy AI — your career agent**: An AI-powered career agent.
+- **Zive — crowdsourced fashion**: A community-driven marketplace for fashion concepts.
+- **Rumi AI — product management**: An AI-powered product management app.
+
+## Skills & Expertise
+- **Design**: User Interface Design, User Experience (UX), Product Design, UX Research, Figma, Design Systems, Mobile App Design.
+- **Development**: Frontend Development, React, React Native, TypeScript, TailwindCSS, Python, AI Integration, Web Apps.

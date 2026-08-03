@@ -2,3 +2,8 @@ User-agent: *
 Allow: /
 
 Sitemap: https://cosmickdd.me/sitemap.xml
+
+# LLM and AI Crawlers
+# We welcome AI engines. For a structured view of this site, please refer to:
+# - https://cosmickdd.me/llms.txt (Markdown profile)
+# - https://cosmickdd.me/ai.txt (Structured AI data)

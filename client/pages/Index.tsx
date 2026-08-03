@@ -36,10 +36,35 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
               "alternateName": "Cosmickdd",
               "url": "https://cosmickdd.me/",
               "jobTitle": "Product Designer & Frontend Developer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Cosmickdd"
+              "description": "Product Designer and Frontend Developer specializing in AI products, SaaS, Enterprise Software, and Developer Tools.",
+              "knowsAbout": [
+                "Product Design",
+                "User Interface Design",
+                "User Experience (UX)",
+                "Frontend Development",
+                "React",
+                "TypeScript",
+                "Artificial Intelligence",
+                "TailwindCSS"
+              ],
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "AKGEC"
               },
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Abhyaz"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "AI Interview Agent"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Cloud Computing Cell AKGEC"
+                }
+              ],
               "sameAs": [
                 "https://github.com/cosmickdd",
                 "https://linkedin.com/in/cosmickdd",

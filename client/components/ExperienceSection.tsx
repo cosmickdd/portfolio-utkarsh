@@ -2,9 +2,21 @@ import React from 'react';
 
 const experiences = [
   {
+    id: "greenpista",
+    date: "AUG 2026 — PRESENT",
+    company: "Greenpista",
+    logo: "/images/companies/greenpista.png",
+    roles: [
+      { title: "UI/UX Designer", duration: "" }
+    ],
+    description: "",
+    tags: ["User Interface Design", "User Experience (UX)"]
+  },
+  {
     id: "abhyaz",
-    date: "JUL 2026 — PRESENT",
+    date: "JUL 2026 — AUG 2026",
     company: "Abhyaz | Authorized Zoho Implementation Partner",
+    logo: "/images/companies/abhyaz.png",
     roles: [
       { title: "UI/UX designer Intern", duration: "" }
     ],
@@ -15,6 +27,7 @@ const experiences = [
     id: "nudgity-labs",
     date: "JUN 2026 — JUL 2026",
     company: "Nudgity Labs",
+    logo: "/images/companies/nudgity.png",
     roles: [
       { title: "UI/UX Designer Intern", duration: "" }
     ],
@@ -25,6 +38,7 @@ const experiences = [
     id: "ai-interview-agent",
     date: "NOV 2025 — APR 2026",
     company: "AI Interview Agent",
+    logo: "/images/companies/aiinterviewagents.png",
     roles: [
       { title: "Product Designer", duration: "" }
     ],
@@ -35,6 +49,7 @@ const experiences = [
     id: "akgec",
     date: "NOV 2024 — PRESENT",
     company: "Cloud Computing Cell AKGEC",
+    logo: "/images/companies/akgec.png",
     roles: [
       { title: "Product Designer", duration: "Nov 2024 - Present · 1 yr 9 mos" },
       { title: "Trainee", duration: "Nov 2024 - Nov 2025 · 1 yr 1 mo" }
@@ -53,23 +68,25 @@ export default function ExperienceSection() {
           {/* Left Column: Timeline */}
           <div className="relative pt-8">
             {/* Stick to the very top, using padding to push the text down. This naturally creates a solid white block that covers the entire gap! */}
-            <div className="sticky top-0 z-40 bg-white pt-24 pb-6 -mt-24 mb-4">
+            <div className="sticky top-0 z-40 bg-white pt-24 pb-6 -mt-24 mb-4 -mx-6 px-6">
               <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
                 Work Experience
               </h2>
 
               {/* Fade out gradient to smoothly mask timeline items below */}
-              <div className="absolute top-full left-0 right-0 h-20 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+              <div className="absolute top-full -left-6 -right-6 h-20 bg-gradient-to-b from-white to-transparent pointer-events-none" />
             </div>
 
-            <div className="relative border-l border-gray-200 ml-3">
+            <div className="relative z-0 border-l border-gray-200 ml-3 mt-16">
               {experiences.map((exp, index) => (
                 <div key={exp.id} className={`relative pl-8 sm:pl-10 ${index !== experiences.length - 1 ? 'pb-16' : ''}`}>
-                  {/* Timeline Dot */}
-                  <div className="absolute w-3.5 h-3.5 bg-gray-400 rounded-full -left-[7.5px] top-1.5 ring-4 ring-white" />
+                  {/* Timeline Logo */}
+                  <div className="absolute w-10 h-10 bg-white rounded-full -left-[21px] top-0 ring-4 ring-white shadow-sm overflow-hidden border border-gray-100 flex items-center justify-center">
+                    <img src={exp.logo} alt={exp.company} className="w-full h-full object-cover" />
+                  </div>
 
                   {/* Date & Line */}
-                  <div className="flex items-center gap-4 mb-3">
+                  <div className="flex items-center gap-4 mb-3 pt-2">
                     <span className="text-sm font-semibold tracking-widest text-gray-500 uppercase">
                       {exp.date}
                     </span>

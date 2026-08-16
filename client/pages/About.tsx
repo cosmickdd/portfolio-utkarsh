@@ -361,10 +361,10 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
               {[
-                { label: "Years Coding", value: `${stats[0]}+`, color: "from-blue-500/20 to-blue-600/5" },
-                { label: "Core Projects", value: stats[1], color: "from-emerald-500/20 to-emerald-600/5" },
-                { label: "Events Organized", value: `${stats[2]}+`, color: "from-purple-500/20 to-purple-600/5" },
-                { label: "Tech Stacks", value: `${stats[3]}+`, color: "from-amber-500/20 to-amber-600/5" },
+                { label: "Years Experience", value: `${stats[0]}+`, color: "from-blue-500/20 to-blue-600/5" },
+                { label: "Products Shipped", value: stats[1], color: "from-emerald-500/20 to-emerald-600/5" },
+                { label: "Design Projects", value: `${stats[2]}+`, color: "from-purple-500/20 to-purple-600/5" },
+                { label: "Design Tools", value: `${stats[3]}+`, color: "from-amber-500/20 to-amber-600/5" },
               ].map(({ label, value, color }) => (
                 <div 
                   key={label} 

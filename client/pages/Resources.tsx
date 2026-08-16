@@ -62,79 +62,36 @@ const resources: Record<Category, Resource[]> = {
   ],
   development: [
     {
-      title: "React Components Repo",
-      description: "Production-ready React components with hooks, TypeScript, and Tailwind.",
-      link: "https://github.com",
-      image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=600&fit=crop",
-      tags: ["React", "TypeScript", "Components"],
+      title: "aranya.ai",
+      description: "GitHub repository for the aranya.ai project.",
+      link: "https://github.com/cosmickdd/aranya.ai",
+      tags: ["TypeScript", "Repository"],
       type: "repo",
     },
     {
-      title: "Full-Stack Template",
-      description: "Starter template with React, Express, TypeScript, and PostgreSQL.",
-      link: "https://github.com",
-      tags: ["Fullstack", "Template", "Vite"],
+      title: "AI-CODEBASE-EXPLAINER",
+      description: "AI-powered tool to explain codebases and simplify understanding.",
+      link: "https://github.com/cosmickdd/AI-CODEBASE-EXPLAINER",
+      tags: ["Repository", "AI"],
       type: "repo",
     },
     {
-      title: "UI Utilities Library",
-      description: "Collection of reusable utility functions for common web dev tasks.",
-      link: "https://github.com",
-      tags: ["Utilities", "JavaScript", "npm"],
+      title: "SafeENV",
+      description: "Open-source GitHub repository for SafeENV.",
+      link: "https://github.com/cosmickdd/SafeENV",
+      tags: ["TypeScript", "Repository"],
       type: "repo",
     },
     {
-      title: "React Documentation",
-      description: "Official documentation covering modern React patterns and hooks.",
-      link: "https://react.dev",
-      tags: ["React", "Frontend", "Official"],
-    },
-    {
-      title: "TypeScript Handbook",
-      description: "Deep dive into static typing for large-scale JavaScript applications.",
-      link: "https://www.typescriptlang.org/docs/",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
-      tags: ["TypeScript", "Type Safety"],
-    },
+      title: "archestra",
+      description: "Enterprise AI Platform with guardrails, MCP registry, gateway & orchestrator.",
+      link: "https://github.com/cosmickdd/archestra",
+      tags: ["TypeScript", "Repository", "AI"],
+      type: "repo",
+    }
   ],
   learning: [
-    {
-      title: "Frontend Masters",
-      description: "Advanced courses taught by industry practitioners.",
-      link: "https://frontendmasters.com/",
-      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop",
-      tags: ["Courses", "Advanced", "Video"],
-      type: "course",
-    },
-    {
-      title: "Design for Developers",
-      description: "Learn design principles, UI/UX, and how to ship beautiful products.",
-      link: "https://www.coursera.org",
-      tags: ["Design", "UI/UX", "Fundamentals"],
-      type: "course",
-    },
-    {
-      title: "JavaScript Mastery",
-      description: "Master modern JavaScript ES6+ with real-world projects.",
-      link: "https://www.javascript.info/",
-      tags: ["JavaScript", "Interactive", "Free"],
-      type: "course",
-    },
-    {
-      title: "Smashing Magazine",
-      description: "In-depth articles on design, UX, and frontend development.",
-      link: "https://www.smashingmagazine.com/",
-      image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&h=600&fit=crop",
-      tags: ["Articles", "Professional", "In-Depth"],
-      type: "article",
-    },
-    {
-      title: "Dev.to",
-      description: "Community-driven writing on modern development practices.",
-      link: "https://dev.to/",
-      tags: ["Articles", "Community", "Trending"],
-      type: "article",
-    },
+    // Medium articles will be fetched/added here once published
   ],
 };
 
@@ -336,16 +293,34 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
                 </a>
               ))
             ) : (
-              <div className="col-span-1 md:col-span-2 text-center py-16">
-                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center">
-                  <div className="w-6 h-6 rounded-lg border border-gray-300 bg-white relative">
-                    <div className="absolute left-1.5 right-1.5 top-1.5 h-0.5 rounded-full bg-gray-300" />
-                    <div className="absolute left-1.5 right-2.5 top-3.5 h-0.5 rounded-full bg-gray-200" />
-                    <div className="absolute left-1.5 right-4 top-5.5 h-0.5 rounded-full bg-gray-200" />
+              <div className="col-span-1 md:col-span-2 text-center py-20 px-4 mt-8 bg-gray-50/50 rounded-2xl border border-dashed border-gray-200">
+                {query ? (
+                  <div className="flex flex-col items-center justify-center">
+                    <img 
+                      src="https://media.giphy.com/media/3o7buirYcmV5nSwIRW/giphy.gif" 
+                      alt="Confused Math Cat" 
+                      className="w-48 h-48 rounded-2xl object-cover mb-6 shadow-md border border-gray-200"
+                    />
+                    <h3 className="text-gray-900 text-xl font-bold mb-2">Even the cats are confused...</h3>
+                    <p className="text-gray-500 max-w-sm mx-auto">
+                      We searched everywhere but couldn't find anything for "<span className="font-bold text-gray-900">{query}</span>". 
+                      Try adjusting your search before they start breaking things!
+                    </p>
                   </div>
-                </div>
-                <p className="text-gray-500 text-base sm:text-lg font-medium">No resources found matching "{query}"</p>
-                <p className="text-gray-400 text-sm mt-1">Try a different search term</p>
+                ) : (
+                  <div className="flex flex-col items-center justify-center">
+                    <img 
+                      src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" 
+                      alt="Typing Cat" 
+                      className="w-48 h-48 rounded-2xl object-cover mb-6 shadow-md border border-gray-200"
+                    />
+                    <h3 className="text-gray-900 text-xl font-bold mb-2">Hold your horses!</h3>
+                    <p className="text-gray-500 max-w-sm mx-auto">
+                      I'm typing as fast as my little paws can go! 
+                      Amazing new content is brewing and will be dropped here very soon.
+                    </p>
+                  </div>
+                )}
               </div>
             )}
           </div>

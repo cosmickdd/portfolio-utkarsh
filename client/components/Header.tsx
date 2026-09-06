@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
+import CurvedMobileMenu from "@/components/ui/curved-menu";
 
 /* ICONS */
 const TwitterIcon = () => (
@@ -33,7 +34,7 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const socialLinks = [
+export const socialLinks = [
   { Icon: TwitterIcon, href: "https://twitter.com/cosmickdd", label: "Twitter" },
   { Icon: LinkedInIcon, href: "https://linkedin.com/in/cosmickdd", label: "LinkedIn" },
   { Icon: BehanceIcon, href: "https://behance.net/cosmickdd", label: "Behance" },
@@ -69,6 +70,14 @@ export default function Header() {
     { label: "Contact", href: "/contact" },
   ];
 
+  const mobileNavItems = [
+    { heading: "Portfolio", href: "/" },
+    { heading: "About", href: "/about" },
+    { heading: "Resources", href: "/resources" },
+    { heading: "Contact", href: "/contact" },
+    { heading: "Blog", href: "/blog" },
+  ];
+
   const isActive = (href: string) => location.pathname === href;
 
   useEffect(() => {
@@ -78,19 +87,19 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="w-full bg-[#111] z-50 fixed top-0 left-0 border-b border-[#222]">
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
+    <header className="w-full bg-[#111] z-40 fixed top-0 left-0 border-b border-[#222]">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
 
         {/* Logo */}
         <Link to="/" className="flex items-center group">
           <img
             src="/logo.svg"
             alt="COSMICKDD"
-            className="h-7 w-auto transition-all duration-300 group-hover:opacity-80"
+            className="h-6 sm:h-7 w-auto transition-all duration-300 group-hover:opacity-80"
           />
         </Link>
 
-        {/* Desktop Navigation - Center Aligned */}
+        {/* Desktop Navigation - Center Aligned (100% UNTOUCHED) */}
         <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <Link
@@ -110,8 +119,8 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Social Icons - Right Aligned */}
-        <div className="flex items-center gap-5">
+        {/* DESKTOP Social Icons - Right Aligned (100% UNTOUCHED down to every style property) */}
+        <div className="hidden md:flex items-center gap-5">
           {socialLinks.map(({ Icon, href, label }) => (
             <a
               key={label}
@@ -127,7 +136,18 @@ export default function Header() {
             </a>
           ))}
         </div>
+
+        {/* MOBILE Curved Morphing Hamburger Menu (md:hidden) */}
+        <div className="md:hidden flex items-center">
+          <CurvedMobileMenu
+            navItems={mobileNavItems}
+            theme="dark"
+          />
+        </div>
+
       </div>
     </header>
   );
 }
+
+

@@ -87,7 +87,7 @@ export default function SplitImage({
           />
         </div>
 
-        {/* DIVIDER  -  clean 1px line, no handle */}
+        {/* DIVIDER  -  clean 1px line on desktop, touch handle on mobile */}
         <div
           className="absolute top-0 bottom-0 z-30 pointer-events-none"
           style={{ 
@@ -97,6 +97,13 @@ export default function SplitImage({
           }}
         >
           <div className="w-[1px] h-full bg-white/80" />
+          {/* Mobile-only touch drag handle indicator (completely hidden on desktop) */}
+          <div className="md:hidden absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-white shadow-md border border-gray-200/80 flex items-center justify-center pointer-events-none">
+            <div className="flex items-center gap-0.5 text-[10px] text-gray-700 font-bold leading-none select-none">
+              <span>‹</span>
+              <span>›</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

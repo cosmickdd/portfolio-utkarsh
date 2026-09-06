@@ -45,21 +45,85 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
   return (
     <Layout onChatOpen={onChatOpen}>
       <Helmet>
-        <title>Who is Cosmickdd? | Utkarsh Tiwari</title>
-        <meta name="description" content="Discover who Cosmickdd is. Utkarsh Tiwari is a Product Designer and Frontend Developer specializing in AI products, SaaS, and Enterprise Software." />
+        <title>About Utkarsh Tiwari (cosmickdd) | UI/UX Designer at GreenPista</title>
+        <meta name="description" content="Utkarsh Tiwari (cosmickdd) is a UI/UX Designer at GreenPista. He specializes in product design, frontend development, AI products, SaaS, and design systems." />
+        <link rel="canonical" href="https://www.cosmickdd.me/about" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "ProfilePage",
+              "mainEntity": {
+                "@type": "Person",
+                "@id": "https://www.cosmickdd.me/#person",
+                "name": "Utkarsh Tiwari",
+                "alternateName": "cosmickdd",
+                "url": "https://www.cosmickdd.me",
+                "image": "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/912087b0-6ac2-4116-b6df-0eb374f64df5_bjw56v",
+                "jobTitle": "UI/UX Designer",
+                "description": "Utkarsh Tiwari, known online as cosmickdd, is a UI/UX Designer at GreenPista. He specializes in product design, frontend development, AI products, SaaS, and enterprise software.",
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "GreenPista"
+                },
+                "alumniOf": {
+                  "@type": "CollegeOrUniversity",
+                  "name": "AKGEC"
+                },
+                "knowsAbout": [
+                  "Product Design",
+                  "User Interface Design",
+                  "User Experience (UX)",
+                  "Frontend Development",
+                  "React",
+                  "TypeScript",
+                  "Figma",
+                  "Design Systems",
+                  "AI Products"
+                ],
+                "sameAs": [
+                  "https://github.com/cosmickdd",
+                  "https://linkedin.com/in/cosmickdd",
+                  "https://twitter.com/cosmickdd",
+                  "https://www.figma.com/@cosmickdd",
+                  "https://instagram.com/cosmickdd",
+                  "https://behance.net/cosmickdd"
+                ]
+              }
+            }
+          `}
+        </script>
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "mainEntity": [{
-                "@type": "Question",
-                "name": "Who is Cosmickdd?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Cosmickdd is the personal brand of Utkarsh Tiwari, a Product Designer and Frontend Developer who specializes in crafting modern websites, SaaS platforms, and AI products."
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Who is Utkarsh Tiwari?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Utkarsh Tiwari, known online as cosmickdd, is a UI/UX Designer currently working at GreenPista. He specializes in product design, frontend development, AI products, SaaS, and enterprise software."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Who is cosmickdd?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Cosmickdd is the online identity of Utkarsh Tiwari, a UI/UX Designer at GreenPista who specializes in product design, frontend development, and AI products."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Where does Utkarsh Tiwari work?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Utkarsh Tiwari currently works at GreenPista as a UI/UX Designer. He has previously worked at Abhyaz, Nudgity Labs, AI Interview Agent, and Cloud Computing Cell AKGEC."
+                  }
                 }
-              }]
+              ]
             }
           `}
         </script>
@@ -120,7 +184,7 @@ export default function About({ onChatOpen }: { onChatOpen?: () => void }) {
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-lg shadow-black/5">
                   <img
                     src="https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/912087b0-6ac2-4116-b6df-0eb374f64df5_bjw56v"
-                    alt="Building products with design and development"
+                    alt="Utkarsh Tiwari — UI/UX Designer and Frontend Developer"
                     className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
                   />
                   {/* Subtle overlay gradient */}

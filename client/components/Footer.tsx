@@ -23,13 +23,13 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wide mb-4">Connect</h4>
             <div className="flex gap-4">
-              <a href="https://github.com/utkarshtiwari1" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+              <a href="https://github.com/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="mailto:portfolio@example.com" className="text-gray-400 hover:text-white transition-colors" aria-label="Email">
+              <a href="mailto:cosimckdd@gmail.com" className="text-gray-400 hover:text-white transition-colors" aria-label="Email">
                 <Mail className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com/utxuiux" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com/cosmickdd" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>

@@ -150,7 +150,7 @@ export default function ExperienceSection() {
               <div className="bg-white p-4 pb-16 rounded-sm shadow-2xl relative border border-gray-100">
                 <img
                   src="https://res.cloudinary.com/dz4h0eagy/image/upload/v1785265840/2b7b7bff-77bb-48f2-a3ea-e23399d9ee09_uyfd3t.png"
-                  alt="Team"
+                  alt="Utkarsh Tiwari with his team at Cloud Computing Cell AKGEC"
                   className="w-full h-auto rounded-sm object-cover aspect-[4/3]"
                 />
 
@@ -170,7 +170,7 @@ export default function ExperienceSection() {
               <div className="bg-white p-4 pb-16 rounded-sm shadow-2xl relative border border-gray-100">
                 <img
                   src="https://res.cloudinary.com/dz4h0eagy/image/upload/v1785260138/z_vd6gyq.jpg"
-                  alt="Desk setup"
+                  alt="Utkarsh Tiwari's design workspace and development setup"
                   className="w-full h-auto rounded-sm object-cover aspect-[4/3]"
                 />
               </div>

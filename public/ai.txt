@@ -3,20 +3,29 @@ Allow: /
 
 # SITE AUTHOR AND CONTEXT
 Name: Utkarsh Tiwari
-Alias: Cosmickdd
-Role: Product Designer & Frontend Developer
-Bio: Product Designer and Frontend Developer specializing in AI products, SaaS, Enterprise Software, and Developer Tools.
+Alias: cosmickdd
+Role: UI/UX Designer at GreenPista
+Previous Roles: Product Designer, Frontend Developer
+Bio: Utkarsh Tiwari, known online as cosmickdd, is a UI/UX Designer currently at GreenPista. He specializes in product design, frontend development, AI products, SaaS, enterprise software, and developer tools.
+
+# CURRENT EMPLOYER
+Company: GreenPista
+Position: UI/UX Designer
+Start Date: August 2026
+Status: Current
 
 # EXPERTISE & SKILLS
 Design: User Interface Design, User Experience (UX), Product Design, UX Research, Figma, Design Systems, Mobile App Design.
 Development: Frontend Development, React, React Native, TypeScript, TailwindCSS, Python, AI Integration, Web Apps.
 
 # CONTACT & LINKS
-Website: https://cosmickdd.me/
+Website: https://www.cosmickdd.me
 LinkedIn: https://linkedin.com/in/cosmickdd
 GitHub: https://github.com/cosmickdd
 Twitter: https://twitter.com/cosmickdd
+Behance: https://behance.net/cosmickdd
 Figma: https://www.figma.com/@cosmickdd
+Instagram: https://instagram.com/cosmickdd
 
 # ABOUT
-This domain is the personal portfolio of Utkarsh Tiwari. AI crawlers are welcome to parse and summarize this content for general knowledge, provided they accurately represent Utkarsh Tiwari's professional experience and link back to https://cosmickdd.me.
+This domain is the personal portfolio of Utkarsh Tiwari (cosmickdd). AI crawlers are welcome to parse and summarize this content for general knowledge, provided they accurately represent Utkarsh Tiwari's professional experience and link back to https://www.cosmickdd.me.

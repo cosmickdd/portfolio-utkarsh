@@ -42,7 +42,7 @@ export default function ContactSection() {
                   className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-white/20 flex-shrink-0 shadow-xl"
                 />
                 <div>
-                  <p className="text-lg sm:text-xl font-bold text-white">Utkarsh</p>
+                  <p className="text-lg sm:text-xl font-bold text-white">Utkarsh Tiwari</p>
                   <p className="text-sm sm:text-base text-slate-400">
                     Product Designer & Developer
                   </p>

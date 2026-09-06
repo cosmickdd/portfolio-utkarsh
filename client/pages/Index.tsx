@@ -26,17 +26,28 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
     <Layout onChatOpen={onChatOpen}>
       <Helmet>
         <title>Cosmickdd | Utkarsh Tiwari - Product Designer</title>
-        <meta name="description" content="Cosmickdd is Utkarsh Tiwari, a Product Designer and Frontend Developer specializing in AI tools, enterprise software, and seamless user experiences." />
+        <meta name="description" content="Utkarsh Tiwari (cosmickdd) is a UI/UX Designer currently at GreenPista. He specializes in product design, frontend development, AI products, SaaS, and enterprise software." />
+        <link rel="canonical" href="https://www.cosmickdd.me/" />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": "https://www.cosmickdd.me/#person",
               "name": "Utkarsh Tiwari",
-              "alternateName": "Cosmickdd",
-              "url": "https://cosmickdd.me/",
-              "jobTitle": "Product Designer & Frontend Developer",
-              "description": "Product Designer and Frontend Developer specializing in AI products, SaaS, Enterprise Software, and Developer Tools.",
+              "alternateName": "cosmickdd",
+              "url": "https://www.cosmickdd.me",
+              "image": "https://res.cloudinary.com/dq72obe1o/image/upload/f_auto,q_auto/912087b0-6ac2-4116-b6df-0eb374f64df5_bjw56v",
+              "jobTitle": "UI/UX Designer",
+              "description": "Utkarsh Tiwari, known online as cosmickdd, is a UI/UX Designer at GreenPista. He specializes in product design, frontend development, AI products, SaaS, and enterprise software.",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "GreenPista"
+              },
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "UI/UX Designer"
+              },
               "knowsAbout": [
                 "Product Design",
                 "User Interface Design",
@@ -44,33 +55,24 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
                 "Frontend Development",
                 "React",
                 "TypeScript",
-                "Artificial Intelligence",
-                "TailwindCSS"
+                "Figma",
+                "Design Systems",
+                "AI Products",
+                "SaaS",
+                "TailwindCSS",
+                "React Native"
               ],
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
                 "name": "AKGEC"
               },
-              "worksFor": [
-                {
-                  "@type": "Organization",
-                  "name": "Abhyaz"
-                },
-                {
-                  "@type": "Organization",
-                  "name": "AI Interview Agent"
-                },
-                {
-                  "@type": "Organization",
-                  "name": "Cloud Computing Cell AKGEC"
-                }
-              ],
               "sameAs": [
                 "https://github.com/cosmickdd",
                 "https://linkedin.com/in/cosmickdd",
                 "https://twitter.com/cosmickdd",
                 "https://www.figma.com/@cosmickdd",
-                "https://instagram.com/cosmickdd"
+                "https://instagram.com/cosmickdd",
+                "https://behance.net/cosmickdd"
               ]
             }
           `}
@@ -145,6 +147,11 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
           <img src="/images/developer_bg.png" alt="" style={{ width: "100%", height: "100%", objectFit: "contain", filter: "contrast(1.2)" }} loading="eager" fetchPriority="high" />
         </div>
 
+        {/* Visually hidden H1 for SEO — establishes page identity for search engines */}
+        <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", borderWidth: 0 }}>
+          Utkarsh Tiwari (cosmickdd) — UI/UX Designer &amp; Frontend Developer
+        </h1>
+
         {/* ── Main Hero Content ───────────────────────── */}
         <div style={{
           position: "relative",
@@ -171,7 +178,8 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
             transition: "all 0.6s ease",
           }}>
             <div style={{ width: "100%", maxWidth: "340px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <h1 style={{
+              <span aria-hidden="true" style={{
+                display: "block",
                 fontFamily: "Catamaran, sans-serif",
                 fontWeight: 800,
                 fontSize: "clamp(42px, 6vw, 72px)",
@@ -180,10 +188,10 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
                 color: "#222",
                 margin: "0 0 16px 0",
                 whiteSpace: "nowrap",
-                textAlign: "center", // Centered like the reference
+                textAlign: "center",
               }}>
                 designer
-              </h1>
+              </span>
               <p style={{
                 fontSize: "15px",
                 lineHeight: 1.6,
@@ -221,7 +229,8 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
             transition: "all 0.6s ease",
           }}>
             <div style={{ width: "100%", maxWidth: "340px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <h2 style={{
+              <span aria-hidden="true" style={{
+                display: "block",
                 fontFamily: "Catamaran, sans-serif",
                 fontWeight: 800,
                 fontSize: "clamp(42px, 6vw, 72px)",
@@ -230,10 +239,10 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
                 color: "#222",
                 margin: "0 0 16px 0",
                 whiteSpace: "nowrap",
-                textAlign: "center", // Centered like the reference
+                textAlign: "center",
               }}>
                 &lt;coder&gt;
-              </h2>
+              </span>
               <p style={{
                 fontSize: "16px",
                 lineHeight: 1.6,

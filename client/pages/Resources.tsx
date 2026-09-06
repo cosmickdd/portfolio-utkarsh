@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ExternalLink, Search, Loader, ArrowUpRight, Star, Instagram } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { ResourcesSelector } from "../pages/resources-selector-rewrite";
 
@@ -177,6 +178,11 @@ export default function Resources({ onChatOpen }: { onChatOpen?: () => void }) {
 
   return (
     <Layout onChatOpen={onChatOpen}>
+      <Helmet>
+        <title>Resources | Utkarsh Tiwari — Cosmickdd</title>
+        <meta name="description" content="Design and development resources curated by Utkarsh Tiwari (cosmickdd) — Figma files, component libraries, courses, tools, and articles." />
+        <link rel="canonical" href="https://www.cosmickdd.me/resources" />
+      </Helmet>
       <main className="bg-white">
 
         {/* HERO - Premium with illustration */}

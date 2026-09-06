@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { blogTopics, getAllCategories, searchBlogs } from '@shared/blogTopics';
 import { Search, Filter, BookOpen, TrendingUp } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import Layout from "@/components/Layout";
 
 export default function Blog({ onChatOpen }: { onChatOpen?: () => void }) {
@@ -49,6 +50,11 @@ export default function Blog({ onChatOpen }: { onChatOpen?: () => void }) {
 
   return (
     <Layout onChatOpen={onChatOpen}>
+      <Helmet>
+        <title>Blog | Utkarsh Tiwari — Cosmickdd</title>
+        <meta name="description" content="Design and development insights by Utkarsh Tiwari (cosmickdd) — covering AI, UI/UX design, web development, mobile apps, and emerging technologies." />
+        <link rel="canonical" href="https://www.cosmickdd.me/blog" />
+      </Helmet>
       <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-20 px-4">

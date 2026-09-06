@@ -138,8 +138,9 @@ export default function Contact({ onChatOpen }: { onChatOpen?: () => void }) {
   return (
     <Layout onChatOpen={onChatOpen}>
       <Helmet>
-        <title>Contact | Cosmickdd</title>
-        <meta name="description" content="Get in touch with Utkarsh Tiwari (Cosmickdd) for product design, frontend development, and AI engineering collaborations." />
+        <title>Contact Utkarsh Tiwari | Cosmickdd</title>
+        <meta name="description" content="Get in touch with Utkarsh Tiwari (cosmickdd) — UI/UX Designer at GreenPista — for product design, frontend development, and AI projects." />
+        <link rel="canonical" href="https://www.cosmickdd.me/contact" />
       </Helmet>
       <main className="bg-white overflow-hidden">
 

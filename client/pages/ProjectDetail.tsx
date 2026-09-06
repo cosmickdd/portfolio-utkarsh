@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft } from "lucide-react";
 
 interface ProjectContent {
@@ -314,6 +315,65 @@ export default function ProjectDetail({ onChatOpen }: { onChatOpen?: () => void 
 
   return (
     <Layout onChatOpen={onChatOpen}>
+      <Helmet>
+        <title>{project.title} — Utkarsh Tiwari | Cosmickdd</title>
+        <meta name="description" content={project.headline} />
+        <link rel="canonical" href={`https://www.cosmickdd.me/projects/${slug}`} />
+        <meta property="og:title" content={`${project.title} — Utkarsh Tiwari`} />
+        <meta property="og:description" content={project.headline} />
+        <meta property="og:url" content={`https://www.cosmickdd.me/projects/${slug}`} />
+        <meta property="og:image" content={project.heroImage} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": project.title,
+            "description": project.headline,
+            "url": `https://www.cosmickdd.me/projects/${slug}`,
+            "image": project.heroImage,
+            "author": {
+              "@type": "Person",
+              "@id": "https://www.cosmickdd.me/#person",
+              "name": "Utkarsh Tiwari",
+              "alternateName": "cosmickdd"
+            },
+            "creator": {
+              "@type": "Person",
+              "@id": "https://www.cosmickdd.me/#person",
+              "name": "Utkarsh Tiwari"
+            },
+            "about": project.overview,
+            "keywords": project.tags.join(", "),
+            ...(project.techStack ? { "tool": project.techStack.join(", ") } : {})
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.cosmickdd.me"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": "https://www.cosmickdd.me/projects"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": project.title,
+                "item": `https://www.cosmickdd.me/projects/${slug}`
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
       <main className="flex-1 bg-white pb-24">
         {/* TOP HEADER SECTION */}
         <section className="w-full px-6 sm:px-8 lg:px-12 pt-0 pb-12 sm:pb-16 max-w-[1200px] mx-auto">

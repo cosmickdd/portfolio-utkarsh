@@ -1,23 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cosmickdd.me/</loc>
+    <loc>https://www.cosmickdd.me/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://cosmickdd.me/about</loc>
+    <loc>https://www.cosmickdd.me/about</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://cosmickdd.me/contact</loc>
+    <loc>https://www.cosmickdd.me/projects</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/contact</loc>
     <priority>0.8</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://cosmickdd.me/blog</loc>
+    <loc>https://www.cosmickdd.me/resources</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/blog</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
+  </url>
+  <!-- Project Detail Pages -->
+  <url>
+    <loc>https://www.cosmickdd.me/projects/aiinterviewagents</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/projects/prana-ai</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/projects/carbonsetu</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/projects/tvic</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/projects/quizaki</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/projects/rapidophilia</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/projects/aiocc</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/projects/ic-marking-detector</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.cosmickdd.me/projects/hospital-landing-page</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
   </url>
 </urlset>

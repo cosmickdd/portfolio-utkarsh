@@ -50,7 +50,7 @@ export default function SplitImage({
         ref={containerRef}
         className="
           relative
-          w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px]
+          w-[320px] sm:w-[300px] md:w-[320px] lg:w-[360px]
           select-none touch-none
           overflow-hidden
           transition-all duration-300

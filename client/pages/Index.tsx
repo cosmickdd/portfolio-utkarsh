@@ -117,14 +117,15 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
             setSliderPos(50);
           }
         }}
-        className="-mt-16 sm:-mt-24 md:-mt-40 pt-20 sm:pt-28 md:pt-[230px]" // Counters the Layout padding precisely
+        className="md:-mt-40 md:pt-[230px]" // mobile uses natural flow; desktop counters Layout padding
         style={{
           position: "relative",
           width: "100%",
           background: "#ffffff",
           display: "flex",
           justifyContent: "center",
-          alignItems: "flex-end", // Anchor everything to the bottom
+          alignItems: "flex-end",
+          minHeight: undefined,
         }}
       >
 
@@ -283,79 +284,57 @@ export default function Index({ onChatOpen }: { onChatOpen?: () => void }) {
         </div>
 
         {/* ── MOBILE Main Hero Content (md:hidden) ── */}
-        <div className="md:hidden relative z-10 w-full px-4 flex flex-col items-center">
-          
-          {/* Mobile Interactive Role Selector Pill */}
-          <div className="mb-4 inline-flex items-center bg-gray-100/90 backdrop-blur-sm p-1 rounded-full border border-gray-200 shadow-sm">
-            <button
-              onClick={() => animateToPos(100)}
-              className={`px-5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${
-                sliderPos >= 50
-                  ? "bg-[#111] text-white shadow-sm"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
-            >
-              designer
-            </button>
-            <button
-              onClick={() => animateToPos(0)}
-              className={`px-5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${
-                sliderPos < 50
-                  ? "bg-[#111] text-white shadow-sm"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
-            >
-              &lt;coder&gt;
-            </button>
-          </div>
+        <div className="md:hidden relative z-10 w-full flex flex-col items-center justify-between min-h-[70vh] pt-6 pb-8">
 
-          {/* Mobile Centerpiece: Split Image with Centered Ambient Art */}
-          <div className="relative flex justify-center items-center w-full mb-4">
-            {/* Centered ambient artistic splash (Never clips outside screen) */}
-            <div 
+
+          {/* Mobile Centerpiece: Split Image centered */}
+          <div className="relative flex justify-center items-center w-full mb-3">
+            {/* Centered ambient splash */}
+            <div
               className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10"
               style={{
-                opacity: ready ? 0.4 : 0,
+                opacity: ready ? 0.35 : 0,
                 transition: "opacity 0.6s ease",
               }}
             >
               <img
                 src={sliderPos >= 50 ? "/images/designer_bg.png" : "/images/developer_bg.png"}
                 alt=""
-                className="w-[260px] h-[260px] object-contain transition-all duration-500"
+                className="w-[240px] h-[240px] object-contain transition-all duration-500"
               />
             </div>
 
-            {/* Split Image */}
-            <div className="relative">
+            {/* Split Image — centered via mx-auto */}
+            <div className="mx-auto">
               <SplitImage sliderPos={sliderPos} setSliderPos={setSliderPos} isHovering={isHovering} />
             </div>
           </div>
 
           {/* Mobile Dynamic Role Subtitle & Headline */}
-          <div className="text-center px-4 max-w-sm mx-auto min-h-[96px] flex flex-col items-center justify-start">
+          <div className="text-center w-full px-6 max-w-xs mx-auto flex flex-col items-center justify-start">
             {sliderPos >= 50 ? (
               <div className="animate-in fade-in zoom-in-95 duration-300 flex flex-col items-center">
-                <span className="font-catamaran font-extrabold text-3xl sm:text-4xl text-[#222] tracking-tight mb-1">
+                <span className="font-catamaran font-extrabold text-3xl text-[#222] tracking-tight mb-1">
                   designer
                 </span>
-                <p className="text-sm text-gray-500 leading-relaxed max-w-[280px]">
-                  Product designer specialising in UI design and design systems.
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  Product designer specialising in UI design
+and design systems.
                 </p>
               </div>
             ) : (
               <div className="animate-in fade-in zoom-in-95 duration-300 flex flex-col items-center">
-                <span className="font-catamaran font-extrabold text-3xl sm:text-4xl text-[#222] tracking-tight mb-1">
+                <span className="font-catamaran font-extrabold text-3xl text-[#222] tracking-tight mb-1">
                   &lt;coder&gt;
                 </span>
-                <p className="text-sm text-gray-500 leading-relaxed max-w-[280px]">
+                <p className="text-sm text-gray-500 leading-relaxed">
                   Front end developer who writes clean, elegant and efficient code.
                 </p>
               </div>
             )}
 
             {/* Swipe hint */}
-            <div className="mt-3 flex items-center gap-1.5 text-[11px] font-medium text-gray-400">
+            <div className="mt-3 mb-2 flex items-center gap-1.5 text-[11px] font-medium text-gray-400">
               <span>⟵</span>
               <span>swipe photo to compare</span>
               <span>⟶</span>

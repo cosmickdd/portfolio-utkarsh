@@ -90,20 +90,30 @@ export const CurvedNavbar: React.FC<iCurvedNavbarProps> = ({ setIsActive, navIte
       style={{ backgroundColor: "#0B0B10" }}
     >
       {/* Top Section */}
-      <div className="pt-7 px-8 flex items-center justify-between border-b border-white/[0.04] pb-4">
-        <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/30">
-          Navigation
-        </span>
-        <button
+      <div className="pt-7 px-8 flex items-center justify-end border-b border-white/[0.04] pb-4">
+        <motion.button
           onClick={() => setIsActive(false)}
-          className="w-8 h-8 rounded-full border border-white/10 bg-white/[0.04] hover:bg-white/10 active:scale-90 transition-all flex items-center justify-center text-white/60 hover:text-white focus:outline-none"
           aria-label="Close menu"
+          className="p-1 text-white/50 hover:text-white focus:outline-none transition-colors"
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.85 }}
         >
-          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <motion.svg
+            className="w-7 h-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            initial={{ rotate: -45, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 45, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
+          >
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
+          </motion.svg>
+        </motion.button>
       </div>
 
       {/* Main Navigation Links - Monochrome, Editorial, Pure Black & White */}
